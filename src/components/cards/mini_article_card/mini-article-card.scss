@@ -1,0 +1,47 @@
+.mini-article-card-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 450px;
+  padding: 1.5rem 0rem;
+  border-bottom: 0.5px solid rgb(85, 85, 85);
+
+  .genre {
+    align-self: center;
+    transform: rotateZ(-90deg);
+    font-size: 0.8rem;
+    height: 40px;
+    text-decoration: underline #03dac6;
+    text-transform: uppercase;
+  }
+  .article-info {
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 0;
+      margin-bottom: -5px;
+    }
+    h2:hover {
+      text-decoration: underline #03dac6;
+      cursor: pointer;
+    }
+    #author-desc {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+
+      #author {
+        color: #03dac6;
+      }
+      #time {
+        color: rgb(85, 85, 85);
+      }
+    }
+  }
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+  }
+}
