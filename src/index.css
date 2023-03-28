@@ -5,11 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #121212;
+  background-color: #0d0d0d;
   color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@font-face {
+  font-family: "Disclaimer";
+  src: local("Disclaimer"),
+    url(./fonts/disclaimer/Disclaimer-Classic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Landasans";
+  src: local("Landasans"),
+    url(./fonts/landasans/LandasansDemo01Regular-z88M0.ttf) format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Delirium";
+  src: local("Delirium"),
+    url(./fonts/delirium/DeliriumNcv-Vm5e.ttf) format("truetype");
 }
