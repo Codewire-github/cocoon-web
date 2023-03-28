@@ -1,0 +1,71 @@
+.popular-card-container {
+  display: flex;
+  position: sticky;
+  flex-direction: row;
+  align-items: flex-start;
+  top: 2rem;
+  width: 490px;
+  height: -moz-max-content;
+  height: max-content;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  background-color: rgba(82, 0, 255, 0.9);
+  border-radius: 1.5rem;
+}
+.popular-card-container .content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.popular-card-container .styled-text {
+  color: #3700b3;
+  font-size: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  margin: -200px;
+  line-height: 1px;
+  text-align: justify;
+  align-self: center;
+  font-size: 8rem;
+  letter-spacing: -8px;
+  text-transform: uppercase;
+  transform: rotateZ(-90deg);
+}
+
+.popular-item-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 1rem;
+}
+.popular-item-container .item-no {
+  font-size: 0.8rem;
+  color: #03dac6;
+  background-color: rgb(19, 19, 19);
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+.popular-item-container .item-title {
+  font-size: 1.2rem;
+  transition: 0.2s all ease-in-out;
+}
+.popular-item-container .item-title:hover {
+  cursor: pointer;
+  color: #03dac6;
+}
+.popular-item-container .item-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.popular-item-container .item-info .author-name {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.popular-item-container .item-info .published-date {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}/*# sourceMappingURL=mostpopularcard.css.map */
