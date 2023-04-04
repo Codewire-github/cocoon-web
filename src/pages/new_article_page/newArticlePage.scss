@@ -1,0 +1,131 @@
+.editor-main-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+
+  .heading-input {
+    width: 800px;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: "Lora", serif;
+    outline: none;
+  }
+  .heading-input::placeholder {
+    color: rgb(193, 193, 193);
+  }
+
+  .heading-input:focus {
+    outline: none;
+  }
+  .subheading-input {
+    width: 800px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    font-size: 1.4rem;
+    font-family: "Lora", serif;
+    font-weight: bold;
+    resize: none;
+  }
+  .subheading-input::placeholder {
+    color: rgba(193, 193, 193);
+  }
+
+  .subheading-input:focus {
+    outline: none;
+  }
+  .text-editor-wrap {
+    border: 1.5px solid black;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    min-height: 20rem;
+    width: 800px;
+    color: black;
+  }
+  .text-editor-wrap:focus {
+    outline: none;
+  }
+  .is-active {
+    background-color: black;
+    color: white;
+  }
+
+  .is-inactive {
+    background-color: white;
+    color: black;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-family: "Lora", serif;
+    line-height: 30px;
+  }
+  pre {
+    background-color: #0d0d0d;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.6rem;
+
+    code {
+      color: white;
+      padding: 0;
+      background: none;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.content {
+  .ProseMirror {
+    outline: none;
+  }
+}
+
+.nav-bar-container {
+  width: 900px;
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+
+  h2 {
+    color: black;
+    text-decoration: none;
+  }
+  h2:hover {
+    cursor: pointer;
+  }
+  .publish-btn {
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgba(82, 0, 255, 0.9);
+    color: white;
+    transition: 0.2s all ease-in-out;
+  }
+
+  .publish-btn:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+}
