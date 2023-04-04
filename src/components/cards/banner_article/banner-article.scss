@@ -1,7 +1,7 @@
 .banner-article-wrap {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 640px;
   img {
     position: absolute;
     width: 580px;
@@ -17,10 +17,10 @@
     position: relative;
     text-align: left;
     align-self: flex-end;
-    width: 480px;
+    width: 520px;
     top: 440px;
     h1 {
-      margin: -10px;
+      margin: -2px;
       line-height: 0.7;
       font-family: "Landasans";
       font-size: 6rem;
@@ -34,7 +34,8 @@
     .article-subheading {
       font-family: "Lora", serif;
       font-size: 1.4rem;
-      margin-bottom: -5px;
+      margin-bottom: -2px;
+      margin-top: 2rem;
     }
 
     span {
@@ -43,10 +44,20 @@
       gap: 1rem;
       text-transform: uppercase;
       font-size: 0.9rem;
+      margin-top: 1rem;
 
       .author {
         color: #03dac6;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner-article-wrap {
+    img {
+      width: 400px;
+      height: 300px;
     }
   }
 }

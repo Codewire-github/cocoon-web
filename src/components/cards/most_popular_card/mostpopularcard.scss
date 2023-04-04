@@ -7,7 +7,7 @@
   width: 490px;
   height: max-content;
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
   padding-left: 1.5rem;
   background-color: rgba(82, 0, 255, 0.9);
   border-radius: 1.5rem;
@@ -15,6 +15,7 @@
   .content {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
     align-items: flex-start;
   }
 
@@ -22,11 +23,11 @@
     color: #3700b3;
     font-size: "Roboto Condensed", sans-serif;
     font-weight: 700;
-    margin: -200px;
+    margin: -150px;
     line-height: 1px;
     text-align: justify;
     align-self: center;
-    font-size: 8rem;
+    font-size: 7rem;
     letter-spacing: -8px;
     text-transform: uppercase;
     transform: rotateZ(-90deg);
@@ -40,6 +41,7 @@
   justify-content: flex-start;
   text-align: left;
   gap: 1rem;
+  color: white;
 
   .item-no {
     font-size: 0.8rem;

@@ -11,8 +11,8 @@
   transform: rotateZ(-90deg);
   font-size: 0.8rem;
   height: 40px;
-  -webkit-text-decoration: underline #03dac6;
-          text-decoration: underline #03dac6;
+  -webkit-text-decoration: underline rgb(60, 255, 208);
+          text-decoration: underline rgb(60, 255, 208);
   text-transform: uppercase;
 }
 .mini-article-card-wrap .article-info h2 {
@@ -21,8 +21,8 @@
   margin-bottom: -5px;
 }
 .mini-article-card-wrap .article-info h2:hover {
-  -webkit-text-decoration: underline #03dac6;
-          text-decoration: underline #03dac6;
+  -webkit-text-decoration: underline rgb(60, 255, 208);
+          text-decoration: underline rgb(60, 255, 208);
   cursor: pointer;
 }
 .mini-article-card-wrap .article-info #author-desc {
@@ -33,7 +33,7 @@
   font-size: 0.8rem;
 }
 .mini-article-card-wrap .article-info #author-desc #author {
-  color: #03dac6;
+  color: rgb(60, 255, 208);
 }
 .mini-article-card-wrap .article-info #author-desc #time {
   color: rgb(85, 85, 85);

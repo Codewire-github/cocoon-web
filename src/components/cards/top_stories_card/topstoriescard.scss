@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
   .container-title {
     font-weight: 600;
-    color: #03dac6;
+    color: rgb(60 255 208);
   }
 }
 
@@ -19,7 +20,7 @@
 
   .item-no {
     font-size: 0.7rem;
-    color: #03dac6;
+    color: rgb(60 255 208);
     background-color: rgb(50, 50, 50);
     padding: 5px 9px;
     border-radius: 50%;
@@ -43,7 +44,7 @@
 
     .author-name {
       font-size: 0.75rem;
-      color: #03dac6;
+      color: rgb(60 255 208);
       text-transform: uppercase;
     }
     .published-date {
@@ -53,8 +54,8 @@
     }
   }
   img {
-    height: 75px;
-    width: 145px;
+    height: 80px;
+    width: 90px;
     border-radius: 5px;
     object-fit: cover;
   }

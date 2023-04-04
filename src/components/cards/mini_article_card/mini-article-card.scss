@@ -11,7 +11,7 @@
     transform: rotateZ(-90deg);
     font-size: 0.8rem;
     height: 40px;
-    text-decoration: underline #03dac6;
+    text-decoration: underline rgb(60 255 208);
     text-transform: uppercase;
   }
   .article-info {
@@ -21,7 +21,7 @@
       margin-bottom: -5px;
     }
     h2:hover {
-      text-decoration: underline #03dac6;
+      text-decoration: underline rgb(60 255 208);
       cursor: pointer;
     }
     #author-desc {
@@ -32,7 +32,7 @@
       font-size: 0.8rem;
 
       #author {
-        color: #03dac6;
+        color: rgb(60 255 208);
       }
       #time {
         color: rgb(85, 85, 85);

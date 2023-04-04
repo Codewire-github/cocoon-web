@@ -1,7 +1,7 @@
 .banner-article-wrap {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 640px;
 }
 .banner-article-wrap img {
   position: absolute;
@@ -18,11 +18,11 @@
   position: relative;
   text-align: left;
   align-self: flex-end;
-  width: 480px;
+  width: 520px;
   top: 440px;
 }
 .banner-article-wrap .article-info h1 {
-  margin: -10px;
+  margin: -2px;
   line-height: 0.7;
   font-family: "Landasans";
   font-size: 6rem;
@@ -34,7 +34,8 @@
 .banner-article-wrap .article-info .article-subheading {
   font-family: "Lora", serif;
   font-size: 1.4rem;
-  margin-bottom: -5px;
+  margin-bottom: -2px;
+  margin-top: 2rem;
 }
 .banner-article-wrap .article-info span {
   display: flex;
@@ -42,7 +43,15 @@
   gap: 1rem;
   text-transform: uppercase;
   font-size: 0.9rem;
+  margin-top: 1rem;
 }
 .banner-article-wrap .article-info span .author {
   color: #03dac6;
+}
+
+@media screen and (max-width: 480px) {
+  .banner-article-wrap img {
+    width: 400px;
+    height: 300px;
+  }
 }/*# sourceMappingURL=banner-article.css.map */
