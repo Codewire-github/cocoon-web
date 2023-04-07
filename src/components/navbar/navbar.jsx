@@ -1,6 +1,5 @@
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import NewArticlePage from "../../pages/new_article_page/newArticlepage";
 const NavBar = () => {
   return (
     <div className="navbar_container" style={{ color: "white" }}>

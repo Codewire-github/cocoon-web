@@ -8,13 +8,13 @@ const MostPopularCard = () => {
       <section className="content">
         <p>Most Popular</p>
         {postsData.map((data) => (
-          <React.Fragment className="popular-items-container" key={data.id}>
+          <div className="popular-items-container" key={data.id}>
             <PopularItem
               title={data.title}
               author={data.author}
               date={data.date}
             />
-          </React.Fragment>
+          </div>
         ))}
       </section>
       <p className="styled-text">Popular</p>
