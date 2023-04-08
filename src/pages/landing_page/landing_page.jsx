@@ -8,9 +8,9 @@ import "./landing_page.css";
 const LandingPage = () => {
   return (
     <>
+      <NavBar />
       <div className="landing_page_container">
         <section className="first-section">
-          <NavBar />
           <section className="first-section-content">
             <BannerArticle />
             <TopStoriesCard />
