@@ -15,7 +15,11 @@ function NewArticlePage() {
   return (
     <div className="editor-main-wrap">
       <NewArticleNavBar />
-      <input type="text" placeholder="Title" className="heading-input" />
+      <textarea
+        placeholder="Title"
+        className="heading-input"
+        maxLength="110"
+      ></textarea>
       <textarea
         placeholder="Write your subheading..."
         className="subheading-input"
