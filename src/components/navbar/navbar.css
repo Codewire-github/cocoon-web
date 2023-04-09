@@ -22,7 +22,7 @@
   color: white;
   text-decoration: none;
   list-style: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: 0.2s all ease-in-out;
 }
 
@@ -33,10 +33,12 @@
 
 .navbar_container .nav-options-wrap .write-btn {
   border: none;
-  color: rgb(60 255 208);
-  font-size: 1.2rem;
-  background-color: transparent;
-  font-weight: 600;
+  background-color: rgb(28, 207, 165);
+  color: black;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
   transition: 0.2s all ease-in-out;
 }
 
@@ -45,16 +47,18 @@
   opacity: 0.85;
 }
 .navbar_container .nav-options-wrap .nav-btn {
-  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
   border: none;
-  background-color: transparent;
-  color: rgba(109, 42, 255, 0.9);
+  background-color: white;
+  color: rgba(72, 21, 255, 0.966);
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   transition: 0.2s all ease-in-out;
 }
 
 .navbar_container .nav-options-wrap .nav-btn:hover {
-  color: #3700af;
+  background-color: rgba(72, 21, 255, 0.966);
+  color: white;
   cursor: pointer;
 }

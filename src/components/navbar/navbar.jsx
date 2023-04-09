@@ -46,14 +46,11 @@ const NavBar = () => {
             <button className="write-btn">Write</button>
           </Link>
         )}
-        {user?.isAnonymous === true && (
+        {(user?.isAnonymous === true || user === null) && (
           <Link to="/login">
             <button className="nav-btn">Log in</button>
           </Link>
         )}
-        <Link to="/login">
-          <button className="nav-btn">Log in</button>
-        </Link>
         {user?.isAnonymous === false && (
           <button className="nav-btn" onClick={handleSignOut}>
             Log out
