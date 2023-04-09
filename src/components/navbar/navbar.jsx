@@ -42,7 +42,7 @@ const NavBar = () => {
         <li>About us</li>
 
         {user?.isAnonymous === false && (
-          <Link to="/write-new-article">
+          <Link to="/writeNewArticle">
             <button className="write-btn">Write</button>
           </Link>
         )}
