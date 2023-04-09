@@ -14,8 +14,8 @@ function App() {
       <div className="App">
         <AuthContextProvider>
           <Routes>
-            <Route path="/" exact element={<LandingPage />} />
-            <Route path="/write-new-article" element={<NewArticlePage />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/writeNewArticle" element={<NewArticlePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/account" element={<Account />} />
