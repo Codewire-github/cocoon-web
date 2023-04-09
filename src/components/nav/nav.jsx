@@ -14,7 +14,6 @@ const Nav = () => {
         <li>About us</li>
         <button className="nav-btn">Log in</button>
       </ul>
-      <Outlet />
     </div>
   );
 };
