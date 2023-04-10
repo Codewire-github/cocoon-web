@@ -33,6 +33,11 @@
   }
 }
 
+@media screen and (max-width: 1920px) {
+  .landing_page_container {
+    padding: 3rem 15rem;
+  }
+}
 @media screen and (max-width: 1440px) {
   .landing_page_container {
     padding: 3rem 4rem;
