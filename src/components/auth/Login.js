@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { auth } from "../../database/firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
+import googlelogo from "../../images/googlelogo.png";
 import logo from "../../images/cocoon.png";
 import sideImg from "../../images/undraw_completed_03xt.svg";
 import { UserAuth } from "../../context/authcontect";
@@ -106,9 +107,7 @@ const Login = (props) => {
             <div className="google-button">
               <button onClick={handleGoogleSignIn}>
                 <img
-                  src={
-                    "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                  }
+                  src={googlelogo}
                   className="google-logo"
                   alt="google-logo"
                 />
