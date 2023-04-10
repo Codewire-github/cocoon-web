@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  background-color: rgb(228, 255, 247);
+  background-color: #665df5;
 
   .row {
     display: flex;
@@ -112,7 +112,7 @@
     }
 
     .button:hover {
-      background-color: rgb(28, 207, 165);
+      background-color: #665df5;
       cursor: pointer;
     }
     .google-button {
@@ -155,12 +155,35 @@
 
       b {
         transition: 0.3s ease-in-out;
-        color: rgb(28, 207, 165);
+        color: #665df5;
       }
     }
 
     .link-btn:hover {
       b {
+        color: black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .main-div {
+    .row {
+      width: 900px;
+      height: 650px;
+
+      .side-image {
+        gap: 2rem;
+
+        .side-img {
+          width: 300px;
+        }
+      }
+    }
+    .text {
+      h1 {
+        font-size: 25px;
         color: black;
       }
     }

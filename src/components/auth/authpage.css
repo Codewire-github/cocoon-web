@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  background-color: rgb(228, 255, 247);
+  background-color: #665df5;
 }
 .main-div .row {
   display: flex;
@@ -107,7 +107,7 @@
   transition: 0.3s all ease-in-out;
 }
 .main-div .form-container .button:hover {
-  background-color: rgb(28, 207, 165);
+  background-color: #665df5;
   cursor: pointer;
 }
 .main-div .form-container .google-button button {
@@ -146,8 +146,25 @@
 }
 .main-div .form-container .link-btn b {
   transition: 0.3s ease-in-out;
-  color: rgb(28, 207, 165);
+  color: #665df5;
 }
 .main-div .form-container .link-btn:hover b {
   color: black;
+}
+
+@media screen and (max-width: 1920px) {
+  .main-div .row {
+    width: 900px;
+    height: 650px;
+  }
+  .main-div .row .side-image {
+    gap: 2rem;
+  }
+  .main-div .row .side-image .side-img {
+    width: 300px;
+  }
+  .main-div .text h1 {
+    font-size: 25px;
+    color: black;
+  }
 }/*# sourceMappingURL=authpage.css.map */
