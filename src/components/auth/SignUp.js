@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth } from "../../database/firebase-config";
-import logo from "../../images/cocoon.png";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { UserAuth } from "../../context/authcontect";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import logo from "../../images/cocoon.png";
 import sideImg from "../../images/undraw_completed_03xt.svg";
+
 export const SignUp = (props) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
   const { googleSignIn, user, logOut } = UserAuth();
 
-  const HandleRegister = (e) => {
-    e.preventDefault(); //To prevent reloading of the page when submitting
+  const signUp = (e) => {
+    //to create an account
+    e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
       })
-
       .catch((error) => {
         console.log(error);
       });
@@ -40,6 +44,13 @@ export const SignUp = (props) => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (user !== null) {
+      navigate("/");
+    }
+  }, [user]);
+
   return (
     <div className="main-div">
       <div className="row">
@@ -55,18 +66,19 @@ export const SignUp = (props) => {
         </div>
 
         <div className="form-container">
-          <form className="signup-form" onSubmit={HandleRegister}>
+          <form className="signup-form" onSubmit={signUp}>
             <h2 className="heading"> Create an account</h2>
             <p className="login-prompt">Please enter your details</p>
-            {/* <label htmlFor="name">Full name</label>
-          <input
-            defaultValue={name}
-            name="name"
-            id="name"
-            placeholder="Enter your Full Name here"
-            onChange={(e) => setName(e.target.value)}
-            required
-          ></input> */}
+            <div className="input-field">
+              <input
+                className="input-box"
+                defaultValue={name}
+                name="name"
+                placeholder="Enter your Full Name "
+                onChange={(e) => setName(e.target.value)}
+                required
+              ></input>
+            </div>
             <div className="input-field">
               <input
                 className="input-box"
@@ -75,7 +87,7 @@ export const SignUp = (props) => {
                 placeholder="Enter your Email"
                 id="email"
                 name="email"
-                //onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="off"
               />
@@ -88,7 +100,7 @@ export const SignUp = (props) => {
                 placeholder="Enter a strong Password"
                 id="password"
                 name="password"
-                //onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="off"
               />

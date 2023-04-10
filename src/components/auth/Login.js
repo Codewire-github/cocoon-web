@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from "react";
-//import { auth } from "./firebase";
+import { auth } from "../../database/firebase-config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 import logo from "../../images/cocoon.png";
 import sideImg from "../../images/undraw_completed_03xt.svg";
 import { UserAuth } from "../../context/authcontect";
-//import { userAuth } from "../../context/authcontect";
 import { useNavigate, Link } from "react-router-dom";
 import "./authpage.css";
 const Login = (props) => {
   const navigate = useNavigate();
 
-  //const { User, logOut } = UserAuth();
   const { googleSignIn, user, logOut } = UserAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const HandleSubmit = (e) => {
+  const logIn = (e) => {
+    //to log in
     e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleGoogleSignIn = async () => {
@@ -67,7 +75,7 @@ const Login = (props) => {
                 placeholder="Enter your Email"
                 id="email"
                 name="email"
-                //onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="off"
               />
@@ -80,7 +88,7 @@ const Login = (props) => {
                 placeholder="Enter your Password"
                 id="password"
                 name="password"
-                //onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="off"
               />
