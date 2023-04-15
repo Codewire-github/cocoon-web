@@ -16,6 +16,10 @@
     font-size: large;
     border-radius: 5px;
 }
+.commentContainer:hover{
+    box-shadow: 0 0 0 1.5px rgb(196, 196, 196);
+}
+
 .commentinfo{
     display: flex;
     align-items: center;
