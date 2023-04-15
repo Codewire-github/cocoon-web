@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { UserAuth } from "../../context/authcontect";
 import { Link, useNavigate } from "react-router-dom";
 
+import googlelogo from "../../images/googlelogo.png";
 import logo from "../../images/cocoon.png";
 import sideImg from "../../images/undraw_completed_03xt.svg";
 
@@ -58,7 +59,7 @@ export const SignUp = (props) => {
           <Link to="/">
             <img className="logo-image" src={logo} alt="logo" />
           </Link>
-          <img src={sideImg} className="side-img" />
+          <img src={sideImg} className="side-img" alt="side-img" />
 
           <div className="text">
             <h1>Join the community of writers</h1>
@@ -118,10 +119,9 @@ export const SignUp = (props) => {
             <div className="google-button">
               <button onClick={handleGoogleSignIn}>
                 <img
-                  src={
-                    "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                  }
+                  src={googlelogo}
                   className="google-logo"
+                  alt="google-logo"
                 />
                 Sign in with google
               </button>

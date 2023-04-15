@@ -1,0 +1,55 @@
+.comments{
+    width: 700px;
+    height: auto;
+    margin: 0 auto;
+}
+.commentContainer {
+    font-family: monospace;
+    width: -webkit-fill-available;
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    resize: inherit;
+    background-color: #eee;
+    border-radius: 5px;
+    border: none;
+    font-size: large;
+    border-radius: 5px;
+}
+.commentContainer:hover{
+    box-shadow: 0 0 0 1.5px rgb(196, 196, 196);
+}
+
+.commentinfo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+h4{
+    color:rgb(118, 118, 118);
+    font-size: 0.7rem;
+}
+.comment{
+    word-wrap: break-word;
+    height: auto;
+    font-size: 0.8rem;
+    max-height: 400px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.deleteButton .delete{
+    font-family: monospace;
+    float: right;
+    color:white;
+    background: rgb(255, 108, 108);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+.deleteButton .delete:hover{
+    box-shadow: 0 0 0 2px rgb(99, 99, 99);
+    background: rgb(253, 75, 75);
+}
