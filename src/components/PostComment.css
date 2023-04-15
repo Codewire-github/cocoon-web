@@ -1,0 +1,36 @@
+.commentBox{
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+}
+.postInput{
+    font-family: monospace;
+    width: -webkit-fill-available;
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    resize: inherit;
+    background-color: #eee;
+    border-radius: 5px;
+    border: none;
+    font-size: large;
+}
+.postInput:focus-visible{
+    box-shadow: 0 0 0 2px rgb(148, 148, 148);
+    outline: none;
+    background: #f1f1f1;
+}
+.postButton{
+    font-family: monospace;
+    float: right;
+    background: rgb(255, 214, 139);
+    padding: 6px 30px;
+    border: none;
+    color: rgb(29, 29, 29);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+.postButton:hover{
+    box-shadow: 0 0 0 2px rgb(100, 100, 100);
+}
