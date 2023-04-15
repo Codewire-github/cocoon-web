@@ -3,29 +3,84 @@ import StarterKit from "@tiptap/starter-kit";
 import { OptionButton } from "../../components/custom-components/customButtons";
 import "./newArticlePage.css";
 import { Link } from "react-router-dom";
+import { UserAuth } from "../../context/authcontect";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../database/firebase-config";
 
+let json;
 function NewArticlePage() {
-  const [title, setTitle] = useState("");
-  const [subHeading, setSubHeading] = useState("");
-  const [genre, setGenre] = useState("");
-  const [description, setDescription] = useState("");
+  const { user } = UserAuth();
+  const [newuid, setUID] = useState("");
+  const [newauthorName, setAuthorName] = useState("");
+  const [newtitle, setTitle] = useState("");
+  const [newgenre, setGenre] = useState("");
+  const [newSubdescription, setSubDescription] = useState("");
+  const [newdescription, setDescription] = useState("");
+  const [newday, setDay] = useState();
+  const [newMonth, setMonth] = useState();
+  const [newYear, setYear] = useState();
+
+  const articlesCollectionRef = collection(db, "articles");
+  const Current = new Date();
+  const CurrentDay = Current.getDay();
+  const CurrentMonth = Current.getMonth();
+  const CurrentYear = Current.getFullYear();
+
+  const publishNewArticle = async (event) => {
+    await event.preventDefault();
+    await addDoc(articlesCollectionRef, {
+      authorName: newauthorName,
+      title: newtitle,
+      genre: newgenre,
+      sub_description: newSubdescription,
+      article_description: newdescription,
+    });
+  };
+  const handlePostConfirm = () => {
+    setDay(CurrentDay);
+    setMonth(CurrentMonth);
+    setYear(CurrentYear);
+    setAuthorName(user?.displayName);
+    setDescription(json);
+    setGenre("Tech");
+  };
+
   return (
-    <div className="editor-main-wrap">
-      <NewArticleNavBar />
-      <textarea
-        placeholder="Title"
-        className="heading-input"
-        maxLength="110"
-      ></textarea>
-      <textarea
-        placeholder="Write your subheading..."
-        className="subheading-input"
-      ></textarea>
-      <Tiptap />
-    </div>
+    <form onSubmit={publishNewArticle}>
+      <div className="editor-main-wrap">
+        <div className="nav-bar-container">
+          <Link to="/">
+            <h2>The cocoon</h2>
+          </Link>
+          <button className="publish-btn" type="submit">
+            Publish
+          </button>
+          <button className="publish-btn" onClick={handlePostConfirm}>
+            Confirm
+          </button>
+        </div>
+        <textarea
+          placeholder="Title"
+          className="heading-input"
+          maxLength="110"
+          required
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        ></textarea>
+        <textarea
+          placeholder="Write your subheading..."
+          className="subheading-input"
+          maxLength="250"
+          required
+          onChange={(e) => {
+            setSubDescription(e.target.value);
+          }}
+        ></textarea>
+        <Tiptap />
+      </div>
+    </form>
   );
 }
 
@@ -34,14 +89,18 @@ export default NewArticlePage;
 const Tiptap = () => {
   const editor = useEditor({
     extensions: [StarterKit],
-    content: "<h2>Tell your story...</h2>",
+    content: "<h2>Tell your story... </h2>",
+    onUpdate: ({ editor }) => {
+      json = editor.getHTML();
+      // send the content to an API here
+    },
   });
 
   return (
     <>
       <div className="text-editor-wrap">
         <MenuBar editor={editor} />
-        <EditorContent className="content" editor={editor} />
+        <EditorContent className="content" editor={editor} required />
       </div>
       <HTMLOutput editor={editor} />
     </>
@@ -167,14 +226,3 @@ const HTMLOutput = ({ editor }) => {
 export function getData(htmlText) {
   return htmlText;
 }
-
-const NewArticleNavBar = () => {
-  return (
-    <div className="nav-bar-container">
-      <Link to="/" exact>
-        <h2>The cocoon</h2>
-      </Link>
-      <button className="publish-btn">Publish</button>
-    </div>
-  );
-};
