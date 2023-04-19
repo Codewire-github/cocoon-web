@@ -1,45 +1,66 @@
 .mini-article-card-wrap {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  width: 450px;
+  align-items: center;
+  width: 600px;
   padding: 1.5rem 0rem;
+  gap: 1rem;
   border-bottom: 0.5px solid rgb(85, 85, 85);
 }
-.mini-article-card-wrap .genre {
-  align-self: center;
-  transform: rotateZ(-90deg);
-  font-size: 0.8rem;
-  height: 40px;
-  -webkit-text-decoration: underline rgb(60, 255, 208);
-          text-decoration: underline rgb(60, 255, 208);
-  text-transform: uppercase;
+.mini-article-card-wrap .article-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
-.mini-article-card-wrap .article-info h2 {
+.mini-article-card-wrap .article-info #article-heading {
   font-size: 1.35rem;
   margin-top: 0;
   margin-bottom: -5px;
 }
-.mini-article-card-wrap .article-info h2:hover {
+.mini-article-card-wrap .article-info #article-heading:hover {
   -webkit-text-decoration: underline rgb(60, 255, 208);
           text-decoration: underline rgb(60, 255, 208);
   cursor: pointer;
 }
+.mini-article-card-wrap .article-info #article-subheading {
+  font-size: 15px;
+  color: rgb(85, 85, 85);
+}
 .mini-article-card-wrap .article-info #author-desc {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 1rem;
   text-transform: uppercase;
   font-size: 0.8rem;
 }
 .mini-article-card-wrap .article-info #author-desc #author {
-  color: rgb(60, 255, 208);
+  color: black;
+  font-weight: bold;
 }
-.mini-article-card-wrap .article-info #author-desc #time {
+.mini-article-card-wrap .article-info #author-desc .author-img {
+  width: 30px;
+  height: 30px;
+}
+.mini-article-card-wrap .article-info .article-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.mini-article-card-wrap .article-info .article-details #published-date {
+  font-size: 14px;
   color: rgb(85, 85, 85);
 }
+.mini-article-card-wrap .article-info .article-details #article-genre {
+  padding: 0.5rem 0.6rem;
+  border-radius: 15px;
+  font-size: 14px;
+  background-color: rgb(60, 0, 255);
+  color: white;
+}
 .mini-article-card-wrap img {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 180px;
   border-radius: 5px;
 }/*# sourceMappingURL=mini-article-card.css.map */
