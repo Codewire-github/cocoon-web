@@ -1,3 +1,17 @@
+# Things to do after cloning this project
+
+Initially after cloning the repo from github to your device, the `node_modules`(it stores all the packages and libraries required and added to project inorder to function) folder will be missing as github doesn't store this folder.
+So, it will throw many errors when starting the project locally using `npm start`.
+
+## Solution
+
+Inorder to fix this error, all we need to do is install all the packages in the project after cloning.
+You just need to run a single command:
+
+### `npm install react-scripts`
+
+After running this command, the npm(package manager) will install all the packages and dependencies by traversing the `package.json` file.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
