@@ -5,7 +5,6 @@
   justify-content: space-between;
   height: 12vh;
   padding: 2rem 5rem;
-  border-bottom: 1px solid white;
 }
 
 .navbar_container .nav-options-wrap {
@@ -58,7 +57,7 @@
 }
 
 .navbar_container .nav-options-wrap .nav-btn:hover {
-  background-color: rgba(72, 21, 255, 0.966);
+  background-color: rgb(60, 0, 255);
   color: white;
   cursor: pointer;
 }
