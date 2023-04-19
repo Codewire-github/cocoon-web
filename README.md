@@ -8,7 +8,7 @@ So, it will throw many errors when starting the project locally using `npm start
 Inorder to fix this error, all we need to do is install all the packages in the project after cloning.
 You just need to run a single command:
 
-### `npm install react-scripts`
+### `npm install react-script`
 
 After running this command, the npm(package manager) will install all the packages and dependencies by traversing the `package.json` file.
 
