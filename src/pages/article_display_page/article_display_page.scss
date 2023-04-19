@@ -10,18 +10,20 @@
     background-color: #e3ff00;
     display: flex;
     flex-direction: column;
-    padding: 3rem 20rem;
-    min-height: 90vh;
+
+    min-height: 80vh;
 
     .first-section-content {
       display: flex;
       flex-direction: row;
       padding-top: 5rem;
       gap: 2rem;
+      padding: 6rem 16rem;
 
       img {
-        width: 550px;
-        height: 550px;
+        width: 580px;
+        height: 490px;
+        object-fit: cover;
       }
       #image-alt {
         font-size: 0.85rem;
@@ -41,22 +43,37 @@
       .sub-title {
         font-size: 1.5rem;
         margin-bottom: 20px;
-        word-spacing: 5px;
+        word-spacing: 4px;
       }
-
-      span {
+      .article-details {
         display: flex;
         flex-direction: row;
-        font-size: 0.9rem;
-        gap: 0.4rem;
+        align-items: center;
+        gap: 0.5rem;
 
-        #author {
-          text-transform: uppercase;
-          font-weight: bold;
+        .author-img {
+          width: 40px;
+          height: 40px;
+          border-radius: 5px;
         }
-      }
-      #date {
-        font-size: 0.8rem;
+        .info {
+          display: flex;
+          flex-direction: column;
+          span {
+            display: flex;
+            flex-direction: row;
+            font-size: 0.9rem;
+            gap: 0.4rem;
+
+            #author {
+              text-transform: uppercase;
+              font-weight: bold;
+            }
+          }
+          #date {
+            font-size: 0.8rem;
+          }
+        }
       }
     }
   }
@@ -64,15 +81,19 @@
   .second-section {
     display: flex;
     flex-direction: row;
-    padding: 3rem 20rem;
+    padding: 3rem 16rem;
     justify-content: space-between;
+    gap: 2rem;
 
     .article-description {
       width: 650px;
-      font-family: "Lora", serif;
       font-size: 1.15rem;
       line-height: 28px;
-      text-align: justify;
+      text-align: left;
+
+      p {
+        font-family: "Lora", serif;
+      }
     }
   }
 }
