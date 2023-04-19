@@ -30,6 +30,9 @@
     font-size: 1.25rem;
     letter-spacing: -0.1px;
     transition: 0.1s ease-in-out;
+    text-transform: none;
+    text-decoration: underline transparent;
+    color: white;
   }
 
   .item-title:hover {
