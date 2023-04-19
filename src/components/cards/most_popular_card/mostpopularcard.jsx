@@ -6,7 +6,15 @@ const MostPopularCard = () => {
   return (
     <div className="popular-card-container">
       <section className="content">
-        <p>Most Popular</p>
+        <p
+          style={{
+            textTransform: "uppercase",
+            color: "white",
+            fontWeight: "bold",
+          }}
+        >
+          Most Popular
+        </p>
         {postsData.map((data) => (
           <div className="popular-items-container" key={data.id}>
             <PopularItem
