@@ -5,6 +5,7 @@
   gap: 1rem;
 }
 .top-stories_container .container-title {
+  text-transform: uppercase;
   font-weight: 600;
   color: rgb(60, 255, 208);
 }
