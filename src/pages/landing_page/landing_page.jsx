@@ -34,8 +34,9 @@ const DisplayArticle = () => {
   return (
     <div className="article-section">
       <span className="heading-section">
-        <span id="circle"></span>
-        <p>Today's trending</p>
+        <p style={{ textTransform: "uppercase", fontWeight: "bold" }}>
+          Recommended
+        </p>
       </span>
       <MiniArticleCard />
       <MiniArticleCard />
