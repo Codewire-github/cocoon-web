@@ -68,7 +68,7 @@ const NavBar = () => {
 
 export default NavBar;
 
-const GreetingUser = (props) => {
+export const GreetingUser = (props) => {
   const Current = new Date();
   const CurrentHour = Current.getHours();
 
