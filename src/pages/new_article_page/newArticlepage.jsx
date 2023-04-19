@@ -63,7 +63,7 @@ function NewArticlePage() {
         <textarea
           placeholder="Title"
           className="heading-input"
-          maxLength="110"
+          maxLength="90"
           required
           onChange={(e) => {
             setTitle(e.target.value);
