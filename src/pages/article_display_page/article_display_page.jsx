@@ -31,7 +31,10 @@ const ArticleDisplayPage = () => {
     <div className="article-page-container">
       <section
         className="first-section"
-        style={{ backgroundColor: `${bgcolor}` }}
+        style={{
+          backgroundColor: `${bgcolor}`,
+          color: `${bgcolor === "rgb(82 0 255)" ? "white" : " black"}`,
+        }}
       >
         <Nav />
         <section className="first-section-content">
