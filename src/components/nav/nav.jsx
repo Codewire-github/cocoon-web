@@ -15,12 +15,6 @@ const Nav = () => {
     }
   };
 
-  useEffect(() => {
-    if (user == null) {
-      navigate("/");
-    }
-  }, [user]);
-
   return (
     <div className="singleblog_navbar_container">
       <h2>The cocoon</h2>
