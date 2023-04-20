@@ -1,0 +1,19 @@
+.bgcolor-container {
+  width: 350px;
+  height: 200px;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  transition: 0.2s all ease-in-out;
+
+  .bgcolor-options {
+    #bgcolor-item {
+      width: 45px;
+      height: 45px;
+      margin: 5px;
+      padding: 1.5px;
+      border: 1.5px solid black;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
+}
