@@ -6,7 +6,18 @@
   min-height: 100vh;
   background-color: white;
 }
-.editor-main-wrap .heading-input {
+.editor-main-wrap .editor-content {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 4rem;
+  gap: 4rem;
+}
+.editor-main-wrap .editor-content .additional-option-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.editor-main-wrap .editor-content .heading-input {
   width: 800px;
   max-height: 25vh;
   padding: 1rem;
@@ -19,16 +30,16 @@
   outline: none;
   resize: none;
 }
-.editor-main-wrap .heading-input::-moz-placeholder {
+.editor-main-wrap .editor-content .heading-input::-moz-placeholder {
   color: rgb(193, 193, 193);
 }
-.editor-main-wrap .heading-input::placeholder {
+.editor-main-wrap .editor-content .heading-input::placeholder {
   color: rgb(193, 193, 193);
 }
-.editor-main-wrap .heading-input:focus {
+.editor-main-wrap .editor-content .heading-input:focus {
   outline: none;
 }
-.editor-main-wrap .subheading-input {
+.editor-main-wrap .editor-content .subheading-input {
   width: 800px;
   padding: 1rem;
   max-height: 15vh;
@@ -39,16 +50,16 @@
   font-weight: bold;
   resize: none;
 }
-.editor-main-wrap .subheading-input::-moz-placeholder {
+.editor-main-wrap .editor-content .subheading-input::-moz-placeholder {
   color: rgb(193, 193, 193);
 }
-.editor-main-wrap .subheading-input::placeholder {
+.editor-main-wrap .editor-content .subheading-input::placeholder {
   color: rgb(193, 193, 193);
 }
-.editor-main-wrap .subheading-input:focus {
+.editor-main-wrap .editor-content .subheading-input:focus {
   outline: none;
 }
-.editor-main-wrap .text-editor-wrap {
+.editor-main-wrap .editor-content .text-editor-wrap {
   border: 1.5px solid black;
   border-radius: 1rem;
   padding: 1rem 2rem;
@@ -56,18 +67,18 @@
   width: 800px;
   color: black;
 }
-.editor-main-wrap .text-editor-wrap:focus {
+.editor-main-wrap .editor-content .text-editor-wrap:focus {
   outline: none;
 }
-.editor-main-wrap .is-active {
+.editor-main-wrap .editor-content .is-active {
   background-color: black;
   color: white;
 }
-.editor-main-wrap .is-inactive {
+.editor-main-wrap .editor-content .is-inactive {
   background-color: white;
   color: black;
 }
-.editor-main-wrap code {
+.editor-main-wrap .editor-content code {
   background-color: rgba(97, 97, 97, 0.1);
   color: #616161;
   padding: 0.5rem;
@@ -75,19 +86,19 @@
   font-size: 0.95rem;
   font-family: "Courier New", Courier, monospace;
 }
-.editor-main-wrap p {
+.editor-main-wrap .editor-content p {
   font-size: 1.2rem;
   font-family: "Lora", serif;
   line-height: 30px;
 }
-.editor-main-wrap pre {
+.editor-main-wrap .editor-content pre {
   background-color: #0d0d0d;
   color: white;
   font-family: "Courier New", Courier, monospace;
   padding: 0.75rem 1rem;
   border-radius: 0.6rem;
 }
-.editor-main-wrap pre code {
+.editor-main-wrap .editor-content pre code {
   color: white;
   padding: 0;
   background: none;
