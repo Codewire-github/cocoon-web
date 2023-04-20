@@ -7,6 +7,8 @@ import { UserAuth } from "../../context/authcontect";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../database/firebase-config";
+import GenreSelector from "../../components/genre-selector/genreselector";
+import BgColorSelector from "../../components/bgcolorselector/bgcolorselector";
 
 let json;
 function NewArticlePage() {
@@ -60,25 +62,33 @@ function NewArticlePage() {
             Confirm
           </button>
         </div>
-        <textarea
-          placeholder="Title"
-          className="heading-input"
-          maxLength="90"
-          required
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        ></textarea>
-        <textarea
-          placeholder="Write your subheading..."
-          className="subheading-input"
-          maxLength="250"
-          required
-          onChange={(e) => {
-            setSubDescription(e.target.value);
-          }}
-        ></textarea>
-        <Tiptap />
+        <div className="editor-content">
+          <section className="additional-option-container">
+            <BgColorSelector />
+            <GenreSelector />
+          </section>
+          <section>
+            <textarea
+              placeholder="Title"
+              className="heading-input"
+              maxLength="90"
+              required
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            ></textarea>
+            <textarea
+              placeholder="Write your subheading..."
+              className="subheading-input"
+              maxLength="250"
+              required
+              onChange={(e) => {
+                setSubDescription(e.target.value);
+              }}
+            ></textarea>
+            <Tiptap />
+          </section>
+        </div>
       </div>
     </form>
   );
