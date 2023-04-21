@@ -65,8 +65,8 @@ const Login = (props) => {
         </div>
 
         <div className="form-container">
-          <form className="login-form">
-            <h2 className="login-greeting">Welcome back.</h2>
+          <form className="login-form" onSubmit={logIn}>
+            <h2 className="login-greeting">Welcome </h2>
             <p className="login-prompt">Please enter your details</p>
             <div className="input-field">
               <input
