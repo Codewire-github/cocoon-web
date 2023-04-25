@@ -1,48 +1,58 @@
 import { useState } from "react";
 import "./bgcolorselector.css";
-const BgColorSelector = () => {
-  const [bgColor, setBgColor] = useState("white");
+const BgColorSelector = (props) => {
   return (
-    <div
-      className="bgcolor-container"
-      style={{
-        backgroundColor: `${bgColor}`,
-      }}
-    >
-      <h2
-        style={
-          bgColor === "rgb(82 0 255)" || bgColor === "#f18181"
-            ? { color: "white" }
-            : { color: "black" }
-        }
-      >
-        Choose your accent color
-      </h2>
+    <div className="bgcolor-container">
       <section className="bgcolor-options">
         <button
           id="bgcolor-item"
           style={{ backgroundColor: "#ffdab9" }}
-          onClick={() => setBgColor("#ffdab9")}
+          onClick={() => {
+            props.bgColorVal("#ffdab9");
+          }}
         ></button>
         <button
           id="bgcolor-item"
-          style={{ backgroundColor: "#e3ff00" }}
-          onClick={() => setBgColor("#e3ff00")}
+          style={{ backgroundColor: "#d8f500" }}
+          onClick={() => {
+            props.bgColorVal("#d8f500");
+          }}
         ></button>
         <button
           id="bgcolor-item"
           style={{ backgroundColor: "white" }}
-          onClick={() => setBgColor("white")}
+          onClick={() => {
+            props.bgColorVal("white");
+          }}
+        ></button>
+        <button
+          id="bgcolor-item"
+          style={{ backgroundColor: "#3dffd0" }}
+          onClick={() => {
+            props.bgColorVal("#3dffd0");
+          }}
+        ></button>
+        <button
+          id="bgcolor-item"
+          style={{ backgroundColor: "#dccfbd" }}
+          onClick={() => {
+            props.bgColorVal("#dccfbd");
+          }}
         ></button>
         <button
           id="bgcolor-item"
           style={{ backgroundColor: "rgb(82 0 255)" }}
-          onClick={() => setBgColor("rgb(82 0 255")}
+          onClick={() => {
+            props.bgColorVal("rgb(82 0 255)");
+          }}
         ></button>
+
         <button
           id="bgcolor-item"
-          style={{ backgroundColor: "#f18181" }}
-          onClick={() => setBgColor("#f18181")}
+          style={{ backgroundColor: "#a58e81" }}
+          onClick={() => {
+            props.bgColorVal("#a58e81");
+          }}
         ></button>
       </section>
     </div>
