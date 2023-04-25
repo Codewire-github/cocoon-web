@@ -15,9 +15,10 @@ const MostPopularCard = () => {
         >
           Most Popular
         </p>
-        {postsData.map((data) => (
+        {postsData.map((data, index) => (
           <div className="popular-items-container" key={data.id}>
             <PopularItem
+              itemno={index + 1}
               title={data.title}
               author={data.author}
               date={data.date}
@@ -35,7 +36,7 @@ export default MostPopularCard;
 const PopularItem = (props) => {
   return (
     <div className="popular-item-container">
-      <p className="item-no">1</p>
+      <p className="item-no">{props.itemno}</p>
       <section>
         <b className="item-title">{props.title}</b>
         <section className="item-info">
