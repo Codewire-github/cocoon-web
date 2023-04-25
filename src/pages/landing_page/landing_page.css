@@ -34,7 +34,23 @@
   color: black;
 }
 .landing_page_container .third-section {
-  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  padding: 2rem 15rem;
+}
+.landing_page_container .third-section .explore-container {
+  height: -moz-min-content;
+  height: min-content;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: white;
+  color: black;
 }
 
 @media screen and (max-width: 1920px) {
