@@ -37,7 +37,22 @@
   }
 
   .third-section {
-    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+    min-height: 100vh;
+    max-height: max-content;
+    padding: 2rem 15rem;
+
+    .explore-container {
+      height: min-content;
+      padding: 2rem;
+      border-radius: 1rem;
+      background-color: white;
+      color: black;
+    }
   }
 }
 

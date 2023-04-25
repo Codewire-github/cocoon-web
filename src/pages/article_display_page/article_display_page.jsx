@@ -1,15 +1,21 @@
 //Importing functions and components from libraries
 import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { postsData } from "../../components/blogpostdata";
 import HTMLString from "react-html-string";
 //Importing components
 import Nav from "../../components/nav/nav";
 import "./article_display_page.css";
-import TopStoriesCard from "../../components/cards/top_stories_card/top_stories_card";
+
 import FooterSection from "../../components/footer/footer";
 import MostPopularCard from "../../components/cards/most_popular_card/mostpopularcard";
+import DisplayComments from "../../components/comments/displayComments";
 
 const ArticleDisplayPage = () => {
+  useEffect(() => {
+    console.log("hello world");
+  }, []);
+  window.scroll(0, 0);
   const postID = useParams();
   console.log(postID.id);
   const Article = postsData.find((post) => post.id == postID.id);
@@ -68,6 +74,9 @@ const ArticleDisplayPage = () => {
           <HTMLString html={description} />
         </section>
         <MostPopularCard />
+      </section>
+      <section className="comment-section">
+        <DisplayComments />
       </section>
       <FooterSection />
     </div>

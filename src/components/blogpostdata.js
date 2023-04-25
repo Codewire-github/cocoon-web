@@ -80,7 +80,7 @@ export const postsData = [
     genre: "Programming",
     date: "Oct 5, 2022",
     title: "Ditch GraphQL When It Gets in the Way",
-    bgcolor: "yellow",
+    bgcolor: "#dccfbd",
     sub_title:
       "Are you or your team struggling with GraphQL concepts or does it feel too heavy weight for what you are building?",
     image_Address: "https://cdn.codersociety.com/uploads/graphql-reasons.png",
@@ -153,7 +153,7 @@ In summary, algorithms are a fundamental part of our daily lives, and they are u
     sub_title:
       "Learn how to install and use BootStrap in your React projects - the right way.",
     date: "Oct 6, 2022",
-    bgcolor: "#e3ff00",
+    bgcolor: "#f18181",
     image_Address:
       "https://miro.medium.com/max/1400/1*yc77vVE3oOiaLN2zy_RSMg.webp",
 

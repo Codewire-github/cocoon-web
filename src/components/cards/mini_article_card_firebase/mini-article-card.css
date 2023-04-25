@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: space-between;
   width: 600px;
+  height: -moz-max-content;
+  height: max-content;
   padding: 1.5rem 0rem;
   gap: 1rem;
   border-bottom: 0.5px solid rgb(85, 85, 85);
@@ -11,6 +13,7 @@
 .mini-article-card-wrap .article-info {
   display: flex;
   flex-direction: column;
+  width: 400px;
   gap: 0.6rem;
 }
 .mini-article-card-wrap .article-info #article-heading {

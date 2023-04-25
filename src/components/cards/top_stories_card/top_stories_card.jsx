@@ -2,12 +2,14 @@ import "./topstoriescard.css";
 import { postsData } from "../../blogpostdata";
 import { Link } from "react-router-dom";
 const TopStoriesCard = () => {
+  let itemNo = 0;
   return (
     <div className="top-stories_container">
       <p className="container-title">Top stories</p>
-      {postsData.map((data) => (
+      {postsData.map((data, index) => (
         <div key={data.id}>
           <TopStoriesItem
+            itemno={index + 1}
             title={data.title}
             author={data.author}
             date={data.date}
@@ -27,9 +29,9 @@ const TopStoriesItem = (props) => {
 
   return (
     <div className="stories-item-container">
-      <p className="item-no">1</p>
+      <p className="item-no">{props.itemno}</p>
       <section>
-        <Link to={`/post/${props.linkid}`}>
+        <Link to={`/post/${props.linkid}`} style={{ textDecoration: "none" }}>
           <b className="item-title">{props.title}</b>
         </Link>
         <section className="item-info">

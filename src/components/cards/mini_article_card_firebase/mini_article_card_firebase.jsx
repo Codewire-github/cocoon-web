@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./mini-article-card.css";
-const MiniArticleCard = (props) => {
+const MiniArticleCardFirebase = (props) => {
   const authorImg =
     "https://www.hakuhodo-global.com/wp_admin/wp-content/uploads/2017/11/Kazuhiro_Suda2square.jpg";
 
@@ -13,7 +13,10 @@ const MiniArticleCard = (props) => {
           <img src={props.authorImg} alt="authorimg" className="author-img" />
           <p id="author">{props.author}</p>
         </span>
-        <Link to={`/post/${props.linkid}`} style={{ textDecoration: "none" }}>
+        <Link
+          to={`/article/${props.linkid}`}
+          style={{ textDecoration: "none" }}
+        >
           <h2 id="article-heading">{props.heading}</h2>
         </Link>
         <p id="article-subheading">{props.subheading}</p>
@@ -27,4 +30,4 @@ const MiniArticleCard = (props) => {
   );
 };
 
-export default MiniArticleCard;
+export default MiniArticleCardFirebase;

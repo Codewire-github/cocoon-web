@@ -9,6 +9,8 @@
 .singleblog_navbar_container h2 {
   text-transform: uppercase;
   margin-right: 2rem;
+  font-family: "Landasans";
+  font-size: 45px;
 }
 .singleblog_navbar_container .singleblog-nav-options-wrap {
   display: flex;
@@ -22,8 +24,13 @@
   color: black;
   cursor: pointer;
   font-size: 18px;
+  transition: 0.2s all ease-in-out;
 }
 
+.singleblog_navbar_container .singleblog-nav-options-wrap li:hover {
+  cursor: pointer;
+  color: rgba(118, 118, 118, 0.7);
+}
 .singleblog_navbar_container .singleblog-nav-options-wrap .write-btn {
   border: none;
   background-color: black;
@@ -55,4 +62,10 @@
   background-color: rgb(60, 0, 255);
   color: white;
   cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .singleblog_navbar_container .singleblog-nav-options-wrap li {
+    display: none;
+  }
 }

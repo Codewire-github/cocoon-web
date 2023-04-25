@@ -1,17 +1,28 @@
 import "./genreselector.css";
 
-const GenreSelector = () => {
+const GenreSelector = (props) => {
   const Items = [
+    "ChatGPT",
     "Tech",
-    "TV Review",
+    "TV Shows",
+    "Movie Review",
     "Business",
+    "Programming",
+    "Politics",
     "Web Technology",
     "Entertainment",
+    "Machine Learning",
+    "Philosophy",
+    "Culture",
+    "Travel",
     "Review",
     "React",
     "Flutter",
     "Python",
+    "Rust",
+    "Linux",
     "Games",
+    "Writing",
     "Social Media",
   ];
   return (
@@ -19,7 +30,14 @@ const GenreSelector = () => {
       <h2>Genre</h2>
       <div className="genre-items-container">
         {Items.map((item) => (
-          <GenreItem name={item} />
+          <span key={item}>
+            <button
+              id="genre-item"
+              onClick={() => props.handleGenreOption(item)}
+            >
+              {item}
+            </button>
+          </span>
         ))}
       </div>
     </div>
@@ -27,7 +45,3 @@ const GenreSelector = () => {
 };
 
 export default GenreSelector;
-
-const GenreItem = (props) => {
-  return <button id="genre-item">{props.name}</button>;
-};
