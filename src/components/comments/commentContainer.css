@@ -1,0 +1,35 @@
+.comment-main-container {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  padding: 0.7rem;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: rgba(0, 0, 0, 0.45);
+  transition: 0.3s all ease-in-out;
+  z-index: 5;
+}
+.comment-main-container .comment-overlay-container {
+  width: 600px;
+  min-height: 97vh;
+  padding: 2rem;
+  position: sticky;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3);
+}
+.comment-main-container .comment-overlay-container .comment-overlay-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment-main-container .comment-overlay-container .comment-overlay-heading .fa-times {
+  font-size: 30px;
+}
+.comment-main-container .comment-overlay-container .create-comment-section {
+  padding: 1.5rem;
+}/*# sourceMappingURL=commentContainer.css.map */
