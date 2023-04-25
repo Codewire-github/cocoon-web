@@ -27,27 +27,25 @@ const NavBar = () => {
 
   return (
     <div className="navbar_container" style={{ color: "white" }}>
-      <Link to="/">
-        <h2>The cocoon</h2>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <h2 style={{ textTransform: "uppercase" }}>The cocoon</h2>
       </Link>
       <ul className="nav-options-wrap">
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" }}>
           <li>Home</li>
         </Link>
         <p>/</p>
         <li>Explore</li>
         <p>/</p>
-        <li>Community</li>
-        <p>/</p>
         <li>About us</li>
 
         {user?.isAnonymous === false && (
-          <Link to="/writeNewArticle">
+          <Link to="/write-new-article" style={{ textDecoration: "none" }}>
             <button className="write-btn">Write</button>
           </Link>
         )}
         {(user?.isAnonymous === true || user === null) && (
-          <Link to="/login">
+          <Link to="/login" style={{ textDecoration: "none" }}>
             <button className="nav-btn">Log in</button>
           </Link>
         )}
