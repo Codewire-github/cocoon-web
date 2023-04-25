@@ -1,18 +1,21 @@
 .bgcolor-container {
-  width: 350px;
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  width: 70px;
+  height: max-content;
   padding: 1.5rem 2rem;
-  border-radius: 1rem;
+  border-radius: 4rem;
   transition: 0.2s all ease-in-out;
 
   .bgcolor-options {
+    display: flex;
+    flex-direction: column;
     #bgcolor-item {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       margin: 5px;
-      padding: 1.5px;
-      border: 1.5px solid black;
-      border-radius: 12px;
+      border: 1px solid black;
+      border-radius: 50%;
       cursor: pointer;
     }
   }
