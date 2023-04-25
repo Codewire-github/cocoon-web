@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import "./mini-article-card.css";
-const MiniArticleCard = () => {
+const MiniArticleCard = (props) => {
   const authorImg =
     "https://www.hakuhodo-global.com/wp_admin/wp-content/uploads/2017/11/Kazuhiro_Suda2square.jpg";
 
@@ -9,23 +10,19 @@ const MiniArticleCard = () => {
     <div className="mini-article-card-wrap">
       <section className="article-info">
         <span id="author-desc">
-          <img src={authorImg} alt="authorimg" className="author-img" />
-          <p id="author">Tom warren</p>
+          <img src={props.authorImg} alt="authorimg" className="author-img" />
+          <p id="author">{props.author}</p>
         </span>
-        <h2 id="article-heading">
-          Microsoft Teams now lets you transform into a 3D avatar during
-          meetings
-        </h2>
-        <p id="article-subheading">
-          ChatGPT recently passed the U.S. Medical Licensing Exam, but using it
-          for a real-world medical diagnosis would quickly turn deadly.
-        </p>
+        <Link to={`/post/${props.linkid}`} style={{ textDecoration: "none" }}>
+          <h2 id="article-heading">{props.heading}</h2>
+        </Link>
+        <p id="article-subheading">{props.subheading}</p>
         <span className="article-details">
-          <p id="published-date">May 26, 2022</p>
-          <p id="article-genre">Web Technology</p>
+          <p id="published-date">{props.date}</p>
+          <p id="article-genre">{props.genre}</p>
         </span>
       </section>
-      <img src={imgUrl} alt="article-photo" />
+      <img src={props.imgUrl} alt="article-photo" />
     </div>
   );
 };
