@@ -2,10 +2,10 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { OptionButton } from "../../components/custom-components/customButtons";
 import "./newArticlePage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/authcontect";
 import { addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../database/firebase-config";
 import GenreSelector from "../../components/genre-selector/genreselector";
 import BgColorSelector from "../../components/bgcolorselector/bgcolorselector";
@@ -15,6 +15,7 @@ function NewArticlePage() {
   const { user } = UserAuth();
   const [newuid, setUID] = useState("");
   const [newauthorName, setAuthorName] = useState("");
+  const [newauthorImg, setAuthorImg] = useState("");
   const [newtitle, setTitle] = useState("");
   const [newgenre, setGenre] = useState("");
   const [newSubdescription, setSubDescription] = useState("");
@@ -22,22 +23,35 @@ function NewArticlePage() {
   const [newday, setDay] = useState();
   const [newMonth, setMonth] = useState();
   const [newYear, setYear] = useState();
-
+  const [backgroundColor, setBackgroundColor] = useState("#dccfbd");
+  const [imgURL, setImgURL] = useState("");
+  const [imgAlt, setImgAlt] = useState("");
+  const [newimgURL, setNewImgURL] = useState(
+    "https://images.unsplash.com/photo-1681969377369-6d68f2b6b6f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80"
+  );
+  const [showOverlay, setShowOverlay] = useState(false);
   const articlesCollectionRef = collection(db, "articles");
   const Current = new Date();
-  const CurrentDay = Current.getDay();
-  const CurrentMonth = Current.getMonth();
+  const CurrentDay = Current.getDate();
+  const CurrentMonth = Current.getMonth() + 1;
   const CurrentYear = Current.getFullYear();
-
   const publishNewArticle = async (event) => {
     await event.preventDefault();
     await addDoc(articlesCollectionRef, {
       authorName: newauthorName,
+      userID: newuid,
+      authorImgURL: newauthorImg,
       title: newtitle,
       genre: newgenre,
       sub_description: newSubdescription,
+      img_address: newimgURL,
+      img_alt: imgAlt,
+      bgcolor: backgroundColor,
+      published_date: [newday, newMonth, newYear],
       article_description: newdescription,
     });
+
+    navigate("/");
   };
   const handlePostConfirm = () => {
     setDay(CurrentDay);
@@ -45,27 +59,140 @@ function NewArticlePage() {
     setYear(CurrentYear);
     setAuthorName(user?.displayName);
     setDescription(json);
-    setGenre("Tech");
+    setUID(user?.uid);
+    setAuthorImg(user?.photoURL);
   };
 
+  const handleBackgroundColor = (value) => {
+    setBackgroundColor(value);
+  };
+
+  const handleGenreSelect = (value) => {
+    setGenre(value);
+  };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log("hello world");
+  }, []);
+  useEffect(() => {
+    if (user === null) {
+      navigate("/");
+    }
+  }, [user]);
   return (
     <form onSubmit={publishNewArticle}>
       <div className="editor-main-wrap">
         <div className="nav-bar-container">
-          <Link to="/">
-            <h2>The cocoon</h2>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <h2
+              style={{
+                textTransform: "uppercase",
+                fontFamily: "Landasans",
+                fontSize: "45px",
+              }}
+            >
+              The cocoon
+            </h2>
           </Link>
-          <button className="publish-btn" type="submit">
+          <span
+            className="publish-btn"
+            onClick={() => {
+              setShowOverlay(true);
+              handlePostConfirm();
+            }}
+            style={{
+              backgroundColor: `${
+                backgroundColor === "white" ? "black" : backgroundColor
+              }`,
+              color: `${backgroundColor === "white" ? "white" : "black"}`,
+            }}
+          >
             Publish
-          </button>
-          <button className="publish-btn" onClick={handlePostConfirm}>
-            Confirm
-          </button>
+          </span>
         </div>
         <div className="editor-content">
-          <section className="additional-option-container">
-            <BgColorSelector />
-            <GenreSelector />
+          <section
+            className="additional-option-container"
+            style={{ backgroundColor: `${backgroundColor}` }}
+          >
+            <section className="img-selector">
+              <span
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "5px",
+                  width: "480px",
+                  padding: "5px 5px 5px 16px ",
+                  backgroundColor: "white",
+                  borderRadius: "0.8rem",
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="Enter image address for your article "
+                  className="imgurl-textwrap"
+                  onChange={(e) => setImgURL(e.target.value)}
+                  style={{
+                    border: "none",
+                    width: "395px",
+                    fontSize: "13.5px",
+                    fontWeight: "bold",
+
+                    outline: "none",
+                  }}
+                />
+                <button
+                  style={{
+                    backgroundColor: "black",
+                    padding: "8px 13px",
+                    border: "none",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setNewImgURL(imgURL)}
+                >
+                  <i
+                    className="fas fa-chevron-right"
+                    style={{ color: "white", fontSize: "25px" }}
+                  ></i>
+                </button>
+              </span>
+              <div>
+                <img
+                  src={newimgURL}
+                  alt="article-img"
+                  style={{
+                    width: "480px",
+                    height: "392px",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                  }}
+                />
+              </div>
+              <input
+                type="text"
+                maxLength="60"
+                placeholder="Write a short description about the image..."
+                onChange={(e) => setImgAlt(e.target.value)}
+                style={{
+                  outline: " none",
+                  padding: ".9rem",
+                  width: "480px",
+                  backgroundColor: "white",
+                  color: "black",
+                  fontSize: "12px",
+                  fontFamily: "monospace",
+                  border: "none",
+                  borderRadius: "10px",
+                }}
+              />
+            </section>
+            <section style={{ display: "flex", flexDirection: "row" }}>
+              <BgColorSelector bgColorVal={handleBackgroundColor} />
+              <GenreSelector handleGenreOption={handleGenreSelect} />
+            </section>
           </section>
           <section>
             <textarea
@@ -80,7 +207,7 @@ function NewArticlePage() {
             <textarea
               placeholder="Write your subheading..."
               className="subheading-input"
-              maxLength="250"
+              maxLength="220"
               required
               onChange={(e) => {
                 setSubDescription(e.target.value);
@@ -89,6 +216,53 @@ function NewArticlePage() {
             <Tiptap />
           </section>
         </div>
+        {showOverlay === true && (
+          <div className="overlay-main-container">
+            <div
+              className="overlay-wrap"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                width: "450px",
+                backgroundColor: "white",
+                borderRadius: "8px",
+                padding: "2rem 1.5rem",
+                boxShadow: "5px 5px 10px 1px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              <h2 style={{ color: "black" }}>
+                Are you sure you want to publish your article?
+              </h2>
+              <p style={{ color: "grey" }}>
+                <b>Why should you write?</b> Because creating something that
+                didn't exist before is as close to magic as you'll ever get.
+              </p>
+              <section className="overlay-footer">
+                <span
+                  className="overlay-btn"
+                  onClick={() => setShowOverlay(false)}
+                  style={{
+                    backgroundColor: "none",
+                    color: "grey",
+                  }}
+                >
+                  Cancel
+                </span>
+                <button
+                  type="submit"
+                  className="overlay-btn"
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                  }}
+                >
+                  Confirm
+                </button>
+              </section>
+            </div>
+          </div>
+        )}
       </div>
     </form>
   );
@@ -112,7 +286,6 @@ const Tiptap = () => {
         <MenuBar editor={editor} />
         <EditorContent className="content" editor={editor} required />
       </div>
-      <HTMLOutput editor={editor} />
     </>
   );
 };
@@ -223,16 +396,43 @@ const MenuBar = ({ editor }) => {
   );
 };
 
-const HTMLOutput = ({ editor }) => {
-  let html;
+const PublishConfirmOverlay = ({ openOverlay }) => {
   return (
-    <div style={{ width: "800px" }}>
-      <h1>HTML output</h1>
-      {html}
+    <div className="overlay-main-container">
+      <div
+        className="overlay-container"
+        style={{
+          backgroundColor: "white",
+          borderRadius: "8px",
+          padding: "2rem 1.5rem",
+        }}
+      >
+        <h2 style={{ color: "black" }}>
+          Are you sure you want to publish your article?
+        </h2>
+        <section className="overlay-footer">
+          <button
+            type="submit"
+            className="overlay-btn"
+            style={{
+              backgroundColor: "black",
+              color: "white",
+            }}
+          >
+            Confirm
+          </button>
+          <button
+            className="overlay-btn"
+            onClick={() => openOverlay(false)}
+            style={{
+              backgroundColor: "red",
+              color: "white",
+            }}
+          >
+            Cancel
+          </button>
+        </section>
+      </div>
     </div>
   );
 };
-
-export function getData(htmlText) {
-  return htmlText;
-}
