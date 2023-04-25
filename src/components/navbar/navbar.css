@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   height: 12vh;
-  padding: 2rem 5rem;
+  padding: 2rem 10rem;
 }
 
 .navbar_container .nav-options-wrap {
@@ -16,6 +16,8 @@
 .navbar_container h2 {
   color: white;
   text-decoration: none;
+  font-family: Landasans;
+  font-size: 45px;
 }
 .navbar_container .nav-options-wrap li {
   color: white;
@@ -32,7 +34,7 @@
 
 .navbar_container .nav-options-wrap .write-btn {
   border: none;
-  background-color: rgb(28, 207, 165);
+  background-color: rgb(60 255 208);
   color: black;
   font-size: 1.05rem;
   font-weight: bold;
