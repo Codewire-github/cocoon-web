@@ -13,6 +13,7 @@ import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import Account from "./components/auth/Account";
 import ArticlePage from "./pages/article_display_page_firebase/article_page";
+import Profile from "./components/auth/Userprofile";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/account" element={<Account />} />
             <Route path="/post/:id" element={<ArticleDisplayPage />} />
             <Route path="/article/:id" element={<ArticlePage />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </AuthContextProvider>
       </div>
