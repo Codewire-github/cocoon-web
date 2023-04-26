@@ -66,36 +66,39 @@ const NavBar = () => {
 
 export default NavBar;
 
+//Greeting user component
 export const GreetingUser = (props) => {
   const Current = new Date();
   const CurrentHour = Current.getHours();
 
   return (
-    <div className="greeting-container">
-      {CurrentHour < 12 && (
-        <img
-          src={morningVector}
-          className="greeting-icon"
-          alt="morning-vector"
-        />
-      )}
-      {CurrentHour >= 12 && CurrentHour <= 18 && (
-        <img
-          src={eveningVector}
-          className="greeting-icon"
-          alt="evening-vector"
-        />
-      )}
-      {CurrentHour > 18 && (
-        <img src={nightVector} className="greeting-icon" alt="night-vector" />
-      )}
-      <span className="greeting-content">
-        <p className="greeting-text">
-          {CurrentHour < 12 ? "Good morning," : "Good evening,"}
-        </p>
-        <p className="username">{props.userName}</p>
-      </span>
-      <img src={props.userImg} className="user-photo" alt="userPhoto" />
-    </div>
+    <Link to="/profile">
+      <div className="greeting-container">
+        {CurrentHour < 12 && (
+          <img
+            src={morningVector}
+            className="greeting-icon"
+            alt="morning-vector"
+          />
+        )}
+        {CurrentHour >= 12 && CurrentHour <= 18 && (
+          <img
+            src={eveningVector}
+            className="greeting-icon"
+            alt="evening-vector"
+          />
+        )}
+        {CurrentHour > 18 && (
+          <img src={nightVector} className="greeting-icon" alt="night-vector" />
+        )}
+        <span className="greeting-content">
+          <p className="greeting-text">
+            {CurrentHour < 12 ? "Good morning," : "Good evening,"}
+          </p>
+          <p className="username">{props.userName}</p>
+        </span>
+        <img src={props.userImg} className="user-photo" alt="userPhoto" />
+      </div>
+    </Link>
   );
 };
