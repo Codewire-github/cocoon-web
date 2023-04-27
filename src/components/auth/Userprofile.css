@@ -1,0 +1,68 @@
+.fields {
+  display: flex;
+  flex-direction: row;
+  margin: none;
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+}
+
+.userRight,
+.userLeft {
+  margin: 3rem;
+}
+
+.userLeft {
+  width: 40%;
+}
+
+.useravatar {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+}
+
+.userkoname {
+  font-size: 28px;
+  margin-top: 1rem;
+  color: black;
+}
+
+.writer-txt {
+  color: #665df5;
+}
+
+.profile-txt {
+  font-size: 23px;
+  margin-top: 2rem;
+  color: black;
+}
+
+.heading-contain {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 40px;
+  border-bottom: 3px solid black;
+  line-height: 35px;
+  overflow: hidden;
+}
+
+.uploads-heading {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 2px 20px;
+  background: black;
+  display: inline-block;
+}
+
+.uploads-heading:before {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 100%;
+  background: black;
+  z-index: -1;
+  transform: rotate(45deg);
+}
