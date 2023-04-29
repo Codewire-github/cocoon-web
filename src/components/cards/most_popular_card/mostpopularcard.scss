@@ -74,3 +74,19 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .popular-card-container {
+    width: 370px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    .styled-text {
+      display: none;
+    }
+  }
+  .popular-item-container {
+    .item-title {
+      font-size: 16px;
+    }
+  }
+}
