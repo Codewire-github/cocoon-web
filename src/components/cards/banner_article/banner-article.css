@@ -4,7 +4,6 @@
   width: 640px;
 }
 .banner-article-wrap img {
-  position: absolute;
   width: 580px;
   height: 464px;
   -o-object-fit: cover;
@@ -19,7 +18,7 @@
   text-align: left;
   align-self: flex-end;
   width: 520px;
-  top: 440px;
+  top: -50px;
 }
 .banner-article-wrap .article-info h1 {
   margin: -2px;
@@ -50,8 +49,21 @@
 }
 
 @media screen and (max-width: 480px) {
+  .banner-article-wrap {
+    width: 390px;
+  }
   .banner-article-wrap img {
-    width: 400px;
-    height: 300px;
+    width: 360px;
+    height: 280px;
+  }
+  .banner-article-wrap .article-info {
+    top: -40px;
+    width: 90%;
+  }
+  .banner-article-wrap .article-info h1 {
+    font-size: 5rem;
+  }
+  .banner-article-wrap .article-info .article-subheading {
+    font-size: 1.1rem;
   }
 }/*# sourceMappingURL=banner-article.css.map */

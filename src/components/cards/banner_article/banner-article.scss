@@ -3,7 +3,6 @@
   flex-direction: column;
   width: 640px;
   img {
-    position: absolute;
     width: 580px;
     height: 464px;
     object-fit: cover;
@@ -18,7 +17,7 @@
     text-align: left;
     align-self: flex-end;
     width: 520px;
-    top: 440px;
+    top: -50px;
     h1 {
       margin: -2px;
       line-height: 0.7;
@@ -55,9 +54,22 @@
 
 @media screen and (max-width: 480px) {
   .banner-article-wrap {
+    width: 390px;
     img {
-      width: 400px;
-      height: 300px;
+      width: 360px;
+      height: 280px;
+    }
+
+    .article-info {
+      top: -40px;
+      width: 90%;
+
+      h1 {
+        font-size: 5rem;
+      }
+      .article-subheading {
+        font-size: 1.1rem;
+      }
     }
   }
 }
