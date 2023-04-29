@@ -12,6 +12,7 @@ const GenreSelector = (props) => {
     "Web Technology",
     "Entertainment",
     "Machine Learning",
+    "Data Science",
     "Philosophy",
     "Culture",
     "Travel",
@@ -34,6 +35,11 @@ const GenreSelector = (props) => {
             <button
               id="genre-item"
               onClick={() => props.handleGenreOption(item)}
+              style={{
+                backgroundColor: `${
+                  props.current_item === item ? "#d9d9d9" : "black"
+                }`,
+              }}
             >
               {item}
             </button>
