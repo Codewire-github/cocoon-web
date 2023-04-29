@@ -72,7 +72,7 @@ export const GreetingUser = (props) => {
   const CurrentHour = Current.getHours();
 
   return (
-    <Link to="/profile">
+    <Link to="/profile" style={{ textDecoration: "none" }}>
       <div className="greeting-container">
         {CurrentHour < 12 && (
           <img
