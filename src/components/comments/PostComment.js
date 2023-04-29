@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
-import { db, auth } from "../../database/firebase-config";
+import { db } from "../../database/firebase-config";
+import { UserAuth } from "../../context/authcontect";
 //import { useNavigate } from "react-router-dom";
-
-const PostComment = () => {
-  const [comment, setComment] = useState("");
+import "./PostComment.css";
+import { Link } from "react-router-dom";
+const PostComment = ({ bgcolor }) => {
+  const [Comment, setComment] = useState("");
   const commentsCollectionRef = collection(db, "comments");
+  const { user } = UserAuth();
   //let navigate = useNavigate();
 
-  const postComment = async () => {
+  const postComment = async (event) => {
+    await event.preventDefault();
     await addDoc(commentsCollectionRef, {
-      comment,
-      //author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+      comment: Comment,
+      username: user?.displayName,
+      userid: user?.uid,
     });
-    //navigate("/");
+    setComment("");
   };
 
   /*useEffect(() => {
@@ -25,17 +30,43 @@ const PostComment = () => {
 
   return (
     <form className="commentBox">
-      <input
-        type="text"
+      <textarea
         className="postInput"
         placeholder="Add a Comment..."
+        maxLength="500"
+        required
         onChange={(event) => {
           setComment(event.target.value);
         }}
-      />
-      <button className="postButton" onClick={postComment}>
-        Post
-      </button>
+      ></textarea>
+      {user?.isAnonymous || user === null ? (
+        <Link to="/login">
+          <button
+            className="signin-btn"
+            style={{
+              backgroundColor: `${bgcolor === "white" ? "black" : bgcolor}`,
+              color: `${
+                (bgcolor === "white" || bgcolor === "rgb(82 0 255)") && "white"
+              }`,
+            }}
+          >
+            Sign in and join the discussion
+          </button>
+        </Link>
+      ) : (
+        <button
+          className="postButton"
+          onClick={postComment}
+          style={{
+            backgroundColor: `${bgcolor === "white" ? "black" : bgcolor}`,
+            color: `${
+              (bgcolor === "white" || bgcolor === "rgb(82 0 255)") && "white"
+            }`,
+          }}
+        >
+          Post
+        </button>
+      )}
     </form>
   );
 };
