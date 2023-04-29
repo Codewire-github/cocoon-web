@@ -1,6 +1,7 @@
 .article-page-container {
   background-color: white;
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   color: black;
@@ -77,13 +78,14 @@
 .article-page-container .second-section {
   display: flex;
   flex-direction: row;
-  padding: 3rem 15rem;
+  padding: 3rem 20rem 10rem 20rem;
   justify-content: space-between;
   gap: 2rem;
 }
 .article-page-container .second-section .article-description {
   width: 690px;
-  padding: 1rem;
+  padding: 1.5rem;
+  padding-right: 3rem;
   font-size: 1.15rem;
   line-height: 28px;
   text-align: left;
@@ -113,26 +115,96 @@
   background-color: #0d0d0d;
   color: white;
   font-family: "Courier New", Courier, monospace;
-  padding: 0.75rem 1rem;
+  padding: 1.2rem;
   border-radius: 0.6rem;
 }
 .article-page-container .second-section .article-description pre code {
   color: white;
   padding: 0;
   background: none;
-  font-size: 18px;
+  font-size: 16px;
+}
+.article-page-container .second-section .interaction-section {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  min-height: 150px;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 1.5rem;
+  border-radius: 10px;
+  gap: 1rem;
+  background-color: black;
+  color: white;
+}
+.article-page-container .second-section .interaction-section .likes-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.article-page-container .second-section .interaction-section .likes-wrap .fa-heart {
+  font-size: 35px;
+  transition: 0.25s all ease-in-out;
+  cursor: pointer;
+}
+.article-page-container .second-section .interaction-section .likes-wrap .fa-heart:hover {
+  opacity: 0.85;
 }
 
 @media screen and (max-width: 480px) {
+  .article-page-container {
+    width: 100vw;
+  }
   .article-page-container .first-section {
-    min-height: 150vh;
+    min-height: -moz-max-content;
+    min-height: max-content;
   }
   .article-page-container .first-section .first-section-content {
-    padding: 4rem;
+    align-items: center;
+    padding: 3rem 1.5rem;
     flex-direction: column-reverse;
   }
+  .article-page-container .first-section .first-section-content img {
+    width: 360px;
+    height: 240px;
+  }
+  .article-page-container .first-section .first-section-content .title {
+    letter-spacing: 0.1px;
+    line-height: 55px;
+    margin-bottom: 7px;
+    font-size: 3.5rem;
+  }
+  .article-page-container .first-section .first-section-content .sub-title {
+    font-size: 1.3rem;
+    margin: 1rem 0rem;
+  }
   .article-page-container .second-section {
-    flex-direction: column;
-    padding: 3rem;
+    flex-direction: column-reverse;
+    padding: 1rem;
+  }
+  .article-page-container .second-section .article-description {
+    width: 420px;
+    padding-right: none;
+    border: none;
+  }
+  .article-page-container .second-section .article-description pre {
+    overflow-x: scroll;
+  }
+  .article-page-container .second-section .article-description pre code {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .article-page-container .first-section .first-section-content img {
+    width: 345px;
+  }
+  .article-page-container .second-section {
+    padding: 0.3rem;
+  }
+  .article-page-container .second-section .article-description {
+    padding-right: 0;
+    font-size: 16.5px;
+    width: 100%;
   }
 }/*# sourceMappingURL=article_display_page.css.map */
