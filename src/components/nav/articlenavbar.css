@@ -65,7 +65,10 @@
 }
 
 @media screen and (max-width: 480px) {
-  .singleblog_navbar_container .singleblog-nav-options-wrap li {
+  .singleblog_navbar_container {
+    padding: 1.5rem;
+  }
+  .singleblog_navbar_container .singleblog-nav-options-wrap {
     display: none;
   }
 }
