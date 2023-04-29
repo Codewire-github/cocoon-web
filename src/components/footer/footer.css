@@ -22,3 +22,24 @@
   font-size: 1.3rem;
   padding: 0.5rem 0.2rem;
 }
+
+@media screen and (max-width: 480px) {
+  .footer-container {
+    padding: 1.5rem;
+    height: max-content;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-container .logo {
+    font-size: 3.5rem;
+  }
+
+  .footer-container .Developers {
+    font-size: 1.5rem;
+  }
+
+  .footer-container #developers-name {
+    font-size: 1rem;
+  }
+}
