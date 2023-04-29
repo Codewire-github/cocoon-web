@@ -8,12 +8,27 @@ const CommentContainer = ({ handleOpenOverlay, bgColor }) => {
   return (
     <div className="comment-main-container">
       <div className="comment-overlay-container">
-        <section className="comment-overlay-heading">
-          <h2>Comments</h2>
+        <section
+          className="comment-overlay-heading"
+          style={{
+            borderBottom: `2px solid ${
+              bgColor === "white" ? "black" : bgColor
+            }`,
+          }}
+        >
+          <h2
+            style={{
+              textDecoration: `underline 10px ${
+                bgColor === "white" ? "black" : bgColor
+              }`,
+            }}
+          >
+            Comments
+          </h2>
           <button
             onClick={() => handleOpenOverlay(false)}
             style={{
-              color: `${bgColor}`,
+              color: `${bgColor === "white" ? "black" : bgColor}`,
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -23,10 +38,10 @@ const CommentContainer = ({ handleOpenOverlay, bgColor }) => {
           </button>
         </section>
         <section className="create-comment-section">
-          {user?.isAnonymous === false && <PostComment />}
+          <PostComment bgcolor={bgColor} />
         </section>
         <section className="display-comment-section">
-          <DisplayComments />
+          <DisplayComments bgcolor={bgColor} user={user} />
         </section>
       </div>
     </div>
