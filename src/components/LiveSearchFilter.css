@@ -1,48 +1,56 @@
-.liveSearchFilter{
-    font-family: monospace;
-    width: 600px;
-    height: auto;
-    margin: 100px auto;
+.liveSearchFilter {
+  padding: 1rem;
+  width: 600px;
+  height: auto;
 }
-.searchInput{
-    font-family: monospace;
-    width: -webkit-fill-available;
-    height: 30px;
-    margin: 10px 0;
-    padding: 10px;
-    resize: inherit;
-    background-color: #eee;
-    border-radius: 5px;
-    border: none;
-    font-size: large;
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 3rem;
+  background-color: #f4f4f4;
 }
-.searchInput:focus-visible{
-    box-shadow: 0 0 0 2px rgb(148, 148, 148);
-    outline: none;
-    background: #f1f1f1;
+.search-container .fa-search {
+  color: black;
+  font-size: 20px;
 }
-.suggestions{
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.searchInput {
+  width: -webkit-fill-available;
+
+  height: 30px;
+
+  padding: 1rem;
+  resize: inherit;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+}
+.searchInput:focus-visible {
+  outline: none;
+}
+.suggestions {
+  position: fixed;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.suggestions .relatedArticles{
-    width: -webkit-fill-available;
-    height: 30px;
-    margin: 10px;
-    padding: 10px;
-    resize: inherit;
-    background-color: #eee;
-    border-radius: 5px;
-    border: none;
-    font-size: large;
-    border-radius: 5px;
+.suggestions .relatedArticles {
+  width: -webkit-fill-available;
+  height: max-content;
+  padding: 15px;
+  resize: inherit;
+  background-color: #eee;
+  color: black;
+  border: none;
+  border-bottom: 0.5px solid rgb(85, 85, 85);
+  font-size: large;
+  cursor: pointer;
 }
-.suggestions .relatedArticles:hover{
-    box-shadow: 0 0 0 2px rgb(148, 148, 148);
-    outline: none;
-    background: #f1f1f1;
+.suggestions .relatedArticles:hover {
+  outline: none;
+  background: #f1f1f1;
 }
