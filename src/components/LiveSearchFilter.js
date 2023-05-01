@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
-import "./LiveSearchFilter.css"
+import React, { useState } from "react";
+import "./LiveSearchFilter.css";
+import GetArticleCollection from "../database/article_collection";
 
 const LiveSearchFilter = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [articles, setArticles] = useState([]);
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const articleCollectionRef = collection(db, "articles");
-      const snapshot = await getDocs(articleCollectionRef);
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setArticles(data);
-    };
-
-    fetchArticles();
-  }, []);
-
-  const filteredArticles = articles.filter((article) =>
+  const filteredArticles = GetArticleCollection().filter((article) =>
     article.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   /*<Link to={`/article/${article.id}`} 
@@ -30,21 +14,24 @@ const LiveSearchFilter = () => {
     </Link>*/
   return (
     <form className="liveSearchFilter">
-      <h1>Search Articles</h1>
-      <input
-        type="text"
-        className="searchInput"
-        placeholder="Search articles"
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
+      <span className="search-container">
+        <i className="fas fa-search"></i>
+        <input
+          type="text"
+          className="searchInput"
+          placeholder="Search articles"
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </span>
       <br></br>
       {searchTerm && (
-      <div className="suggestions">
+        <div className="suggestions">
           {filteredArticles.map((article) => (
-          <div className="relatedArticles" 
-          key={article.id}>{article.title}</div>
+            <div className="relatedArticles" key={article.id}>
+              {article.title}
+            </div>
           ))}
-      </div>
+        </div>
       )}
     </form>
   );
