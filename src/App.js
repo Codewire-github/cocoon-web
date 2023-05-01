@@ -15,6 +15,7 @@ import Account from "./components/auth/Account";
 import ArticlePage from "./pages/article_display_page_firebase/article_page";
 import Profile from "./components/auth/Userprofile";
 import ExplorePage from "./pages/explore_page/explore_page";
+import Aboutus_page from "./pages/aboutus_page/aboutus_page";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/aboutus" element={<Aboutus_page />} />
             <Route path="/write-new-article" element={<NewArticlePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
