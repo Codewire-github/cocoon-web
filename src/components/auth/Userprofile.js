@@ -3,10 +3,9 @@ import { UserAuth } from "../../context/authcontect";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../database/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
-import { NumtoMonth } from "../../pages/landing_page/landing_page";
+import { NumtoMonth } from "../numtomonth";
 
 import "./Userprofile.css";
-import MiniArticleCard from "../cards/mini_article_card/mini_article_card";
 import MiniArticleCardFirebase from "../cards/mini_article_card_firebase/mini_article_card_firebase";
 
 export default function Profile() {
