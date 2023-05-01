@@ -14,6 +14,7 @@ import SignUp from "./components/auth/SignUp";
 import Account from "./components/auth/Account";
 import ArticlePage from "./pages/article_display_page_firebase/article_page";
 import Profile from "./components/auth/Userprofile";
+import ExplorePage from "./pages/explore_page/explore_page";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <AuthContextProvider>
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/explore" element={<ExplorePage />} />
             <Route path="/write-new-article" element={<NewArticlePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />

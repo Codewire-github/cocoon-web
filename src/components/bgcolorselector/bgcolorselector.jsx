@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./bgcolorselector.css";
 const BgColorSelector = (props) => {
   return (
