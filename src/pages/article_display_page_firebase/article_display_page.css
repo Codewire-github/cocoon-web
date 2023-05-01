@@ -23,7 +23,7 @@
   padding: 6rem 15rem;
 }
 .article-page-container .first-section .first-section-content img {
-  width: 600px;
+  width: 620px;
   height: 490px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -78,12 +78,12 @@
 .article-page-container .second-section {
   display: flex;
   flex-direction: row;
-  padding: 3rem 20rem 10rem 20rem;
+  padding: 3rem 23rem 10rem 23rem;
   justify-content: space-between;
   gap: 2rem;
 }
 .article-page-container .second-section .article-description {
-  width: 690px;
+  width: 720px;
   padding: 1.5rem;
   padding-right: 3rem;
   font-size: 1.15rem;
@@ -100,6 +100,7 @@
   font-family: "Courier New", Courier, monospace;
 }
 .article-page-container .second-section .article-description p {
+  font-size: 19px;
   font-family: "Lora", serif;
   margin: 1rem;
 }
@@ -127,12 +128,13 @@
 .article-page-container .second-section .interaction-section {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: -moz-max-content;
+  width: max-content;
   min-height: 150px;
   height: -moz-max-content;
   height: max-content;
-  padding: 1.5rem;
-  border-radius: 10px;
+  padding: 0.6rem 0.6rem 2.5rem 0.6rem;
+  border-radius: 14px;
   gap: 1rem;
   background-color: black;
   color: white;
@@ -141,7 +143,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 .article-page-container .second-section .interaction-section .likes-wrap .fa-heart {
   font-size: 35px;
