@@ -1,37 +1,50 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../database/firebase-config";
 import HTMLString from "react-html-string";
-
+import { db } from "../../database/firebase-config";
+import { collection, onSnapshot } from "firebase/firestore";
+import { UserAuth } from "../../context/authcontect";
 import "./article_display_page.css";
-import MostPopularCard from "../../components/cards/most_popular_card/mostpopularcard";
 import Nav from "../../components/nav/nav";
-import DisplayComments from "../../components/comments/displayComments";
 import FooterSection from "../../components/footer/footer";
-import { NumtoMonth } from "../landing_page/landing_page";
+import { NumtoMonth } from "../../components/numtomonth";
 import CommentContainer from "../../components/comments/commentContainer";
+import GetArticleCollection from "../../database/article_collection";
+import * as firebase from "firebase/app";
+import {
+  arrayUnion,
+  arrayRemove,
+  writeBatch,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 const ArticlePage = () => {
-  window.scroll(0, 0);
+  useEffect(() => {
+    window.scroll(0, 0);
+    const PostRef = doc(db, "articles", postID.id);
+    const CheckLikeStatus = onSnapshot(PostRef, (doc) => {
+      if (doc.exists()) {
+        const data = doc.data();
+        const previouslyLiked = data.likes?.includes(user?.uid);
+        if (previouslyLiked) {
+          setIsLiked(true);
+          console.log("You have previously liked");
+        }
+      }
+    });
+    CheckLikeStatus();
+  }, []);
+  const { user } = UserAuth();
   const [showCommentOverlay, setShowCommentOverlay] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-  const [articles, setArticles] = useState([]);
-  const articlesCollectionRef = collection(db, "articles");
+  const [LikeNums, setLikeNums] = useState(0);
+  const articlesCollection = GetArticleCollection();
   const postID = useParams();
-  console.log(postID.id);
   let CurrentArticle = [];
 
-  useEffect(() => {
-    const getArticles = async () => {
-      let data = await getDocs(articlesCollectionRef);
-      setArticles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getArticles();
-  }, []);
-
-  if (articles !== undefined) {
-    CurrentArticle = articles.find((post) => post.id === postID.id);
+  if (articlesCollection !== undefined) {
+    CurrentArticle = articlesCollection.find((post) => post.id === postID.id);
   }
 
   const {
@@ -48,17 +61,48 @@ const ArticlePage = () => {
     article_description,
     likes,
   } = CurrentArticle || {};
-  console.log(title);
 
   const [date, month, year] = published_date || [];
 
-  function handleLikeBtn() {
-    if (isLiked === true) {
+  const CurrentLikes = likes || [];
+
+  useEffect(() => {
+    const PostRef = doc(db, "articles", postID.id);
+    const CheckLikeStatus = onSnapshot(PostRef, (doc) => {
+      if (doc.exists()) {
+        const data = doc.data();
+        const likesCount = data.likes?.length || 0;
+
+        setLikeNums(likesCount);
+        const previouslyLiked = data.likes?.includes(user?.uid);
+        if (previouslyLiked) {
+          setIsLiked(true);
+          console.log("You have previously liked");
+        }
+      }
+    });
+    return () => {
+      CheckLikeStatus();
+    };
+  }, [postID.id, isLiked]);
+
+  const handleLikeBtn = async () => {
+    const PostRef = doc(db, "articles/", postID.id);
+
+    if (isLiked) {
+      await updateDoc(PostRef, {
+        likes: arrayRemove(user?.uid),
+      });
       setIsLiked(false);
+      console.log(isLiked);
     } else {
+      await updateDoc(PostRef, {
+        likes: arrayUnion(user?.uid),
+      });
       setIsLiked(true);
+      console.log(isLiked);
     }
-  }
+  };
   return (
     <div className="article-page-container">
       <section
@@ -96,30 +140,84 @@ const ArticlePage = () => {
           <HTMLString html={article_description} />
         </section>
         <section className="interaction-section">
-          <div className="likes-wrap">
-            <i
-              className="fas fa-heart"
-              style={{ color: `${isLiked ? "red" : "grey"}` }}
-              onClick={handleLikeBtn}
-            ></i>
-            <p>{likes} Likes</p>
-          </div>
-          <span
-            className="comment-overlay-btn"
+          <section
             style={{
-              backgroundColor: `${bgcolor}`,
-              color: `${bgcolor === "rgb(82 0 255)" ? "white" : "black"}`,
-              padding: "14px 17px",
-              borderRadius: "8px",
-              fontSize: "15px",
-              cursor: "pointer",
-              alignSelf: "center",
+              backgroundColor: "white",
+              color: "black",
+              minWidth: "max-content",
+              padding: "0.7rem 1.8rem",
+              borderRadius: "10px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+              alignItems: "flex-start",
             }}
-            onClick={() => setShowCommentOverlay(true)}
           >
-            <i className="fas fa-comments" style={{ marginRight: "10px" }}></i>
-            <b> Comments</b>
-          </span>
+            <div
+              style={{
+                backgroundColor: "white",
+                color: "black",
+
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "1rem",
+                borderRadius: "10px",
+              }}
+            >
+              <img
+                src={authorImgURL}
+                alt="author-img"
+                style={{ width: "45px", height: "45px", borderRadius: "10px" }}
+              />
+              <span>
+                <h2 style={{ fontSize: "18px" }}>Author:</h2>
+                <p style={{ textTransform: "uppercase", fontSize: "13px" }}>
+                  {authorName}
+                </p>
+              </span>
+            </div>
+            <section
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "1rem",
+                alignItems: "center",
+              }}
+            >
+              <div className="likes-wrap">
+                <i
+                  className="fas fa-heart"
+                  style={{ color: `${isLiked ? "red" : "rgb(228, 228, 228)"}` }}
+                  onClick={handleLikeBtn}
+                ></i>
+                <p style={{ fontWeight: "bold" }}>{LikeNums} Likes</p>
+              </div>
+              <span
+                className="comment-overlay-btn"
+                style={{
+                  backgroundColor: `${bgcolor === "white" ? "black" : bgcolor}`,
+                  color: `${
+                    bgcolor === "rgb(82 0 255)" || bgcolor === "white"
+                      ? "white"
+                      : "black"
+                  }`,
+                  padding: "14px 17px",
+                  borderRadius: "8px",
+                  fontSize: "15px",
+                  cursor: "pointer",
+                  alignSelf: "center",
+                }}
+                onClick={() => setShowCommentOverlay(true)}
+              >
+                <i
+                  className="fas fa-comments"
+                  style={{ marginRight: "10px" }}
+                ></i>
+                <b> Comments</b>
+              </span>
+            </section>
+          </section>
         </section>
       </section>
       {showCommentOverlay && (
