@@ -70,4 +70,18 @@
 .popular-item-container .item-info .published-date {
   font-size: 0.75rem;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 480px) {
+  .popular-card-container {
+    width: 370px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .popular-card-container .styled-text {
+    display: none;
+  }
+  .popular-item-container .item-title {
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=mostpopularcard.css.map */

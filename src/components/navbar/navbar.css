@@ -63,3 +63,13 @@
   color: white;
   cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+  .navbar_container {
+    width: 100vw;
+    padding: 2rem 1rem;
+  }
+  .navbar_container .nav-options-wrap {
+    display: none;
+  }
+}

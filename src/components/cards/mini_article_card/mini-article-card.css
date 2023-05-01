@@ -70,4 +70,10 @@
   border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (max-width: 480px) {
+  .mini-article-card-wrap {
+    width: 370px;
+  }
 }/*# sourceMappingURL=mini-article-card.css.map */

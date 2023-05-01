@@ -1,11 +1,13 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import Image from "@tiptap/extension-image";
 import { OptionButton } from "../../components/custom-components/customButtons";
 import "./newArticlePage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/authcontect";
 import { addDoc, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
+import React, { useCallback } from "react";
 import { db } from "../../database/firebase-config";
 import GenreSelector from "../../components/genre-selector/genreselector";
 import BgColorSelector from "../../components/bgcolorselector/bgcolorselector";
@@ -23,7 +25,7 @@ function NewArticlePage() {
   const [newday, setDay] = useState();
   const [newMonth, setMonth] = useState();
   const [newYear, setYear] = useState();
-  const [backgroundColor, setBackgroundColor] = useState("#dccfbd");
+  const [backgroundColor, setBackgroundColor] = useState("white");
   const [imgURL, setImgURL] = useState("");
   const [imgAlt, setImgAlt] = useState("");
   const [newimgURL, setNewImgURL] = useState(
@@ -49,6 +51,7 @@ function NewArticlePage() {
       bgcolor: backgroundColor,
       published_date: [newday, newMonth, newYear],
       article_description: newdescription,
+      likes: [],
     });
 
     navigate("/");
@@ -72,9 +75,7 @@ function NewArticlePage() {
   };
 
   const navigate = useNavigate();
-  useEffect(() => {
-    console.log("hello world");
-  }, []);
+
   useEffect(() => {
     if (user === null) {
       navigate("/");
@@ -174,7 +175,7 @@ function NewArticlePage() {
               <input
                 type="text"
                 maxLength="60"
-                placeholder="Write a short description about the image..."
+                placeholder="Write a short description about the image...(eg. source)"
                 onChange={(e) => setImgAlt(e.target.value)}
                 style={{
                   outline: " none",
@@ -191,7 +192,10 @@ function NewArticlePage() {
             </section>
             <section style={{ display: "flex", flexDirection: "row" }}>
               <BgColorSelector bgColorVal={handleBackgroundColor} />
-              <GenreSelector handleGenreOption={handleGenreSelect} />
+              <GenreSelector
+                handleGenreOption={handleGenreSelect}
+                current_item={newgenre}
+              />
             </section>
           </section>
           <section>
@@ -272,14 +276,24 @@ export default NewArticlePage;
 
 const Tiptap = () => {
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [StarterKit, Image],
     content: "<h2>Tell your story... </h2>",
     onUpdate: ({ editor }) => {
       json = editor.getHTML();
       // send the content to an API here
     },
   });
+  const addImage = useCallback(() => {
+    const url = window.prompt("URL");
 
+    if (url) {
+      editor.chain().focus().setImage({ src: url }).run();
+    }
+  }, [editor]);
+
+  if (!editor) {
+    return null;
+  }
   return (
     <>
       <div className="text-editor-wrap">

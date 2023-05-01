@@ -1,53 +1,56 @@
 .comments {
-  width: 500px;
-  height: auto;
+  width: 100%;
+
   margin: 0 auto;
 }
 .commentContainer {
-  height: 100px;
-  margin: 10px 0;
-  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 120px;
+  padding: 20px 10px 30px 10px;
   resize: inherit;
-  background-color: #eee;
-  border-radius: 5px;
   border: none;
-  font-size: large;
-  border-radius: 5px;
-}
-.commentContainer:hover {
-  box-shadow: 0 0 0 1.5px rgb(196, 196, 196);
 }
 
+.display-comments-heading h2 {
+  font-size: 17px;
+}
 .commentinfo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-h4 {
-  color: rgb(118, 118, 118);
-  font-size: 0.7rem;
+.commentinfo h3 {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: lowercase;
+  font-family: "Sora", sans-serif;
+}
+.commentinfo h4 {
+  color: rgb(81, 81, 81);
+  font-size: 12px;
+  font-weight: normal;
 }
 .comment {
   word-wrap: break-word;
   height: auto;
-  font-size: 0.8rem;
+  font-size: 15px;
   max-height: 400px;
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
 }
 .deleteButton .delete {
-  font-family: monospace;
-  float: right;
   color: white;
-  background: rgb(255, 108, 108);
-  padding: 5px 15px;
+  background: rgb(230, 12, 12);
+  padding: 10px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: large;
+  transition: 0.25s all ease-in-out;
 }
 .deleteButton .delete:hover {
-  box-shadow: 0 0 0 2px rgb(99, 99, 99);
   background: rgb(253, 75, 75);
 }

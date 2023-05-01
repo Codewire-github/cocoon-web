@@ -35,7 +35,9 @@ const NavBar = () => {
           <li>Home</li>
         </Link>
         <p>/</p>
-        <li>Explore</li>
+        <Link to="/explore" style={{ textDecoration: "none" }}>
+          <li>Explore</li>
+        </Link>
         <p>/</p>
         <li>About us</li>
 
@@ -72,7 +74,7 @@ export const GreetingUser = (props) => {
   const CurrentHour = Current.getHours();
 
   return (
-    <Link to="/profile">
+    <Link to="/profile" style={{ textDecoration: "none" }}>
       <div className="greeting-container">
         {CurrentHour < 12 && (
           <img

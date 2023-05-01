@@ -53,7 +53,8 @@
 .editor-main-wrap .editor-content .subheading-input {
   width: 800px;
   padding: 1rem;
-  max-height: 15vh;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   margin-bottom: 1rem;
   border: none;
   font-size: 1.4rem;
@@ -114,12 +115,12 @@
   background-color: #0d0d0d;
   color: white;
   font-family: "Courier New", Courier, monospace;
-  padding: 0.75rem 1rem;
+  padding: 1.2rem;
   border-radius: 0.6rem;
 }
 .editor-main-wrap .editor-content pre code {
   color: white;
-  padding: 0;
+  padding: 0px;
   background: none;
   font-size: 16px;
 }
