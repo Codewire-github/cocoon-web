@@ -35,7 +35,9 @@ const NavBar = () => {
           <li>Home</li>
         </Link>
         <p>/</p>
-        <li>Explore</li>
+        <Link to="/explore" style={{ textDecoration: "none" }}>
+          <li>Explore</li>
+        </Link>
         <p>/</p>
         <li>About us</li>
 
