@@ -46,13 +46,15 @@ const Nav = ({ bgColor }) => {
           </li>
         </Link>
         <p>/</p>
-        <li
-          style={{
-            color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
-          }}
-        >
-          Explore
-        </li>
+        <Link to="/explore" style={{ textDecoration: "none" }}>
+          <li
+            style={{
+              color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
+            }}
+          >
+            Explore
+          </li>
+        </Link>
         <p>/</p>
         <li
           style={{
