@@ -33,6 +33,11 @@ export default function Profile() {
     (article) => article.userID === user?.uid
   );
 
+  let totalLikes = 0;
+  for (let i = 0; i < userUploads.length; i++) {
+    totalLikes += userUploads[i].likes.length;
+  }
+
   return (
     <div className="fields">
       <div className="userIntro">
@@ -42,6 +47,25 @@ export default function Profile() {
         <img src={user?.photoURL} alt="Avatar" className="useravatar" />
         <p className="userkoname"> {user?.displayName}</p>
         <p className="writer-txt">Writer</p>
+      </div>
+
+      <div className="mid-contain">
+        <div className="uploads-no">
+          <p className="num">
+            <b>
+              {userUploads.length < 10
+                ? `0${userUploads.length}`
+                : userUploads.length}
+            </b>
+          </p>
+          <p className="uploads-txt">Uploads</p>
+        </div>
+        <div className="likes-no">
+          <p className="num">
+            <b>{totalLikes < 10 ? `0${totalLikes}` : totalLikes}</b>
+          </p>
+          <p className="likes-txt">Likes</p>
+        </div>
       </div>
 
       <div className="user-container">
