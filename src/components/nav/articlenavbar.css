@@ -39,7 +39,7 @@
   font-weight: bold;
   border-radius: 8px;
   padding: 0.6rem 1rem;
-  transition: 0.2s all ease-in-out;
+  transition: 0.35s all ease-in-out;
 }
 
 .singleblog_navbar_container .singleblog-nav-options-wrap .write-btn:hover {
@@ -55,7 +55,7 @@
   color: rgba(72, 21, 255, 0.966);
   font-weight: 600;
   font-size: 1.05rem;
-  transition: 0.2s all ease-in-out;
+  transition: 0.35s all ease-in-out;
 }
 
 .singleblog_navbar_container .singleblog-nav-options-wrap .nav-btn:hover {
