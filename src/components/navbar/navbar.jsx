@@ -39,7 +39,9 @@ const NavBar = () => {
           <li>Explore</li>
         </Link>
         <p>/</p>
-        <li>About us</li>
+        <Link to="/aboutus" style={{ textDecoration: "none" }}>
+          <li>About us</li>
+        </Link>
 
         {user?.isAnonymous === false && (
           <Link to="/write-new-article" style={{ textDecoration: "none" }}>

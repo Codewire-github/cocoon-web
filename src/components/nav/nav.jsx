@@ -56,13 +56,16 @@ const Nav = ({ bgColor }) => {
           </li>
         </Link>
         <p>/</p>
-        <li
-          style={{
-            color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
-          }}
-        >
-          About us
-        </li>
+        <Link to="/aboutus" style={{ textDecoration: "none" }}>
+          <li
+            style={{
+              color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
+            }}
+          >
+            About us
+          </li>
+        </Link>
+
         {user?.isAnonymous === false && (
           <Link to="/write-new-article">
             <button className="write-btn">Write</button>
