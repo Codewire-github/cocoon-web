@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 8rem;
+  margin-bottom: 2rem;
 }
 
 .profile-txt {
@@ -69,6 +69,34 @@
   background: black;
   z-index: -1;
   transform: rotate(45deg);
+}
+
+.mid-contain {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5rem;
+}
+
+.uploads-no,
+.likes-no {
+  height: 90px;
+  width: 120px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: grey;
+}
+
+.num {
+  font-size: 35px;
+  color: black;
+}
+
+.uploads-txt,
+.likes-txt {
+  font-size: 20px;
 }
 
 .uploads-des {
