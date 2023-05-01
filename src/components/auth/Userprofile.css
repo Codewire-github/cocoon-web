@@ -1,25 +1,32 @@
 .fields {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   margin: none;
   background-color: white;
-  height: 100vh;
+  min-height: 100vh;
+  height: max-content;
   width: 100%;
 }
 
-.userRight,
-.userLeft {
-  margin: 3rem;
+.userIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8rem;
 }
 
-.userLeft {
-  width: 40%;
+.profile-txt {
+  font-size: 23px;
+  margin-top: 2rem;
+  color: black;
 }
 
 .useravatar {
   height: 130px;
   width: 130px;
   border-radius: 50%;
+  margin-top: 2rem;
 }
 
 .userkoname {
@@ -32,29 +39,26 @@
   color: #665df5;
 }
 
-.profile-txt {
-  font-size: 23px;
-  margin-top: 2rem;
-  color: black;
-}
-
 .heading-contain {
   position: absolute;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 40px;
+  font-family: "Landasans";
+  /*transform: translate(-50%, -50%);
   border-bottom: 3px solid black;
   line-height: 35px;
   overflow: hidden;
+  width: 300px;
+  height: 40px;
+   */
 }
 
 .uploads-heading {
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 500;
   padding: 2px 20px;
   background: black;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 .uploads-heading:before {
@@ -65,4 +69,8 @@
   background: black;
   z-index: -1;
   transform: rotate(45deg);
+}
+
+.uploads-des {
+  margin: 2rem 0rem;
 }
