@@ -2,4 +2,11 @@
   background-color: white;
   min-height: 100vh;
   min-width: 100vw;
+}
+.explore-page-main-container .main-content-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem 15rem;
+  width: 100vw;
 }/*# sourceMappingURL=explore_page.css.map */
