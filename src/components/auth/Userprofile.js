@@ -36,17 +36,20 @@ export default function Profile() {
 
   return (
     <div className="fields">
-      <div className="userLeft">
+      <div className="userIntro">
+        <p className="profile-txt">
+          <b>User Profile</b>
+        </p>
         <img src={user?.photoURL} alt="Avatar" className="useravatar" />
         <p className="userkoname"> {user?.displayName}</p>
         <p className="writer-txt">Writer</p>
-        <p className="profile-txt">Profile</p>
       </div>
-      <div className="userRight">
+
+      <div className="user-container">
         <div className="heading-contain">
           <h3 className="uploads-heading">My uploads</h3>
         </div>
-        <div>
+        <div className="uploads-des">
           {userUploads.map((article) => (
             <div key={article.id}>
               <MiniArticleCardFirebase
