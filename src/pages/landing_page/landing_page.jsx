@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
-//Importing firebase components
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../database/firebase-config";
-
+//Importing article collection
+import GetArticleCollection from "../../database/article_collection";
 //Importing Components
+import "./landing_page.css";
 import BannerArticle from "../../components/cards/banner_article/banner_article";
 import MiniArticleCard from "../../components/cards/mini_article_card/mini_article_card";
 import MostPopularCard from "../../components/cards/most_popular_card/mostpopularcard";
@@ -11,8 +9,8 @@ import TopStoriesCard from "../../components/cards/top_stories_card/top_stories_
 import FooterSection from "../../components/footer/footer";
 import NavBar from "../../components/navbar/navbar";
 import { postsData } from "../../components/blogpostdata";
-import "./landing_page.css";
 import MiniArticleCardFirebase from "../../components/cards/mini_article_card_firebase/mini_article_card_firebase";
+import { NumtoMonth } from "../../components/numtomonth";
 const LandingPage = () => {
   return (
     <>
@@ -67,17 +65,7 @@ const DisplayArticle = () => {
 };
 
 const ExploreArticles = () => {
-  const [articles, setArticles] = useState([]);
-  const articlesCollectionRef = collection(db, "articles");
-  useEffect(() => {
-    const getArticles = async () => {
-      let data = await getDocs(articlesCollectionRef);
-      setArticles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(articles[1]);
-    };
-    getArticles();
-  }, []);
-  getArticleData(articles);
+  const articles = GetArticleCollection();
   return (
     <div className="explore-container">
       <p style={{ textTransform: "uppercase", fontWeight: "bold" }}>Explore</p>
@@ -99,51 +87,4 @@ const ExploreArticles = () => {
       ))}
     </div>
   );
-};
-
-export const NumtoMonth = (value) => {
-  switch (value) {
-    case 1:
-      return "Jan";
-
-    case 2:
-      return "Feb";
-
-    case 3:
-      return "Mar";
-
-    case 4:
-      return "Apr";
-
-    case 5:
-      return "May";
-
-    case 6:
-      return "Jun";
-
-    case 7:
-      return "Jul";
-
-    case 8:
-      return "Aug";
-
-    case 9:
-      return "Sept";
-
-    case 10:
-      return "Oct";
-
-    case 11:
-      return "Nov";
-
-    case 12:
-      return "Dec";
-
-    default:
-      break;
-  }
-};
-
-export const getArticleData = (articles) => {
-  return articles;
 };
