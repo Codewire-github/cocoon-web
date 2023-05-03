@@ -13,7 +13,7 @@ const LiveSearchFilter = () => {
     className="relatedArticles">{article.title}
     </Link>*/
   return (
-    <form className="liveSearchFilter">
+    <form className="liveSearchFilter" style={{ zIndex: 100 }}>
       <span className="search-container">
         <i className="fas fa-search"></i>
         <input
