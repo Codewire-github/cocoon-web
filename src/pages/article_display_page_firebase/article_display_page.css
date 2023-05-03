@@ -34,6 +34,7 @@
 .article-page-container .first-section .first-section-content #genre {
   text-transform: uppercase;
   font-size: 0.9rem;
+  padding-bottom: 1rem;
 }
 .article-page-container .first-section .first-section-content .title {
   font-size: 4rem;
@@ -161,21 +162,22 @@
   .article-page-container .first-section {
     min-height: -moz-max-content;
     min-height: max-content;
+    width: 100vw;
   }
   .article-page-container .first-section .first-section-content {
     align-items: center;
-    padding: 3rem 1.5rem;
+    padding: 2rem;
     flex-direction: column-reverse;
   }
   .article-page-container .first-section .first-section-content img {
-    width: 360px;
+    width: 90vw;
     height: 240px;
   }
   .article-page-container .first-section .first-section-content .title {
     letter-spacing: 0.1px;
     line-height: 55px;
     margin-bottom: 7px;
-    font-size: 3.5rem;
+    font-size: 3.4rem;
   }
   .article-page-container .first-section .first-section-content .sub-title {
     font-size: 1.3rem;
@@ -183,12 +185,16 @@
   }
   .article-page-container .second-section {
     flex-direction: column-reverse;
-    padding: 1rem;
+    align-items: center;
+    padding: 2rem 0.5rem;
   }
   .article-page-container .second-section .article-description {
-    width: 420px;
+    width: 100vw;
     padding-right: none;
     border: none;
+  }
+  .article-page-container .second-section .article-description p {
+    font-size: 18px;
   }
   .article-page-container .second-section .article-description pre {
     overflow-x: scroll;
@@ -196,17 +202,10 @@
   .article-page-container .second-section .article-description pre code {
     font-size: 14px;
   }
-}
-@media screen and (max-width: 375px) {
-  .article-page-container .first-section .first-section-content img {
-    width: 345px;
+  .article-page-container .second-section .article-description ul {
+    margin-left: 25px;
   }
-  .article-page-container .second-section {
-    padding: 0.3rem;
-  }
-  .article-page-container .second-section .article-description {
-    padding-right: 0;
-    font-size: 16.5px;
-    width: 100%;
+  .article-page-container .second-section .article-description ul li {
+    text-indent: -15px;
   }
 }/*# sourceMappingURL=article_display_page.css.map */
