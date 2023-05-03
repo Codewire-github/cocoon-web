@@ -54,15 +54,16 @@
 
 @media screen and (max-width: 480px) {
   .banner-article-wrap {
-    width: 390px;
+    width: 95vw;
+
     img {
-      width: 360px;
+      width: 92vw;
       height: 280px;
     }
 
     .article-info {
       top: -40px;
-      width: 90%;
+      width: 90vw;
 
       h1 {
         font-size: 5rem;
