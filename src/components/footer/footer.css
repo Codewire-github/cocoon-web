@@ -1,8 +1,10 @@
 .footer-container {
   display: flex;
+  justify-self: flex-end;
+  bottom: 0;
   flex-direction: row;
   justify-content: space-between;
-  height: 25vh;
+  height: 30vh;
   background-color: black;
   color: white;
   padding: 2rem 15rem;
