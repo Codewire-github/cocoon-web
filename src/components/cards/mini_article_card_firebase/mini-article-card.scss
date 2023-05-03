@@ -76,3 +76,32 @@
     object-fit: cover;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .mini-article-card-wrap {
+    width: 95vw;
+    flex-direction: column;
+
+    .article-info {
+      width: 90vw;
+    }
+
+    img {
+      width: 90vw;
+      height: 300px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mini-article-card-wrap {
+    width: 90vw;
+    .article-info {
+      width: 88vw;
+    }
+    img {
+      width: 87vw;
+      height: 250px;
+    }
+  }
+}
