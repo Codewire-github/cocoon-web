@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import HTMLString from "react-html-string";
 import { db } from "../../database/firebase-config";
-import { collection, onSnapshot } from "firebase/firestore";
+import { onSnapshot } from "firebase/firestore";
 import { UserAuth } from "../../context/authcontect";
 import "./article_display_page.css";
 import Nav from "../../components/nav/nav";
@@ -10,14 +10,8 @@ import FooterSection from "../../components/footer/footer";
 import { NumtoMonth } from "../../components/numtomonth";
 import CommentContainer from "../../components/comments/commentContainer";
 import GetArticleCollection from "../../database/article_collection";
-import * as firebase from "firebase/app";
-import {
-  arrayUnion,
-  arrayRemove,
-  writeBatch,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
+
+import { arrayUnion, arrayRemove, doc, updateDoc } from "firebase/firestore";
 
 const ArticlePage = () => {
   useEffect(() => {
@@ -64,8 +58,6 @@ const ArticlePage = () => {
 
   const [date, month, year] = published_date || [];
 
-  const CurrentLikes = likes || [];
-
   useEffect(() => {
     const PostRef = doc(db, "articles", postID.id);
     const CheckLikeStatus = onSnapshot(PostRef, (doc) => {
@@ -77,7 +69,6 @@ const ArticlePage = () => {
         const previouslyLiked = data.likes?.includes(user?.uid);
         if (previouslyLiked) {
           setIsLiked(true);
-          console.log("You have previously liked");
         }
       }
     });
@@ -115,10 +106,10 @@ const ArticlePage = () => {
         <Nav bgColor={bgcolor} />
         <section className="first-section-content">
           <div>
-            <img src={img_address} />
+            <img src={img_address} alt={img_alt} />
             <p id="image-alt">{img_alt}</p>
           </div>
-          <section>
+          <section className="first-section-details">
             <p id="genre">{genre}</p>
             <h1 className="title">{title}</h1>
             <p className="sub-title">{sub_description}</p>
