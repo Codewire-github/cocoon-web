@@ -61,4 +61,10 @@
   border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (max-width: 450px) {
+  .stories-item-container {
+    width: 92vw;
+  }
 }/*# sourceMappingURL=topstoriescard.css.map */
