@@ -2,6 +2,7 @@
   padding: 1rem;
   width: 600px;
   height: auto;
+  transition: 0.25s all ease-in-out;
 }
 .search-container {
   display: flex;
@@ -30,12 +31,17 @@
   outline: none;
 }
 .suggestions {
-  position: fixed;
+  z-index: 100;
+  position: absolute;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: 0.25s all ease-in-out;
 }
 
 .suggestions .relatedArticles {
@@ -43,14 +49,21 @@
   height: max-content;
   padding: 15px;
   resize: inherit;
-  background-color: #eee;
+  background-color: white;
   color: black;
   border: none;
-  border-bottom: 0.5px solid rgb(85, 85, 85);
-  font-size: large;
+  font-size: 16px;
   cursor: pointer;
+  transition: 0.25s all ease-in-out;
 }
 .suggestions .relatedArticles:hover {
   outline: none;
-  background: #f1f1f1;
+  background: #f7f7f7;
+}
+
+@media screen and (max-width: 450px) {
+  .liveSearchFilter {
+    padding: 0.5rem;
+    width: 96vw;
+  }
 }
