@@ -1,13 +1,11 @@
 .paginatedArticleList {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 700px;
+  min-height: 40vh;
   height: auto;
   margin: 0 auto;
-}
-.paginatedArticleList h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
 }
 .pagination {
   display: flex;
@@ -17,7 +15,6 @@
   font-size: 16px;
 }
 .pagination button {
-  font-family: monospace;
   background-color: white;
   border: 1px solid black;
   padding: 5px 10px;
@@ -26,6 +23,8 @@
   border: none;
   border-radius: 5px;
   font-size: large;
+  cursor: pointer;
+  transition: 0.25s all ease-in-out;
 }
 .pagination .disabled {
   opacity: 0;
@@ -42,4 +41,11 @@
 .pagination button:hover {
   background-color: rgb(21, 21, 21);
   color: white;
+}
+
+@media screen and (max-width: 450px) {
+  .paginatedArticleList {
+    width: 95vw;
+    align-items: center;
+  }
 }
