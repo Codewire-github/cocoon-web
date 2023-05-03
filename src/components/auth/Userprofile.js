@@ -7,6 +7,7 @@ import { NumtoMonth } from "../numtomonth";
 
 import "./Userprofile.css";
 import MiniArticleCardFirebase from "../cards/mini_article_card_firebase/mini_article_card_firebase";
+import { EmptyCard } from "../PaginatedArticleList";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -73,22 +74,26 @@ export default function Profile() {
           <h3 className="uploads-heading">My uploads</h3>
         </div>
         <div className="uploads-des">
-          {userUploads.map((article) => (
-            <div key={article.id}>
-              <MiniArticleCardFirebase
-                linkid={article.id}
-                author={article.authorName}
-                authorImg={article.authorImgURL}
-                heading={article.title}
-                subheading={article.sub_description}
-                imgUrl={article.img_address}
-                date={`${NumtoMonth(article.published_date[1])} ${
-                  article.published_date[0]
-                }, ${article.published_date[2]}`}
-                genre={article.genre}
-              />
-            </div>
-          ))}
+          {userUploads.length === 0 ? (
+            <EmptyCard message="You may want to upload an article?" />
+          ) : (
+            userUploads.map((article) => (
+              <div key={article.id}>
+                <MiniArticleCardFirebase
+                  linkid={article.id}
+                  author={article.authorName}
+                  authorImg={article.authorImgURL}
+                  heading={article.title}
+                  subheading={article.sub_description}
+                  imgUrl={article.img_address}
+                  date={`${NumtoMonth(article.published_date[1])} ${
+                    article.published_date[0]
+                  }, ${article.published_date[2]}`}
+                  genre={article.genre}
+                />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
