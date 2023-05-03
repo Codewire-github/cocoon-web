@@ -41,3 +41,14 @@
 #genre-item:active {
   background-color: red;
 }
+
+@media screen and (max-width: 480px) {
+  .genre-container {
+    width: 95vw;
+    padding: 0.5rem;
+  }
+  #genre-item {
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+}
