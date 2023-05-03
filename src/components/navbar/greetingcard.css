@@ -37,4 +37,16 @@
 }
 
 @media screen and (max-width: 480px) {
+  .greeting-container {
+    background-color: transparent;
+  }
+  .greeting-container .greeting-icon {
+    display: none;
+  }
+  .greeting-container .greeting-content .greeting-text {
+    display: none;
+  }
+  .greeting-container .greeting-content .username {
+    display: none;
+  }
 }
