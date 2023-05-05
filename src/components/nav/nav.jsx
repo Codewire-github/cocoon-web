@@ -104,6 +104,7 @@ const Nav = ({ bgColor }) => {
           ></i>
         </span>
       </div>
+      {}
     </div>
   );
 };
