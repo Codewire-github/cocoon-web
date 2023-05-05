@@ -20,3 +20,14 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .bgcolor-container {
+    .bgcolor-options {
+      #bgcolor-item {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
