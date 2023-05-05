@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LiveSearchFilter.css";
 import GetArticleCollection from "../database/article_collection";
+import { Link } from "react-router-dom";
 
 const LiveSearchFilter = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,27 +14,32 @@ const LiveSearchFilter = () => {
     className="relatedArticles">{article.title}
     </Link>*/
   return (
-    <form className="liveSearchFilter" style={{ zIndex: 100 }}>
-      <span className="search-container">
+    <form className="liveSearchFilter">
+      <div className="search-container">
         <i className="fas fa-search"></i>
         <input
           type="text"
           className="searchInput"
           placeholder="Search articles"
           onChange={(event) => setSearchTerm(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+            }
+          }}
         />
-      </span>
-      <br></br>
+      </div>
       {searchTerm && (
         <div className="suggestions">
           {filteredArticles.map((article) => (
-            <div className="relatedArticles" key={article.id}>
+            <Link to={`/article/${article.id}`} className="relatedArticles" key={article.id}>
               {article.title}
-            </div>
+            </Link>
           ))}
         </div>
       )}
     </form>
+
   );
 };
 

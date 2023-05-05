@@ -6,7 +6,19 @@
   color: black;
   padding: 1.5rem 10rem;
 }
-.singleblog_navbar_container h2 {
+.Logo {
+  display: flex;
+  align-items: center;
+}
+
+.Logo img {
+  filter: invert(100%);
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.singleblog_navbar_container .Logo h2 {
   text-transform: uppercase;
   margin-right: 2rem;
   font-family: "Landasans";
