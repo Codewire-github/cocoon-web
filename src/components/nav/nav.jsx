@@ -1,4 +1,5 @@
 import "./articlenavbar.css";
+import cocoonLogo from "../../images/cocoonLogo.png"
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { UserAuth } from "../../context/authcontect";
@@ -22,14 +23,11 @@ const Nav = ({ bgColor }) => {
         color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
       }}
     >
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <h2
-          style={{
+      <Link to="/" className="Logo" style={{ textDecoration: "none" }}>
+        <img src={cocoonLogo} alt="Logo" />
+        <h2 style={{
             color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
-          }}
-        >
-          The cocoon
-        </h2>
+          }}>The cocoon</h2>
       </Link>
       <ul
         className="singleblog-nav-options-wrap"

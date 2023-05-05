@@ -9,6 +9,17 @@
   color: white;
   padding: 2rem 15rem;
 }
+.footer-container .theCocoon {
+  display: flex;
+  align-items: center;
+}
+
+.theCocoon img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
 
 .footer-container .logo {
   font-size: 5rem;
@@ -32,8 +43,13 @@
     flex-direction: column;
     gap: 1rem;
   }
-
-  .footer-container .logo {
+  .footer-container .theCocoon img{
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  .footer-container .theCocoon .logo {
     font-size: 3.5rem;
   }
 
