@@ -19,6 +19,17 @@
   font-family: Landasans;
   font-size: 45px;
 }
+.link-container {
+  display: flex;
+  align-items: center;
+}
+
+.link-container img {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
 .navbar_container .nav-options-wrap li {
   color: white;
   text-decoration: none;

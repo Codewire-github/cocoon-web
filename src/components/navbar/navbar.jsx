@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import morningVector from "../../images/morning.webp";
 import eveningVector from "../../images/evening.webp";
 import nightVector from "../../images/night.jpeg";
+import cocoonLogo from "../../images/cocoonLogo.png"
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -27,7 +28,8 @@ const NavBar = () => {
 
   return (
     <div className="navbar_container" style={{ color: "white" }}>
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/" className="link-container" style={{ textDecoration: "none" }}>
+        <img src={cocoonLogo} alt="Logo" />
         <h2 style={{ textTransform: "uppercase" }}>The cocoon</h2>
       </Link>
       <ul className="nav-options-wrap">
