@@ -1,11 +1,12 @@
 import "./articlenavbar.css";
 import { Link } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { UserAuth } from "../../context/authcontect";
 import { useNavigate } from "react-router-dom";
 import { GreetingUser } from "../navbar/navbar";
 const Nav = ({ bgColor }) => {
   const { logOut, user } = UserAuth();
+  const [showSideMenu, setShowSideMenu] = useState(false);
   const handleSignOut = async () => {
     try {
       await logOut();
@@ -82,10 +83,26 @@ const Nav = ({ bgColor }) => {
           </button>
         )}
       </ul>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
         {user?.isAnonymous === false && (
           <GreetingUser userName={user?.displayName} userImg={user?.photoURL} />
         )}
+        <span className="hamburger-menu" onClick={() => setShowSideMenu(true)}>
+          <i
+            className="fas fa-bars"
+            style={{
+              fontSize: "28px",
+              color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
+            }}
+          ></i>
+        </span>
       </div>
     </div>
   );

@@ -83,7 +83,7 @@ function NewArticlePage() {
   }, [user]);
   return (
     <form onSubmit={publishNewArticle}>
-      <div className="editor-main-wrap">
+      <div className="editor-main-wrap" style={{}}>
         <div className="nav-bar-container">
           <Link to="/" style={{ textDecoration: "none" }}>
             <h2
@@ -106,7 +106,12 @@ function NewArticlePage() {
               backgroundColor: `${
                 backgroundColor === "white" ? "black" : backgroundColor
               }`,
-              color: `${backgroundColor === "white" ? "white" : "black"}`,
+              color: `${
+                backgroundColor === "white" ||
+                backgroundColor === "rgb(82 0 255)"
+                  ? "white"
+                  : "black"
+              }`,
             }}
           >
             Publish
@@ -118,31 +123,12 @@ function NewArticlePage() {
             style={{ backgroundColor: `${backgroundColor}` }}
           >
             <section className="img-selector">
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: "5px",
-                  width: "480px",
-                  padding: "5px 5px 5px 16px ",
-                  backgroundColor: "white",
-                  borderRadius: "0.8rem",
-                }}
-              >
+              <span className="image-address-input">
                 <input
                   type="text"
                   placeholder="Enter image address for your article "
                   className="imgurl-textwrap"
                   onChange={(e) => setImgURL(e.target.value)}
-                  style={{
-                    border: "none",
-                    width: "395px",
-                    fontSize: "13.5px",
-                    fontWeight: "bold",
-
-                    outline: "none",
-                  }}
                 />
                 <button
                   style={{
@@ -164,12 +150,7 @@ function NewArticlePage() {
                 <img
                   src={newimgURL}
                   alt="article-img"
-                  style={{
-                    width: "480px",
-                    height: "392px",
-                    objectFit: "cover",
-                    borderRadius: "10px",
-                  }}
+                  className="article-img"
                 />
               </div>
               <input
@@ -177,17 +158,7 @@ function NewArticlePage() {
                 maxLength="60"
                 placeholder="Write a short description about the image...(eg. source)"
                 onChange={(e) => setImgAlt(e.target.value)}
-                style={{
-                  outline: " none",
-                  padding: ".9rem",
-                  width: "480px",
-                  backgroundColor: "white",
-                  color: "black",
-                  fontSize: "12px",
-                  fontFamily: "monospace",
-                  border: "none",
-                  borderRadius: "10px",
-                }}
+                className="article-img-alt-input"
               />
             </section>
             <section style={{ display: "flex", flexDirection: "row" }}>
@@ -222,19 +193,7 @@ function NewArticlePage() {
         </div>
         {showOverlay === true && (
           <div className="overlay-main-container">
-            <div
-              className="overlay-wrap"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                width: "450px",
-                backgroundColor: "white",
-                borderRadius: "8px",
-                padding: "2rem 1.5rem",
-                boxShadow: "5px 5px 10px 1px rgba(0, 0, 0, 0.2)",
-              }}
-            >
+            <div className="overlay-wrap">
               <h2 style={{ color: "black" }}>
                 Are you sure you want to publish your article?
               </h2>

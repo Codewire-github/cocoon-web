@@ -11,3 +11,13 @@
     width: 100vw;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .explore-page-main-container {
+    .main-content-section {
+      flex-direction: column-reverse;
+      padding: 1rem 0.5rem;
+      gap: 1.5rem;
+    }
+  }
+}
