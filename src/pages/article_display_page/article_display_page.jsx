@@ -12,14 +12,11 @@ import MostPopularCard from "../../components/cards/most_popular_card/mostpopula
 import DisplayComments from "../../components/comments/displayComments";
 
 const ArticleDisplayPage = () => {
-  useEffect(() => {
-    console.log("hello world");
-  }, []);
   window.scroll(0, 0);
   const postID = useParams();
-  console.log(postID.id);
+
   const Article = postsData.find((post) => post.id == postID.id);
-  console.log(Article);
+
   const {
     author,
     profession,

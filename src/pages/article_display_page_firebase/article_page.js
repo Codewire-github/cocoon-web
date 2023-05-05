@@ -23,7 +23,6 @@ const ArticlePage = () => {
         const previouslyLiked = data.likes?.includes(user?.uid);
         if (previouslyLiked) {
           setIsLiked(true);
-          console.log("You have previously liked");
         }
       }
     });
