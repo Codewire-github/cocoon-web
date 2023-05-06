@@ -40,6 +40,13 @@ const BgColorSelector = (props) => {
         ></button>
         <button
           id="bgcolor-item"
+          style={{ backgroundColor: "rgb(241, 129, 129)" }}
+          onClick={() => {
+            props.bgColorVal("rgb(241, 129, 129)");
+          }}
+        ></button>
+        <button
+          id="bgcolor-item"
           style={{ backgroundColor: "rgb(82 0 255)" }}
           onClick={() => {
             props.bgColorVal("rgb(82 0 255)");
