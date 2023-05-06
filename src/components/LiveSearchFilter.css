@@ -15,8 +15,6 @@
 }
 
 .search-container:focus-within,
-
-
 .search-container .fa-search {
   color: #b5b5b5;
   font-size: 18px;
@@ -71,4 +69,11 @@
   background-color: #f3f3f3;
   color: #000;
   font-weight: 600;
+}
+
+@media screen and (max-width: 450px) {
+  .liveSearchFilter {
+    padding: 0.5rem;
+    width: 96vw;
+  }
 }
