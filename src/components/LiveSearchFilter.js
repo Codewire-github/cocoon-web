@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const LiveSearchFilter = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredArticles = GetArticleCollection().filter((article) =>
+  const articlesCollection = GetArticleCollection() || [];
+  const filteredArticles = articlesCollection.filter((article) =>
     article.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   /*<Link to={`/article/${article.id}`} 
@@ -23,7 +23,7 @@ const LiveSearchFilter = () => {
           placeholder="Search articles"
           onChange={(event) => setSearchTerm(event.target.value)}
           onKeyDown={(event) => {
-            if (event.key === 'Enter') {
+            if (event.key === "Enter") {
               event.preventDefault();
             }
           }}
@@ -32,14 +32,17 @@ const LiveSearchFilter = () => {
       {searchTerm && (
         <div className="suggestions">
           {filteredArticles.map((article) => (
-            <Link to={`/article/${article.id}`} className="relatedArticles" key={article.id}>
+            <Link
+              to={`/article/${article.id}`}
+              className="relatedArticles"
+              key={article.id}
+            >
               {article.title}
             </Link>
           ))}
         </div>
       )}
     </form>
-
   );
 };
 
