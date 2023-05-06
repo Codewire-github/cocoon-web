@@ -1,10 +1,11 @@
 import "./articlenavbar.css";
-import cocoonLogo from "../../images/cocoonLogo.png"
+import cocoonLogo from "../../images/cocoonLogo.png";
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { UserAuth } from "../../context/authcontect";
 import { useNavigate } from "react-router-dom";
 import { GreetingUser } from "../navbar/navbar";
+import SideNavbar from "../sidenavbar/sidenav";
 const Nav = ({ bgColor }) => {
   const { logOut, user } = UserAuth();
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -13,6 +14,13 @@ const Nav = ({ bgColor }) => {
       await logOut();
     } catch (error) {
       console.log(error);
+    }
+  };
+  const toggleSideNav = () => {
+    if (showSideMenu === true) {
+      setShowSideMenu(false);
+    } else {
+      setShowSideMenu(true);
     }
   };
 
@@ -25,9 +33,13 @@ const Nav = ({ bgColor }) => {
     >
       <Link to="/" className="Logo" style={{ textDecoration: "none" }}>
         <img src={cocoonLogo} alt="Logo" />
-        <h2 style={{
+        <h2
+          style={{
             color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
-          }}>The cocoon</h2>
+          }}
+        >
+          The cocoon
+        </h2>
       </Link>
       <ul
         className="singleblog-nav-options-wrap"
@@ -96,13 +108,14 @@ const Nav = ({ bgColor }) => {
           <i
             className="fas fa-bars"
             style={{
-              fontSize: "28px",
+              fontSize: "26px",
               color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
             }}
           ></i>
         </span>
       </div>
-      {}
+
+      <SideNavbar toggleSidenav={toggleSideNav} isShown={showSideMenu} />
     </div>
   );
 };

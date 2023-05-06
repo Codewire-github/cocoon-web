@@ -1,17 +1,19 @@
 import "./navbar.css";
 import "./greetingcard.css";
 import { Link } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { UserAuth } from "../../context/authcontect";
 import { useNavigate } from "react-router-dom";
 import morningVector from "../../images/morning.webp";
 import eveningVector from "../../images/evening.webp";
 import nightVector from "../../images/night.jpeg";
-import cocoonLogo from "../../images/cocoonLogo.png"
+import cocoonLogo from "../../images/cocoonLogo.png";
+import SideNavbar from "../sidenavbar/sidenav";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const { logOut, user } = UserAuth();
+  const [showSideMenu, setShowSideMenu] = useState(false);
   const handleSignOut = async () => {
     try {
       await logOut();
@@ -26,9 +28,20 @@ const NavBar = () => {
     }
   }, [user]);
 
+  const toggleSideNav = () => {
+    if (showSideMenu === true) {
+      setShowSideMenu(false);
+    } else {
+      setShowSideMenu(true);
+    }
+  };
   return (
     <div className="navbar_container" style={{ color: "white" }}>
-      <Link to="/" className="link-container" style={{ textDecoration: "none" }}>
+      <Link
+        to="/"
+        className="link-container"
+        style={{ textDecoration: "none" }}
+      >
         <img src={cocoonLogo} alt="Logo" />
         <h2 style={{ textTransform: "uppercase" }}>The cocoon</h2>
       </Link>
@@ -66,6 +79,18 @@ const NavBar = () => {
           <GreetingUser userName={user?.displayName} userImg={user?.photoURL} />
         )}
       </div>
+      <span className="hamburger-menu" onClick={toggleSideNav}>
+        <i
+          className="fas fa-bars"
+          style={{
+            fontSize: "25px",
+            color: "white",
+            marginLeft: "-35px",
+          }}
+        ></i>
+      </span>
+
+      <SideNavbar toggleSidenav={toggleSideNav} isShown={showSideMenu} />
     </div>
   );
 };
