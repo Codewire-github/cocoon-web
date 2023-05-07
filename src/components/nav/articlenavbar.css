@@ -11,10 +11,16 @@
   align-items: center;
 }
 
-.Logo img {
+.Logo .logo-black {
   filter: invert(100%);
-  width: 45px;
-  height: 45px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.Logo .logo-white {
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   margin-right: 10px;
 }
@@ -81,7 +87,7 @@
 }
 @media screen and (max-width: 480px) {
   .singleblog_navbar_container {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   .singleblog_navbar_container .singleblog-nav-options-wrap {
     display: none;
