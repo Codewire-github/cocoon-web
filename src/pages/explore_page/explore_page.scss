@@ -1,4 +1,7 @@
 .explore-page-main-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   background-color: white;
   min-height: 100vh;
   min-width: 100vw;
