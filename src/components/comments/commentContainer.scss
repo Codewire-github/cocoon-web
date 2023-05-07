@@ -7,7 +7,7 @@
   justify-content: flex-end;
   background-color: rgba(0, 0, 0, 0.45);
 
-  transition: 1s all ease-in-out;
+  transition: 0.7s all ease-in-out;
   z-index: 5;
 
   .comment-overlay-container {
@@ -46,6 +46,10 @@
   .comment-main-container {
     .comment-overlay-container {
       width: 100vw;
+      padding: 1rem;
+      .comment-overlay-heading {
+        padding: 0.5rem;
+      }
     }
   }
 }

@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: flex-end;
   background-color: rgba(0, 0, 0, 0.45);
-  transition: 1s all ease-in-out;
+  transition: 0.7s all ease-in-out;
   z-index: 5;
 }
 .comment-main-container .comment-overlay-container {
@@ -40,5 +40,9 @@
 @media screen and (max-width: 380px) {
   .comment-main-container .comment-overlay-container {
     width: 100vw;
+    padding: 1rem;
+  }
+  .comment-main-container .comment-overlay-container .comment-overlay-heading {
+    padding: 0.5rem;
   }
 }/*# sourceMappingURL=commentContainer.css.map */
