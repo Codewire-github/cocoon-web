@@ -24,7 +24,7 @@
   width: 100%;
   max-height: -moz-max-content;
   max-height: max-content;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
   border-bottom: 3px solid rgb(85, 85, 85);
 }
 .landing_page_container .second-section .explore-container {
@@ -58,7 +58,8 @@
   }
   .landing_page_container .second-section {
     align-items: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 2rem;
     height: -moz-max-content;
     height: max-content;
   }
