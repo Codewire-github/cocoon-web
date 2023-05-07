@@ -19,7 +19,7 @@ function NewArticlePage() {
   const [newauthorName, setAuthorName] = useState("");
   const [newauthorImg, setAuthorImg] = useState("");
   const [newtitle, setTitle] = useState("");
-  const [newgenre, setGenre] = useState("");
+  const [newgenre, setGenre] = useState("Writing");
   const [newSubdescription, setSubDescription] = useState("");
   const [newdescription, setDescription] = useState("");
   const [newday, setDay] = useState();
@@ -29,7 +29,7 @@ function NewArticlePage() {
   const [imgURL, setImgURL] = useState("");
   const [imgAlt, setImgAlt] = useState("");
   const [newimgURL, setNewImgURL] = useState(
-    "https://images.unsplash.com/photo-1681969377369-6d68f2b6b6f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80"
+    "https://cdn.pixabay.com/photo/2023/01/23/13/37/flowers-7738728_1280.jpg"
   );
   const [showOverlay, setShowOverlay] = useState(false);
   const articlesCollectionRef = collection(db, "articles");
@@ -81,6 +81,18 @@ function NewArticlePage() {
       navigate("/");
     }
   }, [user]);
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  function handleBeforeUnload(event) {
+    event.preventDefault();
+    event.returnValue = "Are you sure you want to leave?"; // Required for Chrome and Firefox
+  }
   return (
     <form onSubmit={publishNewArticle}>
       <div className="editor-main-wrap" style={{}}>
@@ -365,47 +377,6 @@ const MenuBar = ({ editor }) => {
       >
         <i className="fas fa-broom"></i>
       </OptionButton>
-    </div>
-  );
-};
-
-const PublishConfirmOverlay = ({ openOverlay }) => {
-  return (
-    <div className="overlay-main-container">
-      <div
-        className="overlay-container"
-        style={{
-          backgroundColor: "white",
-          borderRadius: "8px",
-          padding: "2rem 1.5rem",
-        }}
-      >
-        <h2 style={{ color: "black" }}>
-          Are you sure you want to publish your article?
-        </h2>
-        <section className="overlay-footer">
-          <button
-            type="submit"
-            className="overlay-btn"
-            style={{
-              backgroundColor: "black",
-              color: "white",
-            }}
-          >
-            Confirm
-          </button>
-          <button
-            className="overlay-btn"
-            onClick={() => openOverlay(false)}
-            style={{
-              backgroundColor: "red",
-              color: "white",
-            }}
-          >
-            Cancel
-          </button>
-        </section>
-      </div>
     </div>
   );
 };
