@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./banner-article.css";
 import { NumtoMonth } from "../../numtomonth";
 const BannerArticle = ({ sortedCollection }) => {
@@ -15,7 +16,7 @@ const BannerArticle = ({ sortedCollection }) => {
 
   const {
     authorName,
-
+    id,
     title,
     sub_description,
     published_date,
@@ -28,8 +29,14 @@ const BannerArticle = ({ sortedCollection }) => {
     <div className="banner-article-wrap">
       <img src={img_address} alt={img_alt} />
       <section className="article-info">
-        <h1>{title}</h1>
+        <Link
+          to={`/article/${id}`}
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          <h1>{title}</h1>
+        </Link>
         <p className="article-subheading">{sub_description}</p>
+
         <span>
           <p className="author">{authorName}</p>
           <p className="date">{`${NumtoMonth(month)} ${date}, ${year}`}</p>

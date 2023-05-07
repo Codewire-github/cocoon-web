@@ -27,7 +27,9 @@ function App() {
     };
     getArticles();
   }, []);
-
+  const sortedArticlesCollection = articles.sort(
+    (a, b) => b.likes.length - a.likes.length
+  );
   return (
     <BrowserRouter>
       <div className="App">
@@ -35,7 +37,12 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<LandingPage articlesCollection={articles} />}
+              element={
+                <LandingPage
+                  articlesCollection={articles}
+                  sortedCollection={sortedArticlesCollection}
+                />
+              }
             />
             <Route
               path="/explore"
