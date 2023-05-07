@@ -9,7 +9,7 @@ import Nav from "../../components/nav/nav";
 import FooterSection from "../../components/footer/footer";
 import { NumtoMonth } from "../../components/numtomonth";
 import CommentContainer from "../../components/comments/commentContainer";
-import GetArticleCollection from "../../database/article_collection";
+import { ArticlesCollection } from "../../database/article_collection";
 
 import { arrayUnion, arrayRemove, doc, updateDoc } from "firebase/firestore";
 
@@ -32,7 +32,7 @@ const ArticlePage = () => {
   const [showCommentOverlay, setShowCommentOverlay] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [LikeNums, setLikeNums] = useState(0);
-  const articlesCollection = GetArticleCollection();
+  const articlesCollection = ArticlesCollection;
   const postID = useParams();
   let CurrentArticle = [];
 
@@ -74,7 +74,7 @@ const ArticlePage = () => {
     return () => {
       CheckLikeStatus();
     };
-  }, [postID.id, isLiked]);
+  }, [isLiked]);
 
   const handleLikeBtn = async () => {
     const PostRef = doc(db, "articles/", postID.id);
@@ -84,13 +84,11 @@ const ArticlePage = () => {
         likes: arrayRemove(user?.uid),
       });
       setIsLiked(false);
-      console.log(isLiked);
     } else {
       await updateDoc(PostRef, {
         likes: arrayUnion(user?.uid),
       });
       setIsLiked(true);
-      console.log(isLiked);
     }
   };
   return (
@@ -210,12 +208,13 @@ const ArticlePage = () => {
           </section>
         </section>
       </section>
-      {showCommentOverlay && (
-        <CommentContainer
-          handleOpenOverlay={setShowCommentOverlay}
-          bgColor={bgcolor}
-        />
-      )}
+
+      <CommentContainer
+        handleOpenOverlay={setShowCommentOverlay}
+        bgColor={bgcolor}
+        isOpened={showCommentOverlay}
+      />
+
       <FooterSection />
     </div>
   );
