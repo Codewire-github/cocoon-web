@@ -5,7 +5,6 @@ import "./commentContainer.css";
 import DisplayComments from "./displayComments";
 const CommentContainer = ({ handleOpenOverlay, bgColor, isOpened }) => {
   const { user } = UserAuth();
-
   return (
     <div
       className="comment-main-container"

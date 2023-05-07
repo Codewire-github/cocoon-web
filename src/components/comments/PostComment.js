@@ -1,44 +1,53 @@
-import React, { useEffect, useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import React, { useState } from "react";
+import { addDoc, collection, doc } from "firebase/firestore";
 import { db } from "../../database/firebase-config";
 import { UserAuth } from "../../context/authcontect";
-//import { useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./PostComment.css";
-import { Link } from "react-router-dom";
+
 const PostComment = ({ bgcolor }) => {
-  const [Comment, setComment] = useState("");
-  const commentsCollectionRef = collection(db, "comments");
+  const [comment, setComment] = useState("");
   const { user } = UserAuth();
-  //let navigate = useNavigate();
+  const { id } = useParams();
 
   const postComment = async (event) => {
-    await event.preventDefault();
-    await addDoc(commentsCollectionRef, {
-      comment: Comment,
-      username: user?.displayName,
-      userid: user?.uid,
-    });
-    setComment("");
+    event.preventDefault();
+    if (comment.trim() === "") {
+      return;
+    }
+    try {
+      const articleRef = doc(db, `articles/${id}`);
+      // Create the comments subcollection inside the article document
+      const commentsCollectionRef = collection(articleRef, "comments");
+      // Add a new document to the comments subcollection with the comment field
+      await addDoc(commentsCollectionRef, {
+        comment,
+        username: user?.displayName,
+        userid: user?.uid,
+        userphotoURL: user?.photoURL,
+        time: new Date(),
+      });
+      setComment("");
+    } catch (error) {
+      console.error("Error adding comment: ", error);
+    }
   };
-
-  /*useEffect(() => {
-        if (!isAuth) {
-        navigate("/login");
-      }
-      }, []);
-      */
-
+  
   return (
     <form className="commentBox">
-      <textarea
+      <input
         className="postInput"
         placeholder="Add a Comment..."
-        maxLength="500"
-        required
+        value={comment}
         onChange={(event) => {
           setComment(event.target.value);
         }}
-      ></textarea>
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+          }
+        }}
+      />
       {user?.isAnonymous || user === null ? (
         <Link to="/login">
           <button
@@ -56,7 +65,15 @@ const PostComment = ({ bgcolor }) => {
       ) : (
         <button
           className="postButton"
-          onClick={postComment}
+          onClick={(event) => {
+            event.preventDefault();
+            if (comment.trim() === "") {
+              return;
+            }
+            if (window.confirm("Are you sure you want to post this comment?")) {
+              postComment(event);
+            }
+          }}
           style={{
             backgroundColor: `${bgcolor === "white" ? "black" : bgcolor}`,
             color: `${

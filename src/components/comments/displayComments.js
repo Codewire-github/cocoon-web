@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import "./displayComments.css";
 import { db } from "../../database/firebase-config";
+import { useParams } from "react-router-dom/dist";
 
 const DisplayComments = ({ bgcolor, user }) => {
   const [commentList, setCommentList] = useState([]);
-  const commentsCollectionRef = collection(db, "comments");
+  const { id } = useParams();
 
   const deleteComment = async (id) => {
     const commentsDoc = doc(db, "comments", id);
@@ -13,12 +14,31 @@ const DisplayComments = ({ bgcolor, user }) => {
   };
   useEffect(() => {
     const getComments = async () => {
+      const articleRef = doc(db, `articles/${id}`);
+      const commentsCollectionRef = collection(articleRef, "comments");
       const data = await getDocs(commentsCollectionRef);
-      setCommentList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setCommentList(
+        data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
+      );
     };
-
     getComments();
   }, []);
+
+  const getTimeAgo = (timestamp) => {
+    const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+    const now = new Date().getTime();
+    const diff = now - timestamp;
+    if (diff < ONE_DAY_MS) {
+      return "Today";
+    } else if (diff < 2 * ONE_DAY_MS) {
+      return "Yesterday";
+    } else {
+      return `${Math.floor(diff / ONE_DAY_MS)} days ago`;
+    }
+  };
 
   return (
     <div className="comments">
@@ -52,8 +72,17 @@ const DisplayComments = ({ bgcolor, user }) => {
           >
             <section>
               <div className="commentinfo">
-                <h3>{Comment.username}</h3>
-                <h4>3 days ago.</h4>
+                <img
+                  className="userAvatar"
+                  src={Comment.userphotoURL}
+                  alt="User avatar"
+                />
+                <div className="userInfo">
+                  <span className="username">{Comment.username}</span>
+                  <span className="commentTime">
+                    {getTimeAgo(Comment.time.toDate())}
+                  </span>
+                </div>
               </div>
               <div className="comment">{Comment.comment}</div>
             </section>
@@ -66,14 +95,20 @@ const DisplayComments = ({ bgcolor, user }) => {
                   }}
                 >
                   <i className="fas fa-trash-alt"></i>
+                  Delete
                 </button>
               </div>
             )}
           </div>
         );
       })}
+      {commentList.length === 0 && (
+        <div className="noComments">
+          <p>Be the first to leave a comment!</p>
+        </div>
+      )}
     </div>
-  );
+  );  
 };
 
 export default DisplayComments;
