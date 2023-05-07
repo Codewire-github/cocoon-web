@@ -1,0 +1,71 @@
+.sidenav_container {
+  margin: 0px -15px;
+  padding: 1.5rem;
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  color: black;
+  z-index: 10;
+  top: 0px;
+  transition: 0.5s all linear;
+
+  .Logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      height: 38px;
+      width: 38px;
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+    color: black;
+  }
+  .sidenav-options-wrap {
+    padding-top: 5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    li {
+      font-size: 18px;
+      list-style: none;
+      color: black;
+    }
+
+    .write-btn {
+      border: none;
+      background-color: black;
+      color: white;
+      font-size: 1.05rem;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      transition: 0.35s all ease-in-out;
+    }
+    .write-btn:hover {
+      cursor: pointer;
+      opacity: 0.85;
+    }
+    .nav-btn {
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background-color: rgb(243, 243, 243);
+      color: rgba(72, 21, 255, 0.966);
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: 0.35s all ease-in-out;
+    }
+    .nav-btn:hover {
+      background-color: rgb(60, 0, 255);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
