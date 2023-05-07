@@ -26,26 +26,7 @@
     width: 100%;
     max-height: max-content;
     padding-bottom: 1rem;
-    border-bottom: 5px solid rgb(85, 85, 85);
-
-    .article-section {
-      height: max-content;
-      padding: 2rem;
-      border-radius: 1rem;
-      background-color: white;
-      color: black;
-    }
-  }
-
-  .third-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100vw;
-    min-height: 100vh;
-    max-height: max-content;
-    padding: 2rem 15rem;
+    border-bottom: 3px solid rgb(85, 85, 85);
 
     .explore-container {
       height: min-content;
@@ -97,20 +78,11 @@
       height: max-content;
     }
     .second-section {
-      padding: 4rem 0rem;
+      padding: 3rem 0rem;
       height: max-content;
       align-items: center;
       justify-content: center;
       gap: 4rem;
-
-      .article-section {
-        padding: 1rem;
-      }
-    }
-    .third-section {
-      padding: 3rem 0rem;
-      align-items: center;
-      justify-content: center;
 
       .explore-container {
         padding: 1rem;

@@ -25,28 +25,9 @@
   max-height: -moz-max-content;
   max-height: max-content;
   padding-bottom: 1rem;
-  border-bottom: 5px solid rgb(85, 85, 85);
+  border-bottom: 3px solid rgb(85, 85, 85);
 }
-.landing_page_container .second-section .article-section {
-  height: -moz-max-content;
-  height: max-content;
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: white;
-  color: black;
-}
-.landing_page_container .third-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100vw;
-  min-height: 100vh;
-  max-height: -moz-max-content;
-  max-height: max-content;
-  padding: 2rem 15rem;
-}
-.landing_page_container .third-section .explore-container {
+.landing_page_container .second-section .explore-container {
   height: -moz-min-content;
   height: min-content;
   padding: 2rem;
@@ -93,22 +74,14 @@
     height: max-content;
   }
   .landing_page_container .second-section {
-    padding: 4rem 0rem;
+    padding: 3rem 0rem;
     height: -moz-max-content;
     height: max-content;
     align-items: center;
     justify-content: center;
     gap: 4rem;
   }
-  .landing_page_container .second-section .article-section {
-    padding: 1rem;
-  }
-  .landing_page_container .third-section {
-    padding: 3rem 0rem;
-    align-items: center;
-    justify-content: center;
-  }
-  .landing_page_container .third-section .explore-container {
+  .landing_page_container .second-section .explore-container {
     padding: 1rem;
   }
 }/*# sourceMappingURL=landing_page.css.map */
