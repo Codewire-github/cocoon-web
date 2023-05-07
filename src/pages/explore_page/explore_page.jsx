@@ -5,7 +5,7 @@ import GenreSelector from "../../components/genre-selector/genreselector";
 import Nav from "../../components/nav/nav";
 import "./explore_page.css";
 import FooterSection from "../../components/footer/footer";
-const ExplorePage = () => {
+const ExplorePage = ({ articlesCollection }) => {
   const [selectedGenre, setSelectedGenre] = useState("");
   useEffect(() => {
     setSelectedGenre("");
@@ -18,8 +18,11 @@ const ExplorePage = () => {
       <Nav bgColor="white" />
       <section className="main-content-section">
         <section className="content-section">
-          <LiveSearchFilter />
-          <PaginatedArticleList current_genre={selectedGenre} />
+          <LiveSearchFilter articlesCollection={articlesCollection} />
+          <PaginatedArticleList
+            current_genre={selectedGenre}
+            articlesCollection={articlesCollection}
+          />
         </section>
 
         <GenreSelector

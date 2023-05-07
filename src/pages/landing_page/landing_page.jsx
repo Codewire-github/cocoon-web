@@ -1,17 +1,14 @@
-//Importing article collection
-import GetArticleCollection from "../../database/article_collection";
 //Importing Components
 import "./landing_page.css";
 import BannerArticle from "../../components/cards/banner_article/banner_article";
-import MiniArticleCard from "../../components/cards/mini_article_card/mini_article_card";
 import MostPopularCard from "../../components/cards/most_popular_card/mostpopularcard";
 import TopStoriesCard from "../../components/cards/top_stories_card/top_stories_card";
 import FooterSection from "../../components/footer/footer";
 import NavBar from "../../components/navbar/navbar";
-import { postsData } from "../../components/blogpostdata";
+
 import MiniArticleCardFirebase from "../../components/cards/mini_article_card_firebase/mini_article_card_firebase";
 import { NumtoMonth } from "../../components/numtomonth";
-const LandingPage = () => {
+const LandingPage = ({ articlesCollection }) => {
   return (
     <>
       <NavBar />
@@ -23,12 +20,8 @@ const LandingPage = () => {
           </section>
         </section>
         <section className="second-section">
-          <DisplayArticle />
-          <MostPopularCard />
-        </section>
-
-        <section className="third-section">
-          <ExploreArticles />
+          <ExploreArticles articlesCollection={articlesCollection} />
+          <MostPopularCard articlesCollection={articlesCollection} />
         </section>
       </div>
       <FooterSection />
@@ -38,34 +31,8 @@ const LandingPage = () => {
 
 export default LandingPage;
 
-const DisplayArticle = () => {
-  return (
-    <div className="article-section">
-      <span className="heading-section">
-        <p style={{ textTransform: "uppercase", fontWeight: "bold" }}>
-          Recommended
-        </p>
-      </span>
-      {postsData.map((item) => (
-        <div key={item.id}>
-          <MiniArticleCard
-            linkid={item.id}
-            authorImg={item.author_picture}
-            author={item.author}
-            heading={item.title}
-            subheading={item.sub_title}
-            imgUrl={item.image_Address}
-            date={item.date}
-            genre={item.genre}
-          />
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const ExploreArticles = () => {
-  const articles = GetArticleCollection();
+const ExploreArticles = ({ articlesCollection }) => {
+  const articles = articlesCollection;
   return (
     <div className="explore-container">
       <p style={{ textTransform: "uppercase", fontWeight: "bold" }}>Explore</p>
