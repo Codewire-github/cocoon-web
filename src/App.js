@@ -18,21 +18,39 @@ import ExplorePage from "./pages/explore_page/explore_page";
 import Aboutus_page from "./pages/aboutus_page/aboutus_page";
 
 function App() {
+  const [articles, setArticles] = useState([]);
+  const articlesCollectionRef = collection(db, "articles");
+  useEffect(() => {
+    const getArticles = async () => {
+      let data = await getDocs(articlesCollectionRef);
+      setArticles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getArticles();
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="App">
         <AuthContextProvider>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/explore" element={<ExplorePage />} />
+            <Route
+              path="/"
+              element={<LandingPage articlesCollection={articles} />}
+            />
+            <Route
+              path="/explore"
+              element={<ExplorePage articlesCollection={articles} />}
+            />
             <Route path="/aboutus" element={<Aboutus_page />} />
             <Route path="/write-new-article" element={<NewArticlePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/post/:id" element={<ArticleDisplayPage />} />
             <Route path="/article/:id" element={<ArticlePage />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/profile"
+              element={<Profile articlesCollection={articles} />}
+            />
           </Routes>
         </AuthContextProvider>
       </div>
