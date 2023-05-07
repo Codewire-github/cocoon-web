@@ -81,7 +81,7 @@ const PostComment = ({ bgcolor }) => {
             }`,
           }}
         >
-          Post
+          POST
         </button>
       )}
     </form>

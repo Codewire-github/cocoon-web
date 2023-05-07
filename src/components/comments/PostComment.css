@@ -10,38 +10,53 @@
   width: -webkit-fill-available;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  min-height: 150px;
+  font-size: 17px;
+  font-weight: 450;
+  color: rgb(48, 48, 48);
+  min-height: 110px;
   max-height: max-content;
   margin: 10px 0;
-  padding: 10px;
+  padding: 20px;
   resize: inherit;
-  border-radius: 5px;
-  border: 1.25px solid rgb(221, 221, 221);
+  border-radius: 10px;
+  border: 2.5px solid rgb(221, 221, 221);
   outline: none;
 }
-
+.postInput:focus-visible{
+  color: rgb(3, 3, 3);
+  border: 2.5px solid rgb(185, 185, 185);
+  outline: none;
+}
 .commentBox .postButton {
-  width: 100%;
-  padding: 12px 30px;
+  width: 25%;
+  padding: 10px 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight: 700;
   transition: 0.25s all ease-in-out;
 }
 .commentBox .postButton:hover {
-  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 7px 3px rgba(43, 43, 43, 0.1);
+  transition: 0.1s;
 }
 
 .commentBox .signin-btn {
-  width: 100%;
-  padding: 12px 30px;
+  width: 25%;
+  padding: 10px 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  transition: 0.25s all ease-in-out;
   text-transform: uppercase;
-  font-weight: bold;
+}
+
+.commentBox .signin-btn:hover {
+  box-shadow: 5px 5px 7px 3px rgba(43, 43, 43, 0.1);
+  transition: 0.15s all ease-in-out;
 }
 
 @media screen and (max-width: 380px) {

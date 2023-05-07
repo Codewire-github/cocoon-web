@@ -10,12 +10,13 @@
   z-index: 5;
 }
 .comment-main-container .comment-overlay-container {
-  width: 700px;
+  width: 600px;
   height: 100vh;
-  padding: 2rem;
+  padding: 1.5rem;
   position: sticky;
   overflow: hidden;
   overflow-y: scroll;
+  border-radius: 10px;
   background-color: white;
   box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3);
   transition: 1s all ease-in-out;
@@ -25,13 +26,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.7rem;
 }
 .comment-main-container .comment-overlay-container .comment-overlay-heading h2 {
-  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  opacity: 90%;
 }
 .comment-main-container .comment-overlay-container .comment-overlay-heading .fa-times {
   font-size: 25px;
+  transition: "all 0.2s ease-in-out";
 }
 .comment-main-container .comment-overlay-container .create-comment-section {
   padding: 1.5rem;

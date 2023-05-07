@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { getDocs, collection, deleteDoc, doc} from "firebase/firestore";
 import "./displayComments.css";
 import { db } from "../../database/firebase-config";
 import { useParams } from "react-router-dom/dist";
@@ -8,10 +8,6 @@ const DisplayComments = ({ bgcolor, user }) => {
   const [commentList, setCommentList] = useState([]);
   const { id } = useParams();
 
-  const deleteComment = async (id) => {
-    const commentsDoc = doc(db, "comments", id);
-    await deleteDoc(commentsDoc);
-  };
   useEffect(() => {
     const getComments = async () => {
       const articleRef = doc(db, `articles/${id}`);
@@ -40,24 +36,29 @@ const DisplayComments = ({ bgcolor, user }) => {
     }
   };
 
+  const handleDeleteComment = async (commentId) => {
+    const confirmation = window.confirm("Are you sure you want to delete this comment?");
+    if (confirmation) {
+      const commentRef = doc(db, `articles/${id}/comments/${commentId}`);
+      try {
+        await deleteDoc(commentRef);
+        setCommentList(commentList.filter((comment) => comment.id !== commentId));
+      } catch (error) {
+        console.error("Error removing comment: ", error);
+      }
+    }
+  };
+
   return (
     <div className="comments">
       <section
         className="display-comments-heading"
         style={{
-          padding: "0.7rem",
-          borderBottom: `2px solid ${bgcolor === "white" ? "black" : bgcolor}`,
+          padding: "0.5rem",
+          borderBottom: `3.5px solid ${bgcolor === "white" ? "black" : bgcolor}`,
         }}
       >
-        <h2
-          style={{
-            textDecoration: `underline 10px ${
-              bgcolor === "white" ? "black" : bgcolor
-            }`,
-          }}
-        >
-          All comments
-        </h2>
+        <h2>{commentList.length} {commentList.length === 1 ? 'Comment' : 'Comments'}</h2>
       </section>
       {commentList.map((Comment) => {
         return (
@@ -65,33 +66,30 @@ const DisplayComments = ({ bgcolor, user }) => {
             className="commentContainer"
             key={Comment.id}
             style={{
-              borderBottom: `1px solid ${
+              borderBottom: `2.5px solid ${
                 bgcolor === "white" ? "black" : bgcolor
               }`,
             }}
           >
-            <section>
-              <div className="commentinfo">
-                <img
-                  className="userAvatar"
-                  src={Comment.userphotoURL}
-                  alt="User avatar"
-                />
-                <div className="userInfo">
-                  <span className="username">{Comment.username}</span>
-                  <span className="commentTime">
-                    {getTimeAgo(Comment.time.toDate())}
-                  </span>
-                </div>
+            <div className="commentItself">
+              <img
+                src={Comment.userphotoURL}
+                alt="User avatar"
+              />
+              <div className="commentInfo">
+                <span className="username">{Comment.username}</span>
+                <span className="commentTime">
+                  {getTimeAgo(Comment.time.toDate())}
+                </span>
+                <p>{Comment.comment}</p>
               </div>
-              <div className="comment">{Comment.comment}</div>
-            </section>
+            </div>
             {Comment.userid === user?.uid && (
               <div className="deleteButton">
                 <button
                   className="delete"
                   onClick={() => {
-                    deleteComment(Comment.id);
+                    handleDeleteComment(Comment.id);
                   }}
                 >
                   <i className="fas fa-trash-alt"></i>
@@ -108,7 +106,7 @@ const DisplayComments = ({ bgcolor, user }) => {
         </div>
       )}
     </div>
-  );  
+  );
 };
 
 export default DisplayComments;

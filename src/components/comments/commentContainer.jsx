@@ -17,20 +17,12 @@ const CommentContainer = ({ handleOpenOverlay, bgColor, isOpened }) => {
         <section
           className="comment-overlay-heading"
           style={{
-            borderBottom: `2px solid ${
+            borderBottom: `3.5px solid ${
               bgColor === "white" ? "black" : bgColor
             }`,
           }}
         >
-          <h2
-            style={{
-              textDecoration: `underline 10px ${
-                bgColor === "white" ? "black" : bgColor
-              }`,
-            }}
-          >
-            Comments
-          </h2>
+          <h2>Comments</h2>
           <button
             onClick={() => handleOpenOverlay(false)}
             style={{
