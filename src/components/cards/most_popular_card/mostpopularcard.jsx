@@ -1,8 +1,11 @@
 import "./mostpopularcard.css";
-import { postsData } from "../../blogpostdata";
 import React from "react";
+import { NumtoMonth } from "../../numtomonth";
+import { Link } from "react-router-dom";
+const MostPopularCard = ({ articlesCollection }) => {
+  const articlesData = articlesCollection;
+  const sortedArray = articlesData.sort((a, b) => b.likes - a.likes);
 
-const MostPopularCard = () => {
   return (
     <div className="popular-card-container">
       <section className="content">
@@ -15,13 +18,16 @@ const MostPopularCard = () => {
         >
           Most Popular
         </p>
-        {postsData.map((data, index) => (
-          <div className="popular-items-container" key={data.id}>
+        {sortedArray.slice(0, 5).map((article, index) => (
+          <div className="popular-items-container" key={article.id}>
             <PopularItem
               itemno={index + 1}
-              title={data.title}
-              author={data.author}
-              date={data.date}
+              linkid={article.id}
+              title={article.title}
+              author={article.authorName}
+              date={`${NumtoMonth(article.published_date[1])} ${
+                article.published_date[0]
+              }, ${article.published_date[2]}`}
             />
           </div>
         ))}
@@ -38,7 +44,9 @@ const PopularItem = (props) => {
     <div className="popular-item-container">
       <p className="item-no">{props.itemno}</p>
       <section>
-        <b className="item-title">{props.title}</b>
+        <Link to={`article/${props.linkid}`} style={{ textDecoration: "none" }}>
+          <b className="item-title">{props.title}</b>
+        </Link>
         <section className="item-info">
           <p className="author-name">{props.author}</p>
           <p className="published-date">{props.date}</p>
