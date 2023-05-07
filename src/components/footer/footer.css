@@ -4,7 +4,7 @@
   bottom: 0;
   flex-direction: row;
   justify-content: space-between;
-  height: 30vh;
+  height: 35vh;
   background-color: black;
   color: white;
   padding: 2rem 15rem;
@@ -43,7 +43,7 @@
     flex-direction: column;
     gap: 1rem;
   }
-  .footer-container .theCocoon img{
+  .footer-container .theCocoon img {
     width: 70px;
     height: 70px;
     border-radius: 10px;
