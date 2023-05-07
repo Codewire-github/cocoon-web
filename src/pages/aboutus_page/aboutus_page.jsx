@@ -3,43 +3,56 @@ import "./aboutus_page.css";
 import nikita from "../../images/aboutusnikita.jpg";
 
 const Aboutus_page = () => {
+  const developersInfo = [
+    {
+      id: 1,
+      name: "Ishan Awal",
+      email_address: "ishanawal68@gmail.com",
+      github_name: "Codewire-github",
+      github_address: "https://github.com/Codewire-github",
+    },
+    {
+      id: 2,
+      name: "Nikita Khuju",
+      email_address: "nikitashrestha345@gmail.com",
+      github_name: "NikitaKhuju",
+      github_address: "https://github.com/NikitaKhuju",
+    },
+    {
+      id: 3,
+      name: "Probin Pun",
+      email_address: "probinpun@gmail.com",
+      github_name: "pro0o",
+      github_address: "https://github.com/pro0o",
+    },
+  ];
   return (
-    <>
-      <div className="the-aboutuspage">
-        <Nav bgColor="white" />
-        <div className="aboutus-container">
-          <div className="aboutus-head">
-            <h1>
-              Meet our team of creators, designers <br />
-              and problem solvers of The Cocoon
-            </h1>
-          </div>
-          <div className="aboutus-des">
-            <div className="aboutus-content">
+    <div className="the-aboutuspage">
+      <Nav bgColor="white" />
+      <div className="aboutus-container">
+        <div className="aboutus-head">
+          <h1>
+            Meet our team of creators, designers <br />
+            and problem solvers of The Cocoon
+          </h1>
+        </div>
+        <div className="aboutus-des">
+          {developersInfo.map((developer) => (
+            <div className="aboutus-content" key={developer.id}>
               <img className="aboutus-image" src={nikita} alt="ishan" />
               <p className="aboutus-name">
-                <b>Ishan Awal</b>
+                <b>{developer.name}</b>
               </p>
-              <p className="aboutus-email">ishanawal68@gmail.com</p>
+              <p className="aboutus-email">{developer.email_address}</p>
+              <span className="aboutus-github">
+                <i className="fab fa-github"></i>
+                <a href={developer.github_address}>{developer.github_name}</a>
+              </span>
             </div>
-            <div className="aboutus-content">
-              <img className="aboutus-image" src={nikita} alt="nikita" />
-              <p className="aboutus-name">
-                <b>Nikita Khuju</b>
-              </p>
-              <p className="aboutus-email">nikitakhuju11@gmail.com</p>
-            </div>
-            <div className="aboutus-content">
-              <img className="aboutus-image" src={nikita} alt="probin" />
-              <p className="aboutus-name">
-                <b>Probin Pun</b>
-              </p>
-              <p className="aboutus-email">probinpun@gmail.com</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
