@@ -32,7 +32,12 @@ const Nav = ({ bgColor }) => {
       }}
     >
       <Link to="/" className="Logo" style={{ textDecoration: "none" }}>
-        <img src={cocoonLogo} alt="Logo" />
+        {bgColor === "rgb(82 0 255)" ? (
+          <img src={cocoonLogo} className="logo-white" alt="Logo" />
+        ) : (
+          <img src={cocoonLogo} className="logo-black" alt="Logo" />
+        )}
+
         <h2
           style={{
             color: `${bgColor === "rgb(82 0 255)" ? "white" : "black"}`,
