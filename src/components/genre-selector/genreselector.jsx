@@ -37,8 +37,9 @@ const GenreSelector = (props) => {
               onClick={() => props.handleGenreOption(item)}
               style={{
                 backgroundColor: `${
-                  props.current_item === item ? "#d9d9d9" : "black"
+                  props.current_item === item ? "#e8e8f8" : "black"
                 }`,
+                color: props.current_item === item ? "black" : "white",
               }}
             >
               {item}
