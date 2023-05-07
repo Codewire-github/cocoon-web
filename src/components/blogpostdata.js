@@ -11,6 +11,7 @@ export const postsData = [
       "The new accessibility mode increases visibility while submerged and gives Aloy infinite underwater breathing.",
     date: "Jan 24",
     bgcolor: "white",
+    likes: 45,
     image_Address:
       "https://duet-cdn.vox-cdn.com/thumbor/0x0:3840x2160/1200x800/filters:focal(1920x1080:1921x1081):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/20030872/Horizon_Forbidden_West_Dive_Logo_TM_LegalLine.png",
     description: `<p>The team at Guerrilla Games has released patch 1.21 for Horizon Forbidden West in the lead-up to the release of the Burning Shores DLC. The patch adds some neat quality-of-life updates including a sorely needed auto item pickup feature and the ability to increase subtitle size for increased legibility. But perhaps the most interesting feature coming with this patch is the addition of a thalassophobia mode.
@@ -37,6 +38,7 @@ export const postsData = [
       "Learn how to install and use BootStrap in your React projects - the right way.",
     date: "Oct 6, 2022",
     bgcolor: "rgb(82 0 255)",
+    likes: 5,
     image_Address:
       "https://miro.medium.com/max/1400/1*yc77vVE3oOiaLN2zy_RSMg.webp",
 
@@ -79,6 +81,7 @@ export const postsData = [
     profession: "Editor",
     genre: "Programming",
     date: "Oct 5, 2022",
+    likes: 10,
     title: "Ditch GraphQL When It Gets in the Way",
     bgcolor: "#dccfbd",
     sub_title:
@@ -110,6 +113,7 @@ export const postsData = [
     genre: "Programming",
     date: "Jan 25",
     bgcolor: "#e3ff00",
+    likes: 20,
     title: `Algortihms Unlocked:How They're Shaping Our Everyday Lives`,
     sub_title: `I recently worked on a NextJS and Ktor app that started with GraphQL but ended up not being the right choice.`,
     image_Address:
@@ -150,6 +154,7 @@ In summary, algorithms are a fundamental part of our daily lives, and they are u
     profession: "Editor",
     genre: "Web Technology",
     title: "Getting Started With React-Bootstrap UI Library",
+    likes: 2,
     sub_title:
       "Learn how to install and use BootStrap in your React projects - the right way.",
     date: "Oct 6, 2022",
