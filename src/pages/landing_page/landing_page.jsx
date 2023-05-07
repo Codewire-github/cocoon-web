@@ -8,20 +8,23 @@ import NavBar from "../../components/navbar/navbar";
 
 import MiniArticleCardFirebase from "../../components/cards/mini_article_card_firebase/mini_article_card_firebase";
 import { NumtoMonth } from "../../components/numtomonth";
-const LandingPage = ({ articlesCollection }) => {
+const LandingPage = ({ articlesCollection, sortedCollection }) => {
   return (
     <>
       <NavBar />
       <div className="landing_page_container">
         <section className="first-section">
           <section className="first-section-content">
-            <BannerArticle />
+            <BannerArticle sortedCollection={sortedCollection} />
             <TopStoriesCard />
           </section>
         </section>
         <section className="second-section">
           <ExploreArticles articlesCollection={articlesCollection} />
-          <MostPopularCard articlesCollection={articlesCollection} />
+          <MostPopularCard
+            articlesCollection={articlesCollection}
+            sortedCollection={sortedCollection}
+          />
         </section>
       </div>
       <FooterSection />
