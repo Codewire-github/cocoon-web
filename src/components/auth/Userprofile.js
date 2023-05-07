@@ -6,14 +6,13 @@ import { NumtoMonth } from "../numtomonth";
 import "./Userprofile.css";
 import MiniArticleCardFirebase from "../cards/mini_article_card_firebase/mini_article_card_firebase";
 import { EmptyCard } from "../PaginatedArticleList";
-import GetArticleCollection from "../../database/article_collection";
+import { ArticlesCollection } from "../../database/article_collection";
 import Nav from "../nav/nav";
 
-export default function Profile() {
+export default function Profile({ articlesCollection }) {
   const navigate = useNavigate();
 
   const { user } = UserAuth();
-  const articles = GetArticleCollection() || [];
 
   useEffect(() => {
     if (user == null) {
@@ -21,7 +20,7 @@ export default function Profile() {
     }
   }, [user]);
 
-  const userUploads = articles.filter(
+  const userUploads = articlesCollection.filter(
     (article) => article.userID === user?.uid
   );
 

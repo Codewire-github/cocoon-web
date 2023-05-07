@@ -14,16 +14,11 @@ const DisplayComments = ({ bgcolor, user }) => {
   useEffect(() => {
     const getComments = async () => {
       const data = await getDocs(commentsCollectionRef);
-      setCommentList(
-        data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }))
-      );
+      setCommentList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getComments();
-  }, [deleteComment]);
+  }, []);
 
   return (
     <div className="comments">

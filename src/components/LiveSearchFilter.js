@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./LiveSearchFilter.css";
-import GetArticleCollection from "../database/article_collection";
+import GetArticleCollection, {
+  ArticlesCollection,
+} from "../database/article_collection";
 import { Link } from "react-router-dom";
 
-const LiveSearchFilter = () => {
+const LiveSearchFilter = ({ articlesCollection }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const articlesCollection = GetArticleCollection() || [];
-  const filteredArticles = articlesCollection.filter((article) =>
+  const articles = articlesCollection || [];
+  const filteredArticles = articles.filter((article) =>
     article.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   /*<Link to={`/article/${article.id}`} 

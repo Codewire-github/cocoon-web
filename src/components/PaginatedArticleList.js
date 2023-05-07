@@ -6,23 +6,9 @@ import MiniArticleCardFirebase from "./cards/mini_article_card_firebase/mini_art
 import { NumtoMonth } from "./numtomonth";
 const PAGE_SIZE = 10;
 
-const PaginatedArticleList = ({ current_genre }) => {
+const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
   const [page, setPage] = useState(0);
-  const [articles, setArticles] = useState([]);
-
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const articleCollectionRef = collection(db, "articles");
-      const snapshot = await getDocs(articleCollectionRef);
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setArticles(data);
-    };
-
-    fetchArticles();
-  }, []);
+  const articles = articlesCollection || [];
   //determine the pages to be displayed.
   const totalPages = Math.ceil(articles.length / PAGE_SIZE);
 
