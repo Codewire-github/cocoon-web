@@ -5,8 +5,7 @@
   height: 100vh;
   align-items: center;
   justify-content: flex-end;
-  background-color: rgba(0, 0, 0, 0.45);
-  transition: 0.7s all ease-in-out;
+  transition: 0.4s all ease-in-out;
   z-index: 5;
 }
 .comment-main-container .comment-overlay-container {
@@ -16,9 +15,9 @@
   position: sticky;
   overflow: hidden;
   overflow-y: scroll;
-  border-radius: 10px;
+  border-radius: 25px;
   background-color: white;
-  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.05);
   transition: 1s all ease-in-out;
 }
 .comment-main-container .comment-overlay-container .comment-overlay-heading {
@@ -31,11 +30,15 @@
 .comment-main-container .comment-overlay-container .comment-overlay-heading h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
-  opacity: 90%;
+  opacity: 93%;
 }
 .comment-main-container .comment-overlay-container .comment-overlay-heading .fa-times {
   font-size: 25px;
+  cursor: pointer;
   transition: "all 0.2s ease-in-out";
+}
+.comment-main-container .comment-overlay-container .comment-overlay-heading .fa-times:hover {
+  font-size: 28px;
 }
 .comment-main-container .comment-overlay-container .create-comment-section {
   padding: 1.5rem;
