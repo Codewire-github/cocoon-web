@@ -2,10 +2,8 @@ import "./mostpopularcard.css";
 import React from "react";
 import { NumtoMonth } from "../../numtomonth";
 import { Link } from "react-router-dom";
-const MostPopularCard = ({ articlesCollection }) => {
-  const articlesData = articlesCollection;
-  const sortedArray = articlesData.sort((a, b) => b.likes - a.likes);
-
+const MostPopularCard = ({ sortedCollection }) => {
+  const sortedArray = sortedCollection || [];
   return (
     <div className="popular-card-container">
       <section className="content">
