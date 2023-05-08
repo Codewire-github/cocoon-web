@@ -6,23 +6,58 @@
   display: flex;
   background-color: #665df5;
 
-  .row {
+  .body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-evenly;
     border-radius: 5px;
-    width: 1100px;
-    height: 800px;
+    width: 900px;
+    height: 600px;
     background: #fff;
-    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.05);
+
+    .Logo {
+      display: flex;
+      align-items: center;
+
+      img {
+        filter: invert(100%);
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+
+      h2 {
+        font-size: 3rem;
+        color: black;
+        font-weight: 700;
+      }
+    }
+
+    h1 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgb(8, 8, 8);
+    }
+
+    .login {
+      display: flex;
+      flex-direction: row;
+    }
+
     .logo-image {
       width: 100px;
       align-self: flex-start;
     }
+
     .side-image {
       margin: 1rem;
-      padding: 2rem 3rem;
+      padding: 2rem 2rem;
       display: flex;
+      align-items: center;
+      justify-content: center;
       flex-direction: column;
       gap: 3rem;
       background-color: white;
@@ -31,7 +66,7 @@
 
       .side-img {
         align-self: center;
-        width: 350px;
+        width: 400px;
       }
     }
   }
