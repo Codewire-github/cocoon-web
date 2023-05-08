@@ -29,6 +29,13 @@ export default function Profile({ articlesCollection }) {
     totalLikes += userUploads[i].likes.length;
   }
 
+  const calculateReadTime = (text) => {
+    //average wpm of an individual is 100.
+    const wordsPerMinute = 100;
+    const wordCount = text.split(/\s+/).length;
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    return readTime;
+  };
   return (
     <div style={{ backgroundColor: "white" }}>
       <Nav bgColor="white" />
@@ -82,6 +89,7 @@ export default function Profile({ articlesCollection }) {
                       article.published_date[0]
                     }, ${article.published_date[2]}`}
                     genre={article.genre}
+                    readTime ={calculateReadTime(article.article_description)}
                   />
                 </div>
               ))

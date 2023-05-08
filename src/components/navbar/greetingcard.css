@@ -1,8 +1,8 @@
 .greeting-container {
   display: flex;
   gap: 1rem;
-  background-color: white;
-  padding: 0.6rem;
+  background-color: whitesmoke;
+  padding: 0.4rem;
   border: none;
   border-radius: 10px;
   color: black;
@@ -11,24 +11,19 @@
 .greeting-container .greeting-icon {
   width: 45px;
   height: 45px;
-  border-radius: 10px;
+  border-radius: 13px;
 }
 .greeting-container .greeting-content {
   display: flex;
   flex-direction: column;
 }
 
-.greeting-container .greeting-content .greeting-text {
+.greeting-container .greeting-content .greeting-text,.username {
   text-transform: none;
-  color: black;
-  font-weight: bold;
-  font-size: 1.15rem;
-}
-
-.greeting-container .username {
-  color: black;
-  text-transform: none;
-  font-size: 1.05rem;
+  color:black;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-right: 20px;
 }
 .greeting-container .user-photo {
   width: 40px;
