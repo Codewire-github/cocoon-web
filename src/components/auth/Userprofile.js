@@ -82,6 +82,7 @@ export default function Profile({ articlesCollection }) {
                       article.published_date[0]
                     }, ${article.published_date[2]}`}
                     genre={article.genre}
+                    likes={article.likes.length}
                   />
                 </div>
               ))

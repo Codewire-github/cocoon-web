@@ -23,6 +23,14 @@ const MiniArticleCardFirebase = (props) => {
         <span className="article-details">
           <p id="published-date">{props.date}</p>
           <p id="article-genre">{props.genre}</p>
+          <p
+            style={{
+              color: "rgb(175, 175, 175)",
+            }}
+          >
+            <i className="fas fa-heart" style={{ marginRight: "0.3rem" }}></i>
+            {props.likes}
+          </p>
         </span>
       </section>
       <img src={props.imgUrl} alt="article-photo" />
