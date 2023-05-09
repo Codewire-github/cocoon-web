@@ -15,24 +15,26 @@
     width: 900px;
     height: 600px;
     background: #fff;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.05),
+      0 16px 40px rgba(0, 0, 0, 0.05);
 
     .Logo {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      align-self: flex-start;
+      margin: 1rem 3rem;
 
       img {
         filter: invert(100%);
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
+        width: 35px;
+        height: 35px;
         margin-right: 10px;
       }
 
       h2 {
-        font-size: 3rem;
+        font-size: 1.5rem;
         color: black;
-        font-weight: 700;
+        font-weight: 600;
       }
     }
 

@@ -19,19 +19,20 @@
 }
 .main-div .body .Logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  align-self: flex-start;
+  margin: 1rem 3rem;
 }
 .main-div .body .Logo img {
   filter: invert(100%);
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
+  width: 35px;
+  height: 35px;
   margin-right: 10px;
 }
 .main-div .body .Logo h2 {
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: black;
-  font-weight: 700;
+  font-weight: 600;
 }
 .main-div .body h1 {
   font-size: 1rem;

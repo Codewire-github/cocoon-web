@@ -89,11 +89,8 @@ export default function Profile({ articlesCollection }) {
                       article.published_date[0]
                     }, ${article.published_date[2]}`}
                     genre={article.genre}
-<<<<<<< HEAD
                     likes={article.likes.length}
-=======
-                    readTime ={calculateReadTime(article.article_description)}
->>>>>>> 12e4c8f88504c6dcf9d3e7ecdb2831203f0765b4
+                    readTime={calculateReadTime(article.article_description)}
                   />
                 </div>
               ))
