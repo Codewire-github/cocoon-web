@@ -17,7 +17,8 @@
     overflow-y: scroll;
     border-radius: 25px;
     background-color: white;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.05),
+      0 16px 40px rgba(0, 0, 0, 0.05);
     transition: 1s all ease-in-out;
 
     .comment-overlay-heading {
@@ -28,20 +29,18 @@
       padding: 0.5rem 0.7rem;
 
       h2 {
-<<<<<<< HEAD
         font-size: 16px;
-=======
+
         font-family: Arial, Helvetica, sans-serif;
         font-size: 25px;
         opacity: 93%;
->>>>>>> refs/remotes/cocoon-web/main
       }
       .fa-times {
         font-size: 25px;
         cursor: pointer;
         transition: "all 0.2s ease-in-out";
       }
-      .fa-times:hover{
+      .fa-times:hover {
         font-size: 28px;
       }
     }
