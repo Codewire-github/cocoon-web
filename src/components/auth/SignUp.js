@@ -64,9 +64,18 @@ export const SignUp = () => {
             <img src={sideImg} className="side-img" alt="side-img" />
           </div>
           <div className="form-container">
-            <form className="signup-form" onSubmit={signUp}>
-              <h2 className="heading"> Create an account</h2>
-              <p className="login-prompt">Please enter your details</p>
+            <form className="signup-form">
+              <h2
+                className="heading"
+                style={{
+                  alignItems: "center",
+                  alignSelf: "center",
+                }}
+              >
+                {" "}
+                Create an account
+              </h2>
+              {/* <p className="login-prompt">Please enter your details</p>
               <div className="input-field">
                 <input
                   className="input-box"
@@ -111,7 +120,8 @@ export const SignUp = () => {
                 <button className="button" type="submit">
                   Sign Up
                 </button>
-              )}
+              )} */}
+
               <hr />
               <div className="google-button">
                 <button onClick={handleGoogleSignIn}>
@@ -128,7 +138,7 @@ export const SignUp = () => {
               </Link>
             </form>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   );

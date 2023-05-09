@@ -36,8 +36,9 @@
 }
 
 .aboutus-image {
-  height: 350px;
+  height: 400px;
   width: 330px;
+  object-fit: contain;
 }
 
 .aboutus-name {
