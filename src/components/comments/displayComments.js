@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, deleteDoc, doc} from "firebase/firestore";
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import "./displayComments.css";
 import { db } from "../../database/firebase-config";
 import { useParams } from "react-router-dom/dist";
@@ -37,12 +37,16 @@ const DisplayComments = ({ bgcolor, user }) => {
   };
 
   const handleDeleteComment = async (commentId) => {
-    const confirmation = window.confirm("Are you sure you want to delete this comment?");
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this comment?"
+    );
     if (confirmation) {
       const commentRef = doc(db, `articles/${id}/comments/${commentId}`);
       try {
         await deleteDoc(commentRef);
-        setCommentList(commentList.filter((comment) => comment.id !== commentId));
+        setCommentList(
+          commentList.filter((comment) => comment.id !== commentId)
+        );
       } catch (error) {
         console.error("Error removing comment: ", error);
       }
@@ -55,10 +59,15 @@ const DisplayComments = ({ bgcolor, user }) => {
         className="display-comments-heading"
         style={{
           padding: "0.5rem",
-          borderBottom: `3.5px solid ${bgcolor === "white" ? "black" : bgcolor}`,
+          borderBottom: `3.5px solid ${
+            bgcolor === "white" ? "black" : bgcolor
+          }`,
         }}
       >
-        <h2>{commentList.length} {commentList.length === 1 ? 'Comment' : 'Comments'}</h2>
+        <h2>
+          {commentList.length}{" "}
+          {commentList.length === 1 ? "Comment" : "Comments"}
+        </h2>
       </section>
       {commentList.map((Comment) => {
         return (
@@ -72,14 +81,20 @@ const DisplayComments = ({ bgcolor, user }) => {
             }}
           >
             <div className="commentItself">
-              <img
-                src={Comment.userphotoURL}
-                alt="User avatar"
-              />
+              <img src={Comment.userphotoURL} alt="User avatar" />
               <div className="commentInfo">
-                <span className="username">{Comment.username}</span>
-                <span className="commentTime">
-                  {getTimeAgo(Comment.time.toDate())}
+                <span
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <span className="username">{Comment.username}</span>
+                  <span className="commentTime">
+                    {getTimeAgo(Comment.time.toDate())}
+                  </span>
                 </span>
                 <p>{Comment.comment}</p>
               </div>
@@ -93,7 +108,6 @@ const DisplayComments = ({ bgcolor, user }) => {
                   }}
                 >
                   <i className="fas fa-trash-alt"></i>
-                  Delete
                 </button>
               </div>
             )}
@@ -102,7 +116,9 @@ const DisplayComments = ({ bgcolor, user }) => {
       })}
       {commentList.length === 0 && (
         <div className="noComments">
-          <p>Be the first to leave a comment!</p>
+          <p style={{ padding: "2rem 1rem" }}>
+            Be the first to leave a comment!
+          </p>
         </div>
       )}
     </div>
