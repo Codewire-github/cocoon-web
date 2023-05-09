@@ -6,7 +6,6 @@ import { NumtoMonth } from "../numtomonth";
 import "./Userprofile.css";
 import MiniArticleCardFirebase from "../cards/mini_article_card_firebase/mini_article_card_firebase";
 import { EmptyCard } from "../PaginatedArticleList";
-import { ArticlesCollection } from "../../database/article_collection";
 import Nav from "../nav/nav";
 
 export default function Profile({ articlesCollection }) {
