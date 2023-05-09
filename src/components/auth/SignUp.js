@@ -5,10 +5,10 @@ import { UserAuth } from "../../context/authcontect";
 import { Link, useNavigate } from "react-router-dom";
 
 import googlelogo from "../../images/googlelogo.png";
-import logo from "../../images/cocoon.png";
-import sideImg from "../../images/undraw_completed_03xt.svg";
+import cocoonLogo from "../../images/cocoonLogo.png";
+import sideImg from "../../images/login_img.png";
 
-export const SignUp = (props) => {
+export const SignUp = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -54,83 +54,81 @@ export const SignUp = (props) => {
 
   return (
     <div className="main-div">
-      <div className="row">
-        <div className="side-image">
-          <Link to="/">
-            <img className="logo-image" src={logo} alt="logo" />
-          </Link>
-          <img src={sideImg} className="side-img" alt="side-img" />
-
-          <div className="text">
-            <h1>Join the community of writers</h1>
+      <div className="body">
+        <Link to="/" className="Logo" style={{ textDecoration: "none" }}>
+          <img src={cocoonLogo} alt="Logo" />
+          <h2>THE COCOON</h2>
+        </Link>
+        <div className="login">
+          <div className="side-image">
+            <img src={sideImg} className="side-img" alt="side-img" />
           </div>
-        </div>
-
-        <div className="form-container">
-          <form className="signup-form" onSubmit={signUp}>
-            <h2 className="heading"> Create an account</h2>
-            <p className="login-prompt">Please enter your details</p>
-            <div className="input-field">
-              <input
-                className="input-box"
-                defaultValue={name}
-                name="name"
-                placeholder="Enter your Full Name "
-                onChange={(e) => setName(e.target.value)}
-                required
-              ></input>
-            </div>
-            <div className="input-field">
-              <input
-                className="input-box"
-                defaultValue={email}
-                type="email"
-                placeholder="Enter your Email"
-                id="email"
-                name="email"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="off"
-              />
-            </div>
-            <div className="input-field">
-              <input
-                className="input-box"
-                defaultValue={password}
-                type="password"
-                placeholder="Enter a strong Password"
-                id="password"
-                name="password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="off"
-              />
-            </div>
-            {user?.displayName ? (
-              <button className="button" onClick={handleSignOut}>
-                Log out
-              </button>
-            ) : (
-              <button className="button" type="submit">
-                Sign Up
-              </button>
-            )}
-            <hr />
-            <div className="google-button">
-              <button onClick={handleGoogleSignIn}>
-                <img
-                  src={googlelogo}
-                  className="google-logo"
-                  alt="google-logo"
+          <div className="form-container">
+            <form className="signup-form" onSubmit={signUp}>
+              <h2 className="heading"> Create an account</h2>
+              <p className="login-prompt">Please enter your details</p>
+              <div className="input-field">
+                <input
+                  className="input-box"
+                  defaultValue={name}
+                  name="name"
+                  placeholder="Enter your Full Name "
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div className="input-field">
+                <input
+                  className="input-box"
+                  defaultValue={email}
+                  type="email"
+                  placeholder="Enter your Email"
+                  id="email"
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="off"
                 />
-                Sign in with google
-              </button>
-            </div>
-            <Link to="/login" className="link-btn">
-              Already have an account? <b>Login here</b>
-            </Link>
-          </form>
-        </div>
+              </div>
+              <div className="input-field">
+                <input
+                  className="input-box"
+                  defaultValue={password}
+                  type="password"
+                  placeholder="Enter a strong Password"
+                  id="password"
+                  name="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  autoComplete="off"
+                />
+              </div>
+              {user?.displayName ? (
+                <button className="button" onClick={handleSignOut}>
+                  Log out
+                </button>
+              ) : (
+                <button className="button" type="submit">
+                  Sign Up
+                </button>
+              )}
+              <hr />
+              <div className="google-button">
+                <button onClick={handleGoogleSignIn}>
+                  <img
+                    src={googlelogo}
+                    className="google-logo"
+                    alt="google-logo"
+                  />
+                  Sign in with google
+                </button>
+              </div>
+              <Link to="/login" className="link-btn">
+                Already have an account? <b>Login here</b>
+              </Link>
+            </form>
+          </div>
+        </div>  
       </div>
     </div>
   );

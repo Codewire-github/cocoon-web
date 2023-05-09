@@ -124,9 +124,9 @@ export const GreetingUser = (props) => {
         )}
         <span className="greeting-content">
           <p className="greeting-text">
-            {CurrentHour < 12 ? "Good morning," : "Good evening,"}
+            {CurrentHour < 12 ? "Good morning," : "Good evening,"} 
           </p>
-          <p className="username">{props.userName}</p>
+          <p className="username">{props.userName.split(' ')[0]}</p>
         </span>
         <img src={props.userImg} className="user-photo" alt="userPhoto" />
       </div>

@@ -22,6 +22,7 @@ const MiniArticleCardFirebase = (props) => {
         <p id="article-subheading">{props.subheading}</p>
         <span className="article-details">
           <p id="published-date">{props.date}</p>
+          <p id="readTime">{props.readTime} min read</p>
           <p id="article-genre">{props.genre}</p>
           <p
             style={{

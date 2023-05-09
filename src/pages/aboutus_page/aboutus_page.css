@@ -37,7 +37,7 @@
 
 .aboutus-image {
   height: 350px;
-  width: 280px;
+  width: 330px;
 }
 
 .aboutus-name {
@@ -57,7 +57,12 @@
   align-items: center;
   gap: 0.5rem;
 }
-
+.aboutus-github:hover {
+  transform: scale(1.04);
+}
+.aboutus-github:active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
 .aboutus-github .fa-github {
   font-size: 30px;
 }
