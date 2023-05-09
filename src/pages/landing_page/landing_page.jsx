@@ -5,7 +5,6 @@ import MostPopularCard from "../../components/cards/most_popular_card/mostpopula
 import TopStoriesCard from "../../components/cards/top_stories_card/top_stories_card";
 import FooterSection from "../../components/footer/footer";
 import NavBar from "../../components/navbar/navbar";
-
 import MiniArticleCardFirebase from "../../components/cards/mini_article_card_firebase/mini_article_card_firebase";
 import { NumtoMonth } from "../../components/numtomonth";
 const LandingPage = ({ articlesCollection, sortedCollection }) => {
@@ -36,6 +35,13 @@ export default LandingPage;
 
 const ExploreArticles = ({ articlesCollection }) => {
   const articles = articlesCollection;
+  const calculateReadTime = (text) => {
+    //average wpm of an individual is 100.
+    const wordsPerMinute = 100;
+    const wordCount = text.split(/\s+/).length;
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    return readTime;
+  };
   return (
     <div className="explore-container">
       <p style={{ textTransform: "uppercase", fontWeight: "bold" }}>Explore</p>
@@ -52,6 +58,7 @@ const ExploreArticles = ({ articlesCollection }) => {
               article.published_date[0]
             }, ${article.published_date[2]}`}
             genre={article.genre}
+            readTime={calculateReadTime(article.article_description)}
           />
         </div>
       ))}
