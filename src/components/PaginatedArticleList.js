@@ -58,11 +58,8 @@ const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
                   article.published_date[0]
                 }, ${CheckCurrentYear(article.published_date[2])}`}
                 genre={article.genre}
-<<<<<<< HEAD
                 readTime ={calculateReadTime(article.article_description)}
-=======
                 likes={article.likes.length}
->>>>>>> 147459735355cccd95511fec787c1008e43acc24
               />
             </div>
           ))
