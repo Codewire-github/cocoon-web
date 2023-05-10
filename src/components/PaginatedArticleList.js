@@ -4,6 +4,7 @@ import { db } from "../database/firebase-config";
 import "./PaginatedArticleList.css";
 import MiniArticleCardFirebase from "./cards/mini_article_card_firebase/mini_article_card_firebase";
 import { NumtoMonth } from "./numtomonth";
+import { CheckCurrentYear } from "../pages/landing_page/landing_page";
 const PAGE_SIZE = 10;
 
 const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
@@ -55,9 +56,13 @@ const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
                 imgUrl={article.img_address}
                 date={`${NumtoMonth(article.published_date[1])} ${
                   article.published_date[0]
-                }, ${article.published_date[2]}`}
+                }, ${CheckCurrentYear(article.published_date[2])}`}
                 genre={article.genre}
+<<<<<<< HEAD
                 readTime ={calculateReadTime(article.article_description)}
+=======
+                likes={article.likes.length}
+>>>>>>> 147459735355cccd95511fec787c1008e43acc24
               />
             </div>
           ))

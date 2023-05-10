@@ -15,7 +15,7 @@ const LandingPage = ({ articlesCollection, sortedCollection }) => {
         <section className="first-section">
           <section className="first-section-content">
             <BannerArticle sortedCollection={sortedCollection} />
-            <TopStoriesCard />
+            <TopStoriesCard sortedCollection={sortedCollection} />
           </section>
         </section>
         <section className="second-section">
@@ -56,12 +56,23 @@ const ExploreArticles = ({ articlesCollection }) => {
             imgUrl={article.img_address}
             date={`${NumtoMonth(article.published_date[1])} ${
               article.published_date[0]
-            }, ${article.published_date[2]}`}
+            }${CheckCurrentYear(article.published_date[2])}`}
             genre={article.genre}
             readTime={calculateReadTime(article.article_description)}
+            likes={article.likes.length}
           />
         </div>
       ))}
     </div>
   );
+};
+
+export const CheckCurrentYear = (year) => {
+  const Current = new Date();
+  const CurrentYear = Current.getFullYear();
+  if (CurrentYear !== year) {
+    return `, ${year}`;
+  } else {
+    return "";
+  }
 };

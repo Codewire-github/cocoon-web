@@ -32,10 +32,10 @@ const PostComment = ({ bgcolor }) => {
       console.error("Error adding comment: ", error);
     }
   };
-  
+
   return (
     <form className="commentBox">
-      <input
+      <textarea
         className="postInput"
         placeholder="Add a Comment..."
         value={comment}
@@ -47,7 +47,7 @@ const PostComment = ({ bgcolor }) => {
             event.preventDefault();
           }
         }}
-      />
+      ></textarea>
       {user?.isAnonymous || user === null ? (
         <Link to="/login">
           <button

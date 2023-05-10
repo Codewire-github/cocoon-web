@@ -6,7 +6,6 @@ import { NumtoMonth } from "../numtomonth";
 import "./Userprofile.css";
 import MiniArticleCardFirebase from "../cards/mini_article_card_firebase/mini_article_card_firebase";
 import { EmptyCard } from "../PaginatedArticleList";
-import { ArticlesCollection } from "../../database/article_collection";
 import Nav from "../nav/nav";
 
 export default function Profile({ articlesCollection }) {
@@ -89,7 +88,8 @@ export default function Profile({ articlesCollection }) {
                       article.published_date[0]
                     }, ${article.published_date[2]}`}
                     genre={article.genre}
-                    readTime ={calculateReadTime(article.article_description)}
+                    likes={article.likes.length}
+                    readTime={calculateReadTime(article.article_description)}
                   />
                 </div>
               ))
