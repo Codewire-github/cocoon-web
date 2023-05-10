@@ -9,6 +9,13 @@ const PAGE_SIZE = 10;
 const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
   const [page, setPage] = useState(0);
   const articles = articlesCollection || [];
+  const calculateReadTime = (text) => {
+    //average wpm of an individual is 100.
+    const wordsPerMinute = 100;
+    const wordCount = text.split(/\s+/).length;
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    return readTime;
+  };
   //determine the pages to be displayed.
   const totalPages = Math.ceil(articles.length / PAGE_SIZE);
 
@@ -59,6 +66,7 @@ const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
                 }${CheckCurrentYear(article.published_date[2])}`}
                 readTime={calculateReadTime(article.article_description)}
                 genre={article.genre}
+                readTime ={calculateReadTime(article.article_description)}
                 likes={article.likes.length}
               />
             </div>
