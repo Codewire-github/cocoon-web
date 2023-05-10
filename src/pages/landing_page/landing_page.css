@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 20rem;
+  padding: 2rem 16rem;
 }
 .landing_page_container .first-section {
   display: flex;
@@ -24,7 +24,7 @@
   width: 100%;
   max-height: -moz-max-content;
   max-height: max-content;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
   border-bottom: 3px solid rgb(85, 85, 85);
 }
 .landing_page_container .second-section .explore-container {
@@ -36,9 +36,12 @@
   color: black;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (min-width: 1920px) {
   .landing_page_container {
-    padding: 3rem 15rem;
+    padding: 3rem 13rem;
+  }
+  .landing_page_container .second-section {
+    padding: 1rem;
   }
 }
 @media screen and (max-width: 1440px) {

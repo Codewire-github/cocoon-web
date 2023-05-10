@@ -79,6 +79,11 @@
      object-fit: cover;
 }
 
+@media screen and (min-width: 1920px) {
+  .mini-article-card-wrap {
+    width: 500px;
+  }
+}
 @media screen and (max-width: 640px) {
   .mini-article-card-wrap {
     width: 95vw;

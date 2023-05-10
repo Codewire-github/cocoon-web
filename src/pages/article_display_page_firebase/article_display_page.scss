@@ -162,9 +162,45 @@
         }
       }
     }
+    .delete-article-btn {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      background-color: red;
+      color: white;
+      padding: 14px 17px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      align-self: center;
+      transition: 0.3s linear;
+    }
+    .delete-article-btn:hover {
+      opacity: 0.85;
+    }
   }
 }
+@media screen and (min-width: 1920px) {
+  .article-page-container {
+    .first-section {
+      .first-section-content {
+        padding: 6rem 10rem;
 
+        .title {
+          font-size: 3.7rem;
+          line-height: 60px;
+        }
+        .sub-title {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    .second-section {
+      padding: 3rem 18rem 10rem 18rem;
+    }
+  }
+}
 @media screen and (max-width: 480px) {
   .article-page-container {
     width: 100vw;

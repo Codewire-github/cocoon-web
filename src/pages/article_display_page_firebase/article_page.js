@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import HTMLString from "react-html-string";
 import { db } from "../../database/firebase-config";
+import { deleteDoc } from "firebase/firestore";
 import { onSnapshot } from "firebase/firestore";
 import { UserAuth } from "../../context/authcontect";
 import "./article_display_page.css";
@@ -14,6 +15,8 @@ import { ArticlesCollection } from "../../database/article_collection";
 import { arrayUnion, arrayRemove, doc, updateDoc } from "firebase/firestore";
 
 const ArticlePage = () => {
+  const postID = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scroll(0, 0);
     const PostRef = doc(db, "articles", postID.id);
@@ -33,7 +36,7 @@ const ArticlePage = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [LikeNums, setLikeNums] = useState(0);
   const articlesCollection = ArticlesCollection;
-  const postID = useParams();
+
   let CurrentArticle = [];
 
   if (articlesCollection !== undefined) {
@@ -52,7 +55,6 @@ const ArticlePage = () => {
     img_address,
     img_alt,
     article_description,
-    likes,
   } = CurrentArticle || {};
 
   const [date, month, year] = published_date || [];
@@ -91,6 +93,22 @@ const ArticlePage = () => {
       setIsLiked(true);
     }
   };
+
+  const handleDeleteArticle = async () => {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this article?"
+    );
+    if (confirmation) {
+      const articleRef = doc(db, `articles/${postID.id}`);
+      try {
+        await deleteDoc(articleRef);
+        navigate("/profile");
+      } catch (error) {
+        console.error("Error deleting your article: ", error);
+      }
+    }
+  };
+
   return (
     <div className="article-page-container">
       <section
@@ -174,11 +192,21 @@ const ArticlePage = () => {
               }}
             >
               <div className="likes-wrap">
-                <i
-                  className="fas fa-heart"
-                  style={{ color: `${isLiked ? "red" : "rgb(228, 228, 228)"}` }}
-                  onClick={handleLikeBtn}
-                ></i>
+                {user?.isAnonymous === true ? (
+                  <i
+                    className="fas fa-heart"
+                    style={{ color: "rgb(228, 228, 228)" }}
+                  ></i>
+                ) : (
+                  <i
+                    className="fas fa-heart"
+                    style={{
+                      color: `${isLiked ? "red" : "rgb(228, 228, 228)"}`,
+                    }}
+                    onClick={handleLikeBtn}
+                  ></i>
+                )}
+
                 <p style={{ fontWeight: "bold" }}>{LikeNums} Likes</p>
               </div>
               <span
@@ -205,6 +233,14 @@ const ArticlePage = () => {
                 <b> Comments</b>
               </span>
             </section>
+            {user?.uid === userID && (
+              <span
+                className="delete-article-btn"
+                onClick={handleDeleteArticle}
+              >
+                <i className="fas fa-trash-alt"></i> Delete
+              </span>
+            )}
           </section>
         </section>
       </section>

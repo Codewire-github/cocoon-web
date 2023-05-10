@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../database/firebase-config";
+import React, { useState } from "react";
+
 import "./PaginatedArticleList.css";
 import MiniArticleCardFirebase from "./cards/mini_article_card_firebase/mini_article_card_firebase";
 import { NumtoMonth } from "./numtomonth";
@@ -32,6 +31,14 @@ const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
     setPage((prevPage) => prevPage + 1);
   };
 
+  const calculateReadTime = (text) => {
+    //average wpm of an individual is 100.
+    const wordsPerMinute = 100;
+    const wordCount = text.split(/\s+/).length;
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    return readTime;
+  };
+
   return (
     <div className="paginatedArticleList">
       <div>
@@ -49,7 +56,8 @@ const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
                 imgUrl={article.img_address}
                 date={`${NumtoMonth(article.published_date[1])} ${
                   article.published_date[0]
-                }, ${CheckCurrentYear(article.published_date[2])}`}
+                }${CheckCurrentYear(article.published_date[2])}`}
+                readTime={calculateReadTime(article.article_description)}
                 genre={article.genre}
                 likes={article.likes.length}
               />

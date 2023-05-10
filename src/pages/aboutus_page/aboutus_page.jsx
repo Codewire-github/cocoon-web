@@ -1,8 +1,8 @@
 import Nav from "../../components/nav/nav";
 import "./aboutus_page.css";
 import nikita from "../../images/aboutusnikita.jpg";
-import pro0o from "../../images/pro0o.png"
-
+import pro0o from "../../images/pro0o.png";
+import ishan from "../../images/ishan.jpeg";
 const Aboutus_page = () => {
   const developersInfo = [
     {
@@ -11,7 +11,7 @@ const Aboutus_page = () => {
       email_address: "ishanawal68@gmail.com",
       github_name: "Codewire-github",
       github_address: "https://github.com/Codewire-github",
-      img:nikita,
+      img: ishan,
     },
     {
       id: 2,
@@ -43,7 +43,11 @@ const Aboutus_page = () => {
         <div className="aboutus-des">
           {developersInfo.map((developer) => (
             <div className="aboutus-content" key={developer.id}>
-              <img className="aboutus-image" src={developer.img}/>
+              <img
+                className="aboutus-image"
+                src={developer.img}
+                alt={developer.name}
+              />
               <p className="aboutus-name">
                 <b>{developer.name}</b>
               </p>

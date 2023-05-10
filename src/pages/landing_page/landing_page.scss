@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 20rem;
+  padding: 2rem 16rem;
 
   .first-section {
     display: flex;
@@ -23,10 +23,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     width: 100%;
+
     max-height: max-content;
 
-    padding-bottom: 3rem;
+    padding-bottom: 5rem;
     border-bottom: 3px solid rgb(85, 85, 85);
 
     .explore-container {
@@ -39,9 +41,13 @@
   }
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (min-width: 1920px) {
   .landing_page_container {
-    padding: 3rem 15rem;
+    padding: 3rem 13rem;
+
+    .second-section {
+      padding: 1rem;
+    }
   }
 }
 @media screen and (max-width: 1440px) {

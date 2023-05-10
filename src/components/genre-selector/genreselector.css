@@ -41,6 +41,11 @@
   background-color: red;
 }
 
+@media screen and (max-width: 1920px) {
+  #genre-item {
+    padding: 7px 12px;
+  }
+}
 @media screen and (max-width: 480px) {
   .genre-container {
     width: 95vw;

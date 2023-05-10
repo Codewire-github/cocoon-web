@@ -29,12 +29,12 @@
   outline: none;
 }
 .commentBox .postButton {
-  width: 92vw;
-  padding: 10px 25px;
+  width: 100%;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   opacity: 93%;
   transition: 0.25s all ease-in-out;
@@ -45,12 +45,12 @@
 }
 
 .commentBox .signin-btn {
-  width: 92vw;
+  width: 100%;
   padding: 10px 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   opacity: 93%;
   transition: 0.25s all ease-in-out;
