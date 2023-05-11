@@ -163,22 +163,21 @@
       }
     }
     .delete-article-btn {
-      display: flex;
-      flex-direction: row;
-      gap: 0.5rem;
-      background-color: red;
-      color: white;
-      padding: 14px 17px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      align-self: center;
-      transition: 0.3s linear;
+      margin-left: 70px;
+      display: inline-block;
+      color: #ffffff;
+      background-color: #dd0000;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
     }
+    
     .delete-article-btn:hover {
-      opacity: 0.85;
+      cursor: pointer;
     }
+    
   }
 }
 @media screen and (min-width: 1920px) {

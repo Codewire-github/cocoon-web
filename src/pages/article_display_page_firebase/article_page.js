@@ -201,7 +201,7 @@ const ArticlePage = () => {
                   <i
                     className="fas fa-heart"
                     style={{
-                      color: `${isLiked ? "red" : "rgb(228, 228, 228)"}`,
+                      color: `${isLiked ? "rgb(221,0,0)" : "rgb(228, 228, 228)"}`,
                     }}
                     onClick={handleLikeBtn}
                   ></i>
