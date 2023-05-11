@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import LandingPage from "./pages/landing_page/landing_page";
-import ArticleDisplayPage from "./pages/article_display_page/article_display_page";
+
 import NewArticlePage from "./pages/new_article_page/newArticlepage";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
@@ -53,7 +53,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/article/:id" element={<ArticlePage />} />
+            <Route
+              path="/article/:id"
+              element={<ArticlePage articlesCollection={articles} />}
+            />
             <Route
               path="/profile"
               element={<Profile articlesCollection={articles} />}
