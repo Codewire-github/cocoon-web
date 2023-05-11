@@ -24,8 +24,8 @@ const GenreSelector = (props) => {
     "Linux",
     "Games",
     "Writing",
-    "Social Media"
-    "Sports"
+    "Social Media",
+    "Sports",
     "Music",
   ];
   return (
