@@ -1,5 +1,5 @@
 import "./sidenav.css";
-import cocoonLogo from "../../images/cocoonLogo.png";
+
 import { Link } from "react-router-dom";
 import React from "react";
 import { UserAuth } from "../../context/authcontect";
@@ -13,7 +13,8 @@ const SideNavbar = ({ toggleSidenav, isShown }) => {
       console.log(error);
     }
   };
-
+  const logoURL =
+    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
   return (
     <div
       className="sidenav_container"
@@ -27,7 +28,7 @@ const SideNavbar = ({ toggleSidenav, isShown }) => {
         }}
       >
         <Link to="/" className="Logo" style={{ textDecoration: "none" }}>
-          <img src={cocoonLogo} alt="Logo" />
+          <img src={logoURL} alt="Logo" />
           <h2>The cocoon</h2>
         </Link>
         <button

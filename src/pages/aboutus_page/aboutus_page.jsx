@@ -1,8 +1,6 @@
 import Nav from "../../components/nav/nav";
 import "./aboutus_page.css";
-import nikita from "../../images/aboutusnikita.jpg";
-import pro0o from "../../images/pro0o.png";
-import ishan from "../../images/ishan.jpeg";
+
 const Aboutus_page = () => {
   const developersInfo = [
     {
@@ -11,7 +9,8 @@ const Aboutus_page = () => {
       email_address: "ishanawal68@gmail.com",
       github_name: "Codewire-github",
       github_address: "https://github.com/Codewire-github",
-      img: ishan,
+
+      img: "https://drive.google.com/uc?export=view&id=1-R1-b1igy8GU-i3cIZD1S7rButhMkqKT ",
     },
     {
       id: 2,
@@ -19,15 +18,16 @@ const Aboutus_page = () => {
       email_address: "nikitashrestha345@gmail.com",
       github_name: "NikitaKhuju",
       github_address: "https://github.com/NikitaKhuju",
-      img: nikita,
+      img: "https://drive.google.com/uc?export=view&id=1q1IolAXsXZkimCbyMEc4snsTQJo29jQb ",
     },
+
     {
       id: 3,
       name: "Probin Pun",
       email_address: "probinpun@gmail.com",
       github_name: "pro0o",
       github_address: "https://github.com/pro0o",
-      img: pro0o,
+      img: "https://drive.google.com/uc?export=view&id=1vyNxwSr0xBIEQt-arkV4pqAvjtF2J8fC ",
     },
   ];
   return (

@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { auth } from "../../database/firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-import googlelogo from "../../images/googlelogo.png";
-import cocoonLogo from "../../images/cocoonLogo.png";
-import sideImg from "../../images/login_img.png";
 import { UserAuth } from "../../context/authcontect";
 import { useNavigate, Link } from "react-router-dom";
 import "./authpage.css";
@@ -51,16 +48,23 @@ const Login = () => {
     }
   }, [user]);
 
+  const logoURL =
+    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
+  const sideImgURL =
+    "https://drive.google.com/uc?export=view&id=1n__aWHgq5TeQVqO0jyTAXaITZgHNHxzw";
+
+  const googleLogoURL =
+    "https://drive.google.com/uc?export=view&id=1PzRik3VLJ6f_XJhYsLWxJC4psQGbj3df";
   return (
     <div className="main-div">
       <div className="body">
         <Link to="/" className="Logo" style={{ textDecoration: "none" }}>
-          <img src={cocoonLogo} alt="Logo" />
+          <img src={logoURL} alt="Logo" />
           <h2>THE COCOON</h2>
         </Link>
         <div className="login">
           <div className="side-image">
-            <img src={sideImg} className="side-img" alt="undraw-art" />
+            <img src={sideImgURL} className="side-img" alt="undraw-art" />
           </div>
           <div className="form-container">
             <form className="login-form" onSubmit={logIn}>
@@ -105,7 +109,7 @@ const Login = () => {
               <div className="google-button">
                 <button onClick={handleGoogleSignIn}>
                   <img
-                    src={googlelogo}
+                    src={googleLogoURL}
                     className="google-logo"
                     alt="google-logo"
                   />

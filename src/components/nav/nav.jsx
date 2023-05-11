@@ -1,5 +1,4 @@
 import "./articlenavbar.css";
-import cocoonLogo from "../../images/cocoonLogo.png";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { UserAuth } from "../../context/authcontect";
@@ -23,6 +22,8 @@ const Nav = ({ bgColor }) => {
       setShowSideMenu(true);
     }
   };
+  const logoURL =
+    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
 
   return (
     <div
@@ -33,9 +34,9 @@ const Nav = ({ bgColor }) => {
     >
       <Link to="/" className="Logo" style={{ textDecoration: "none" }}>
         {bgColor === "rgb(82 0 255)" ? (
-          <img src={cocoonLogo} className="logo-white" alt="Logo" />
+          <img src={logoURL} className="logo-white" alt="Logo" />
         ) : (
-          <img src={cocoonLogo} className="logo-black" alt="Logo" />
+          <img src={logoURL} className="logo-black" alt="Logo" />
         )}
 
         <h2
