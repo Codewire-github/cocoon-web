@@ -27,7 +27,7 @@ const Aboutus_page = () => {
       email_address: "probinpun@gmail.com",
       github_name: "pro0o",
       github_address: "https://github.com/pro0o",
-      img: "https://drive.google.com/uc?export=view&id=1vyNxwSr0xBIEQt-arkV4pqAvjtF2J8fC ",
+      img: "https://i.ibb.co/BL2fbFb/probin.jpg ",
     },
   ];
   return (

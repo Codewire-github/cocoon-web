@@ -175,8 +175,8 @@ const ArticlePage = ({ articlesCollection }) => {
                 style={{ width: "45px", height: "45px", borderRadius: "10px" }}
               />
               <span>
-                <h2 style={{ fontSize: "18px" }}>Author:</h2>
-                <p style={{ textTransform: "uppercase", fontSize: "13px" }}>
+                <h2 style={{ fontSize: "17px" }}>Author:</h2>
+                <p style={{ textTransform: "uppercase", fontSize: "13px", fontWeight: "600" }}>
                   {authorName}
                 </p>
               </span>

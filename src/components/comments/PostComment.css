@@ -19,13 +19,13 @@
   padding: 20px;
   resize: inherit;
   border-radius: 10px;
-  border: 1.5px solid rgb(221, 221, 221);
+  border: 2.5px solid rgb(221, 221, 221);
   outline: none;
   transition: 0.2s all ease-in-out;
 }
 .postInput:focus-visible {
   color: rgb(3, 3, 3);
-  border: 2px solid rgb(185, 185, 185);
+  border: 2.5px solid rgb(156, 156, 156);
   outline: none;
 }
 .commentBox .postButton {
