@@ -1,11 +1,12 @@
 import "./footer.css";
-import cocoonLogo from "../../images/cocoonLogo.png"
 
 const FooterSection = () => {
+  const logoURL =
+    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
   return (
     <div className="footer-container">
       <div className="theCocoon">
-        <img src={cocoonLogo} alt="Logo" />
+        <img src={logoURL} alt="Logo" />
         <h1 className="logo">The cocoon</h1>
       </div>
       <ul>

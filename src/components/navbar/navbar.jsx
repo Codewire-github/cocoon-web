@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { UserAuth } from "../../context/authcontect";
 import { useNavigate } from "react-router-dom";
-import morningVector from "../../images/morning.webp";
-import eveningVector from "../../images/evening.webp";
-import nightVector from "../../images/night.jpeg";
-import cocoonLogo from "../../images/cocoonLogo.png";
+
 import SideNavbar from "../sidenavbar/sidenav";
 
 const NavBar = () => {
@@ -35,6 +32,9 @@ const NavBar = () => {
       setShowSideMenu(true);
     }
   };
+
+  const cocoonLogo =
+    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
   return (
     <div className="navbar_container" style={{ color: "white" }}>
       <Link
@@ -101,6 +101,12 @@ export default NavBar;
 export const GreetingUser = (props) => {
   const Current = new Date();
   const CurrentHour = Current.getHours();
+  const morningVector =
+    "https://drive.google.com/uc?export=view&id=1-5_87EmrECbHCz_t0DbeG-dilu11nXaZ";
+  const eveningVector =
+    "https://drive.google.com/uc?export=view&id=1YHS-2hKbtNaFXDtnwtTWsvKbeqPQYzCX";
+  const nightVector =
+    "https://drive.google.com/uc?export=view&id=1sgBq1SRrFCZkMAzEe8s5ZfXl45yTZPrT";
 
   return (
     <Link to="/profile" style={{ textDecoration: "none" }}>
@@ -124,9 +130,9 @@ export const GreetingUser = (props) => {
         )}
         <span className="greeting-content">
           <p className="greeting-text">
-            {CurrentHour < 12 ? "Good morning," : "Good evening,"} 
+            {CurrentHour < 12 ? "Good morning," : "Good evening,"}
           </p>
-          <p className="username">{props.userName.split(' ')[0]}</p>
+          <p className="username">{props.userName.split(" ")[0]}</p>
         </span>
         <img src={props.userImg} className="user-photo" alt="userPhoto" />
       </div>
