@@ -10,11 +10,10 @@ import Nav from "../../components/nav/nav";
 import FooterSection from "../../components/footer/footer";
 import { NumtoMonth } from "../../components/numtomonth";
 import CommentContainer from "../../components/comments/commentContainer";
-import { ArticlesCollection } from "../../database/article_collection";
 
 import { arrayUnion, arrayRemove, doc, updateDoc } from "firebase/firestore";
 
-const ArticlePage = () => {
+const ArticlePage = ({ articlesCollection }) => {
   const postID = useParams();
   const navigate = useNavigate();
   useEffect(() => {
@@ -35,7 +34,6 @@ const ArticlePage = () => {
   const [showCommentOverlay, setShowCommentOverlay] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [LikeNums, setLikeNums] = useState(0);
-  const articlesCollection = ArticlesCollection;
 
   let CurrentArticle = [];
 
