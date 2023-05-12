@@ -3,7 +3,7 @@ import { UserAuth } from "../../context/authcontect";
 import PostComment from "./PostComment";
 import "./commentContainer.css";
 import DisplayComments from "./displayComments";
-const CommentContainer = ({ handleOpenOverlay, bgColor, isOpened }) => {
+const CommentContainer = ({ handleOpenOverlay, bgColor, isOpened, authorId}) => {
   const { user } = UserAuth();
   return (
     <div
@@ -39,7 +39,7 @@ const CommentContainer = ({ handleOpenOverlay, bgColor, isOpened }) => {
           <PostComment bgcolor={bgColor} />
         </section>
         <section className="display-comment-section">
-          <DisplayComments bgcolor={bgColor} user={user} />
+          <DisplayComments bgcolor={bgColor} user={user} authorId={authorId}/>
         </section>
       </div>
     </div>

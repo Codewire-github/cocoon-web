@@ -4,7 +4,7 @@ import "./displayComments.css";
 import { db } from "../../database/firebase-config";
 import { useParams } from "react-router-dom/dist";
 
-const DisplayComments = ({ bgcolor, user }) => {
+const DisplayComments = ({ bgcolor, user, authorId}) => {
   const [commentList, setCommentList] = useState([]);
   const { id } = useParams();
 
@@ -69,11 +69,13 @@ const DisplayComments = ({ bgcolor, user }) => {
           {commentList.length === 1 ? "Comment" : "Comments"}
         </h2>
       </section>
-      {commentList.map((Comment) => {
+      {commentList.map((comment) => {
+        const commentIsAuthor = authorId === user?.uid;
+        const commentIsOwner = comment.userid === user?.uid;
         return (
           <div
             className="commentContainer"
-            key={Comment.id}
+            key={comment.id}
             style={{
               borderBottom: `2.5px solid ${
                 bgcolor === "white" ? "black" : bgcolor
@@ -81,7 +83,7 @@ const DisplayComments = ({ bgcolor, user }) => {
             }}
           >
             <div className="commentItself">
-              <img src={Comment.userphotoURL} alt="User avatar" />
+              <img src={comment.userphotoURL} alt="User avatar" />
               <div className="commentInfo">
                 <span
                   style={{
@@ -91,26 +93,26 @@ const DisplayComments = ({ bgcolor, user }) => {
                     gap: "10px",
                   }}
                 >
-                  <span className="username">{Comment.username}</span>
+                  <span className="username">{comment.username}</span>
                   <span className="commentTime">
-                    {getTimeAgo(Comment.time.toDate())}
+                    {getTimeAgo(comment.time.toDate())}
                   </span>
                 </span>
-                <p>{Comment.comment}</p>
+                <p>{comment.comment}</p>
               </div>
             </div>
-            {Comment.userid === user?.uid && (
-              <div className="deleteButton">
-                <button
-                  className="delete"
-                  onClick={() => {
-                    handleDeleteComment(Comment.id);
-                  }}
-                >
-                  <i className="fas fa-trash-alt"></i>
-                </button>
-              </div>
-            )}
+            {commentIsAuthor||commentIsOwner? (
+            <div className="deleteButton">
+              <button
+                className="delete"
+                onClick={() => {
+                  handleDeleteComment(comment.id, comment.userid);
+                }}
+              >
+                <i className="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          ) : null}
           </div>
         );
       })}

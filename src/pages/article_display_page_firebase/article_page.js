@@ -261,6 +261,7 @@ const ArticlePage = ({ articlesCollection }) => {
         handleOpenOverlay={setShowCommentOverlay}
         bgColor={bgcolor}
         isOpened={showCommentOverlay}
+        authorId={userID}
       />
 
       <FooterSection />
