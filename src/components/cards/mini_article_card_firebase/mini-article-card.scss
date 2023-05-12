@@ -108,6 +108,20 @@
     width: 90vw;
     .article-info {
       width: 88vw;
+
+      .article-details {
+        gap: 0.5rem;
+
+        #published-date {
+          font-size: 13px;
+        }
+        #readTime {
+          font-size: 13px;
+        }
+        #article-genre {
+          font-size: 13px;
+        }
+      }
     }
     img {
       width: 87vw;

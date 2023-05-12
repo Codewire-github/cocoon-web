@@ -11,7 +11,9 @@ const MostPopularCard = ({ sortedCollection }) => {
           style={{
             textTransform: "uppercase",
             color: "white",
+            fontSize: "30px",
             fontWeight: "bold",
+            fontFamily: "Landasans",
           }}
         >
           Most Popular

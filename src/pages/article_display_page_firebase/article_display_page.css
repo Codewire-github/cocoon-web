@@ -206,6 +206,10 @@
     width: 90vw;
     height: 240px;
   }
+  .article-page-container .first-section .first-section-content #image-alt {
+    font-family: monospace;
+    font-size: 0.75rem;
+  }
   .article-page-container .first-section .first-section-content .title {
     letter-spacing: 0.1px;
     line-height: 55px;

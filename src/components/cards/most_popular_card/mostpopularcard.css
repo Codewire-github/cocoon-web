@@ -41,7 +41,8 @@
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
-  gap: 1rem;
+  gap: 1.5rem;
+  padding-right: 1rem;
   color: white;
 }
 .popular-item-container .item-no {
@@ -84,7 +85,7 @@
 @media screen and (max-width: 480px) {
   .popular-card-container {
     position: relative;
-    width: 370px;
+    width: 95vw;
     padding-right: 1rem;
     padding-left: 1rem;
   }

@@ -15,7 +15,7 @@ import Account from "./components/auth/Account";
 import ArticlePage from "./pages/article_display_page_firebase/article_page";
 import Profile from "./components/auth/Userprofile";
 import ExplorePage from "./pages/explore_page/explore_page";
-import Aboutus_page from "./pages/aboutus_page/aboutus_page";
+import AboutusPage from "./pages/aboutus_page/aboutus_page";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -48,7 +48,7 @@ function App() {
               path="/explore"
               element={<ExplorePage articlesCollection={articles} />}
             />
-            <Route path="/aboutus" element={<Aboutus_page />} />
+            <Route path="/aboutus" element={<AboutusPage />} />
             <Route path="/write-new-article" element={<NewArticlePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />

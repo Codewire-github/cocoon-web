@@ -104,6 +104,18 @@
   .mini-article-card-wrap .article-info {
     width: 88vw;
   }
+  .mini-article-card-wrap .article-info .article-details {
+    gap: 0.5rem;
+  }
+  .mini-article-card-wrap .article-info .article-details #published-date {
+    font-size: 13px;
+  }
+  .mini-article-card-wrap .article-info .article-details #readTime {
+    font-size: 13px;
+  }
+  .mini-article-card-wrap .article-info .article-details #article-genre {
+    font-size: 13px;
+  }
   .mini-article-card-wrap img {
     width: 87vw;
     height: 250px;

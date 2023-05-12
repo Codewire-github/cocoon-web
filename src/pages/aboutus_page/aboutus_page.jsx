@@ -1,7 +1,7 @@
 import Nav from "../../components/nav/nav";
 import "./aboutus_page.css";
 
-const Aboutus_page = () => {
+const AboutusPage = () => {
   const developersInfo = [
     {
       id: 1,
@@ -64,4 +64,4 @@ const Aboutus_page = () => {
   );
 };
 
-export default Aboutus_page;
+export default AboutusPage;
