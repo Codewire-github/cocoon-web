@@ -78,20 +78,18 @@
 
 @media screen and (max-width: 480px) {
   .navbar_container {
-    font-family: monospace;
     width: 100vw;
     padding: 2rem 1rem;
-    font-weight: bold;
+    
   }
   .navbar_container .nav-options-wrap {
     display: none;
+    font-weight: bold;
   }
   .write-btn{
-    font-family: monospace;
     font-weight: bold;
   }
   .nav-btn{
-    font-family: monospace;
     font-weight: bold;
   }
 }

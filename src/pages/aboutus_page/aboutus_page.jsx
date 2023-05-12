@@ -34,13 +34,20 @@ const Aboutus_page = () => {
     <div className="the-aboutuspage">
       <Nav bgColor="white" />
       <div className="aboutus-container">
-        <div className="aboutus-head">
-          <h1>
-            Meet our team of creators, designers <br />
-            and problem solvers of The Cocoon
-          </h1>
+        <div className="aboutCocoon">
+            <h1>About THE COCOON</h1>
+            <p>Just as a caterpillar spends slumber of time 
+              in its <i>cocoon</i>, ideas can lay dormant in the mind 
+              until the right moment. With <i>Cocoon, 
+              these ideas can take flight and spark into something 
+              beautiful and powerful conversations.</i>
+              
+            </p> 
         </div>
-        <div className="aboutus-des">
+        <h1>
+            MEET OUR TEAM
+        </h1>
+        <div className="aboutus">
           {developersInfo.map((developer) => (
             <div className="aboutus-content" key={developer.id}>
               <img
