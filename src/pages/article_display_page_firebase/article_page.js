@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import HTMLString from "react-html-string";
 import { db } from "../../database/firebase-config";
 import { deleteDoc } from "firebase/firestore";
@@ -169,14 +169,26 @@ const ArticlePage = ({ articlesCollection }) => {
                 borderRadius: "10px",
               }}
             >
-              <img
-                src={authorImgURL}
-                alt="author-img"
-                style={{ width: "45px", height: "45px", borderRadius: "10px" }}
-              />
+              <Link to={`/writerprofile/${authorName}/${userID}`}>
+                <img
+                  src={authorImgURL}
+                  alt="author-img"
+                  style={{
+                    width: "45px",
+                    height: "45px",
+                    borderRadius: "10px",
+                  }}
+                />
+              </Link>
               <span>
-                <h2 style={{ fontSize: "18px" }}>Author:</h2>
-                <p style={{ textTransform: "uppercase", fontSize: "13px" }}>
+                <h2 style={{ fontSize: "17px" }}>Author:</h2>
+                <p
+                  style={{
+                    textTransform: "uppercase",
+                    fontSize: "13px",
+                    fontWeight: "600",
+                  }}
+                >
                   {authorName}
                 </p>
               </span>
@@ -199,7 +211,9 @@ const ArticlePage = ({ articlesCollection }) => {
                   <i
                     className="fas fa-heart"
                     style={{
-                      color: `${isLiked ? "red" : "rgb(228, 228, 228)"}`,
+                      color: `${
+                        isLiked ? "rgb(221,0,0)" : "rgb(228, 228, 228)"
+                      }`,
                     }}
                     onClick={handleLikeBtn}
                   ></i>
@@ -247,6 +261,7 @@ const ArticlePage = ({ articlesCollection }) => {
         handleOpenOverlay={setShowCommentOverlay}
         bgColor={bgcolor}
         isOpened={showCommentOverlay}
+        authorId={userID}
       />
 
       <FooterSection />

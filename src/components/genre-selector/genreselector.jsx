@@ -25,6 +25,8 @@ const GenreSelector = (props) => {
     "Games",
     "Writing",
     "Social Media",
+    "Sports",
+    "Music",
   ];
   return (
     <div className="genre-container">

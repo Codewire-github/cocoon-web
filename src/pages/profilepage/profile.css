@@ -1,0 +1,104 @@
+.fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: none;
+  background-color: white;
+  min-height: 100vh;
+  height: max-content;
+  width: 100%;
+}
+
+.userIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-txt {
+  font-size: 30px;
+  margin-top: 2rem;
+  color: black;
+}
+
+.useravatar {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+
+.userkoname {
+  font-size: 28px;
+  margin-top: 1rem;
+  color: black;
+}
+
+.writer-txt {
+  color: #665df5;
+}
+
+.heading-contain {
+  position: absolute;
+  font-family: "Landasans";
+  /*transform: translate(-50%, -50%);
+  border-bottom: 3px solid black;
+  line-height: 35px;
+  overflow: hidden;
+  width: 300px;
+  height: 40px;
+   */
+}
+
+.uploads-heading {
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 2px 20px;
+  background: black;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.uploads-heading:before {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 100%;
+  background: black;
+  z-index: -1;
+  transform: rotate(45deg);
+}
+
+.mid-contain {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5rem;
+}
+
+.uploads-no,
+.likes-no {
+  height: 90px;
+  width: 120px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: grey;
+}
+
+.num {
+  font-size: 35px;
+  color: black;
+}
+
+.uploads-txt,
+.likes-txt {
+  font-size: 20px;
+}
+
+.uploads-des {
+  margin: 2rem 0rem;
+}

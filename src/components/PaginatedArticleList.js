@@ -1,29 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./PaginatedArticleList.css";
 import MiniArticleCardFirebase from "./cards/mini_article_card_firebase/mini_article_card_firebase";
 import { NumtoMonth } from "./numtomonth";
 import { CheckCurrentYear } from "../pages/landing_page/landing_page";
+
 const PAGE_SIZE = 10;
 
 const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
   const [page, setPage] = useState(0);
+  const [visibleArticles, setVisibleArticles] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
+
   const articles = articlesCollection || [];
 
-  //determine the pages to be displayed.
-  const totalPages = Math.ceil(articles.length / PAGE_SIZE);
+  useEffect(() => {
+    setPage(0);
+  }, [current_genre]);
 
-  const startIndex = page * PAGE_SIZE;
-  const endIndex = startIndex + PAGE_SIZE;
-  const selectedGenreAritcles = articles.filter(
-    (article) => article.genre === current_genre
-  );
-  let visibleArticles;
-  if (current_genre === "") {
-    visibleArticles = articles.slice(startIndex, endIndex) || [];
-  } else {
-    visibleArticles = selectedGenreAritcles.slice(startIndex, endIndex) || [];
-  }
+  useEffect(() => {
+    const selectedGenreArticles = articles.filter(
+      (article) => article.genre === current_genre
+    );
+    const totalArticles = current_genre === "" ? articles : selectedGenreArticles;
+    setTotalPages(Math.ceil(totalArticles.length / PAGE_SIZE));
+    setVisibleArticles(totalArticles.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE) || []);
+  }, [articles, current_genre, page]);
+
   const handlePrevPageClick = () => {
     setPage((prevPage) => prevPage - 1);
   };
@@ -39,7 +42,6 @@ const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
     const readTime = Math.ceil(wordCount / wordsPerMinute);
     return readTime;
   };
-
   return (
     <div className="paginatedArticleList">
       <div>
@@ -67,21 +69,21 @@ const PaginatedArticleList = ({ current_genre, articlesCollection }) => {
         )}
       </div>
       <div className="pagination">
-        <button onClick={handlePrevPageClick} disabled={page === 0}>
+        <button onClick={handlePrevPageClick} disabled={page === 0 || totalPages === 0}>
           <i className="fas fa-chevron-left"></i>
         </button>
         {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index}
             onClick={() => setPage(index)}
-            disabled={index === page}
+            disabled={index === page || totalPages === 0}
           >
             {index + 1}
           </button>
         ))}
         <button
           onClick={handleNextPageClick}
-          disabled={page === totalPages - 1}
+          disabled={page === totalPages - 1 || totalPages === 0}
         >
           <i className="fas fa-chevron-right"></i>
         </button>
