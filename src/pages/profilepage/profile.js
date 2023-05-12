@@ -1,26 +1,19 @@
 import React, { useEffect } from "react";
 import { UserAuth } from "../../context/authcontect";
-import { useNavigate } from "react-router-dom";
-import { NumtoMonth } from "../numtomonth";
+import { useNavigate, useParams } from "react-router-dom";
+import { NumtoMonth } from "../../components/numtomonth";
 
-import "./Userprofile.css";
-import MiniArticleCardFirebase from "../cards/mini_article_card_firebase/mini_article_card_firebase";
-import { EmptyCard } from "../PaginatedArticleList";
-import Nav from "../nav/nav";
+import "./profile.css";
+import MiniArticleCardFirebase from "../../components/cards/mini_article_card_firebase/mini_article_card_firebase";
+import { EmptyCard } from "../../components/PaginatedArticleList";
+import Nav from "../../components/nav/nav";
 
-export default function Profile({ articlesCollection }) {
+export default function WriterProfile({ articlesCollection }) {
+  const user = useParams();
   const navigate = useNavigate();
 
-  const { user } = UserAuth();
-
-  useEffect(() => {
-    if (user == null) {
-      navigate("/");
-    }
-  }, [user]);
-
   const userUploads = articlesCollection.filter(
-    (article) => article.userID === user?.uid
+    (article) => article.userID === user.uid
   );
 
   let totalLikes = 0;
@@ -41,10 +34,9 @@ export default function Profile({ articlesCollection }) {
       <div className="fields">
         <div className="userIntro">
           <p className="profile-txt">
-            <b>My Profile</b>
+            <b>User's Profile</b>
           </p>
-          <img src={user?.photoURL} alt="Avatar" className="useravatar" />
-          <p className="userkoname"> {user?.displayName}</p>
+          <p className="userkoname"> {user.username}</p>
           <p className="writer-txt">Writer</p>
         </div>
 
@@ -69,7 +61,7 @@ export default function Profile({ articlesCollection }) {
 
         <div className="user-container">
           <div className="heading-contain">
-            <h3 className="uploads-heading">My uploads</h3>
+            <h3 className="uploads-heading">Uploads</h3>
           </div>
           <div className="uploads-des">
             {userUploads.length === 0 ? (

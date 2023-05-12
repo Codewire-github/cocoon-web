@@ -16,6 +16,7 @@ import ArticlePage from "./pages/article_display_page_firebase/article_page";
 import Profile from "./components/auth/Userprofile";
 import ExplorePage from "./pages/explore_page/explore_page";
 import Aboutus_page from "./pages/aboutus_page/aboutus_page";
+import WriterProfile from "./pages/profilepage/profile";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -60,6 +61,10 @@ function App() {
             <Route
               path="/profile"
               element={<Profile articlesCollection={articles} />}
+            />
+            <Route
+              path="/writerprofile/:username/:uid"
+              element={<WriterProfile articlesCollection={articles} />}
             />
           </Routes>
         </AuthContextProvider>
