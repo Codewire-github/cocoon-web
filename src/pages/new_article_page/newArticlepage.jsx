@@ -54,7 +54,7 @@ function NewArticlePage() {
       likes: [],
     });
 
-    navigate("/");
+    navigate("/profile");
   };
   const handlePostConfirm = () => {
     setDay(CurrentDay);
