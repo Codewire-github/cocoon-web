@@ -34,7 +34,7 @@ const NavBar = () => {
   };
 
   const cocoonLogo =
-    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
+    "https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png";
   return (
     <div className="navbar_container" style={{ color: "white" }}>
       <Link
