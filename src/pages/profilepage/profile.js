@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { UserAuth } from "../../context/authcontect";
-import { useNavigate, useParams } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
 import { NumtoMonth } from "../../components/numtomonth";
 
 import "./profile.css";
@@ -10,7 +10,6 @@ import Nav from "../../components/nav/nav";
 
 export default function WriterProfile({ articlesCollection }) {
   const user = useParams();
-  const navigate = useNavigate();
 
   const userUploads = articlesCollection.filter(
     (article) => article.userID === user.uid
@@ -28,6 +27,10 @@ export default function WriterProfile({ articlesCollection }) {
     const readTime = Math.ceil(wordCount / wordsPerMinute);
     return readTime;
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div style={{ backgroundColor: "white" }}>
       <Nav bgColor="white" />
@@ -36,6 +39,11 @@ export default function WriterProfile({ articlesCollection }) {
           <p className="profile-txt">
             <b>User's Profile</b>
           </p>
+          <img
+            src={`https://lh3.googleusercontent.com/a/${user.imageid}=s768-c`}
+            alt="Avatar"
+            className="useravatar"
+          />
           <p className="userkoname"> {user.username}</p>
           <p className="writer-txt">Writer</p>
         </div>
