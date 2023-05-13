@@ -2,11 +2,13 @@
   display: flex;
   justify-self: flex-end;
   bottom: 0;
+  width: 100vw;
   flex-direction: row;
   justify-content: space-between;
   height: 35vh;
   background-color: black;
   color: white;
+  overflow-x: hidden;
   padding: 2rem 15rem;
 }
 .footer-container .theCocoon {

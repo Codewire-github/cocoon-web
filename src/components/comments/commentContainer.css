@@ -44,10 +44,11 @@
   padding: 1.5rem;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 480px) {
   .comment-main-container .comment-overlay-container {
     width: 100vw;
     padding: 1rem;
+    border-radius: 0;
   }
   .comment-main-container .comment-overlay-container .comment-overlay-heading {
     padding: 0.5rem;

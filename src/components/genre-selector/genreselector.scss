@@ -42,11 +42,6 @@
   background-color: red;
 }
 
-@media screen and (max-width: 1920px) {
-  #genre-item {
-    padding: 7px 12px;
-  }
-}
 @media screen and (max-width: 480px) {
   .genre-container {
     width: 95vw;
@@ -55,5 +50,11 @@
   #genre-item {
     padding: 7px 12px;
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  #genre-item {
+    padding: 5.5px 12px;
   }
 }

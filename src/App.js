@@ -65,7 +65,7 @@ function App() {
               element={<Profile articlesCollection={articles} />}
             />
             <Route
-              path="/writerprofile/:username/:uid"
+              path="/writerprofile/:username/:uid/:imageid"
               element={<WriterProfile articlesCollection={articles} />}
             />
           </Routes>

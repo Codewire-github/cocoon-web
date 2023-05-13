@@ -6,6 +6,8 @@
   min-height: 100vh;
   height: fit-content;
   background-color: white;
+  overflow-x: hidden;
+
   .editor-content {
     display: flex;
     flex-direction: row;
@@ -245,6 +247,17 @@
   }
 }
 
+@media screen and(max-width: 1600px) {
+  .editor-main-wrap {
+    width: 100vw;
+
+    .editor-content {
+      padding: 2rem;
+      gap: 2rem;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .editor-content {
     width: 100vw;
@@ -260,6 +273,7 @@
     }
   }
 }
+
 @media screen and (max-width: 480px) {
   .editor-main-wrap {
     .editor-content {

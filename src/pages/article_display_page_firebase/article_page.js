@@ -107,6 +107,9 @@ const ArticlePage = ({ articlesCollection }) => {
     }
   };
 
+  const imageIDsub = authorImgURL?.split("/")[4] || "";
+  const imageID = imageIDsub.split("=")[0] || "";
+
   return (
     <div className="article-page-container">
       <section
@@ -169,7 +172,7 @@ const ArticlePage = ({ articlesCollection }) => {
                 borderRadius: "10px",
               }}
             >
-              <Link to={`/writerprofile/${authorName}/${userID}`}>
+              <Link to={`/writerprofile/${authorName}/${userID}/${imageID}`}>
                 <img
                   src={authorImgURL}
                   alt="author-img"
