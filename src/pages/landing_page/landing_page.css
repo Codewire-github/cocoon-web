@@ -35,6 +35,24 @@
   background-color: white;
   color: black;
 }
+.landing_page_container .second-section .right-container {
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: -moz-max-content;
+  height: max-content;
+  align-items: center;
+  position: sticky;
+}
+.landing_page_container .second-section .right-container .quote-container {
+  background-color: #d8f500;
+  padding: 1rem 1.5rem;
+  color: black;
+  border-radius: 20px;
+  width: 87%;
+  font-size: 1.2rem;
+}
 
 @media screen and (max-width: 1600px) {
   .landing_page_container {
@@ -88,5 +106,8 @@
   }
   .landing_page_container .second-section .explore-container {
     padding: 1rem;
+  }
+  .landing_page_container .second-section .right-container {
+    position: relative;
   }
 }/*# sourceMappingURL=landing_page.css.map */

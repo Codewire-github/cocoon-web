@@ -38,6 +38,24 @@
       background-color: white;
       color: black;
     }
+    .right-container {
+      top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      height: max-content;
+      align-items: center;
+      position: sticky;
+
+      .quote-container {
+        background-color: #d8f500;
+        padding: 1rem 1.5rem;
+        color: black;
+        border-radius: 20px;
+        width: 87%;
+        font-size: 1.2rem;
+      }
+    }
   }
 }
 
@@ -92,6 +110,10 @@
 
       .explore-container {
         padding: 1rem;
+      }
+
+      .right-container {
+        position: relative;
       }
     }
   }
