@@ -66,7 +66,7 @@ export const SignUp = () => {
             <img src={sideImgURL} className="side-img" alt="side-img" />
           </div>
           <div className="form-container">
-            <form className="signup-form">
+            <form className="signup-form" onSubmit={signUp}>
               <h2
                 className="heading"
                 style={{
@@ -122,7 +122,7 @@ export const SignUp = () => {
                 <button className="button" type="submit">
                   Sign Up
                 </button>
-              )} */}
+              )}*/}
 
               <hr />
               <div className="google-button">
@@ -132,7 +132,7 @@ export const SignUp = () => {
                     className="google-logo"
                     alt="google-logo"
                   />
-                  Sign in with google
+                  Sign up with google
                 </button>
               </div>
               <Link to="/login" className="link-btn">
