@@ -50,7 +50,7 @@ export const SignUp = () => {
   const googleLogoURL =
     "https://drive.google.com/uc?export=view&id=1PzRik3VLJ6f_XJhYsLWxJC4psQGbj3df";
   const logoURL =
-    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
+    "https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png";
   const sideImgURL =
     "https://drive.google.com/uc?export=view&id=1n__aWHgq5TeQVqO0jyTAXaITZgHNHxzw";
 
