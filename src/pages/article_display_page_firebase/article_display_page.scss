@@ -214,7 +214,8 @@
       width: 100vw;
       .first-section-content {
         align-items: center;
-        padding: 2rem;
+        width: 100%;
+        padding: 1rem;
         flex-direction: column-reverse;
 
         img {
@@ -229,7 +230,7 @@
           letter-spacing: 0.1px;
           line-height: 55px;
           margin-bottom: 7px;
-          font-size: 3.4rem;
+          font-size: 3.3rem;
         }
         .sub-title {
           font-size: 1.3rem;

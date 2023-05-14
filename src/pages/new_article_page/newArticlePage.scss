@@ -247,13 +247,19 @@
   }
 }
 
-@media screen and(max-width: 1600px) {
+@media screen and (max-width: 1600px) {
   .editor-main-wrap {
     width: 100vw;
 
     .editor-content {
       padding: 2rem;
       gap: 2rem;
+      .heading-input {
+        width: 730px;
+      }
+      .subheading-input {
+        width: 730px;
+      }
     }
   }
 }
