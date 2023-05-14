@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
-
 import { db } from "./firebase-config";
 
 import { getDocs } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 
-/* useEffect(() => {
-      const getArticles = async () => {
-        let data = await getDocs(articlesCollectionRef);
-        setArticles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      };
-      getArticles();
-    }, []);
+/* 
   
     return articles;
   }; */
