@@ -39,7 +39,7 @@
   top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.3rem;
   height: -moz-max-content;
   height: max-content;
   align-items: center;
@@ -50,8 +50,39 @@
   padding: 1rem 1.5rem;
   color: black;
   border-radius: 20px;
-  width: 87%;
-  font-size: 1.2rem;
+  width: 90%;
+  font-size: 1.1rem;
+}
+.landing_page_container .second-section .right-container .signin-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: rgba(82, 0, 255, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  width: 90%;
+  color: white;
+}
+.landing_page_container .second-section .right-container .signin-container h2 {
+  font-family: "Landasans";
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.landing_page_container .second-section .right-container .signin-container button {
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0.8rem 1.1rem;
+  border: none;
+  border-radius: 10px;
+  align-self: flex-start;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+}
+.landing_page_container .second-section .right-container .signin-container button:hover {
+  background-color: black;
+  color: white;
 }
 
 @media screen and (max-width: 1600px) {

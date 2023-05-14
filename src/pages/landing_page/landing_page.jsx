@@ -7,8 +7,11 @@ import FooterSection from "../../components/footer/footer";
 import NavBar from "../../components/navbar/navbar";
 import MiniArticleCardFirebase from "../../components/cards/mini_article_card_firebase/mini_article_card_firebase";
 import { NumtoMonth } from "../../components/numtomonth";
+import { UserAuth } from "../../context/authcontect";
+import { Link } from "react-router-dom";
 
 const LandingPage = ({ articlesCollection, sortedCollection }) => {
+  const { user } = UserAuth();
   return (
     <>
       <NavBar />
@@ -22,6 +25,21 @@ const LandingPage = ({ articlesCollection, sortedCollection }) => {
         <section className="second-section">
           <ExploreArticles articlesCollection={articlesCollection} />
           <div className="right-container">
+            {(user?.isAnonymous === true || user === null) && (
+              <section className="signin-container">
+                <h2>Important</h2>
+                <p>
+                  If you're ready to take the next step in your writing journey,
+                  I encourage you to dive in and start creating. There is no
+                  better time than now to join the community and share your
+                  voice with the world.
+                </p>
+                <Link to="/login">
+                  <button>Join us</button>
+                </Link>
+              </section>
+            )}
+
             <section className="quote-container">
               <h2
                 style={{

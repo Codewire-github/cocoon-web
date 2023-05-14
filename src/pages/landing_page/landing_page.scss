@@ -42,7 +42,7 @@
       top: 1rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.3rem;
       height: max-content;
       align-items: center;
       position: sticky;
@@ -52,8 +52,42 @@
         padding: 1rem 1.5rem;
         color: black;
         border-radius: 20px;
-        width: 87%;
-        font-size: 1.2rem;
+        width: 90%;
+        font-size: 1.1rem;
+      }
+
+      .signin-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        background-color: rgba(82, 0, 255, 0.9);
+        padding: 1rem 2rem;
+        border-radius: 20px;
+        width: 90%;
+        color: white;
+
+        h2 {
+          font-family: "Landasans";
+          font-size: 30px;
+          text-transform: uppercase;
+        }
+
+        button {
+          background-color: white;
+          color: black;
+          font-size: 15px;
+          font-weight: bold;
+          padding: 0.8rem 1.1rem;
+          border: none;
+          border-radius: 10px;
+          align-self: flex-start;
+          transition: 0.3s all ease-in-out;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: black;
+          color: white;
+        }
       }
     }
   }
