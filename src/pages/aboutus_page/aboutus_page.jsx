@@ -18,7 +18,7 @@ const AboutusPage = () => {
       email_address: "nikitashrestha345@gmail.com",
       github_name: "NikitaKhuju",
       github_address: "https://github.com/NikitaKhuju",
-      img: "https://drive.google.com/uc?export=view&id=1q1IolAXsXZkimCbyMEc4snsTQJo29jQb ",
+      img: "https://drive.google.com/uc?export=view&id=1NdRrYGBcBy3E0p8DrIGTMZti_l88C65g ",
     },
 
     {
@@ -35,18 +35,17 @@ const AboutusPage = () => {
       <Nav bgColor="white" />
       <div className="aboutus-container">
         <div className="aboutCocoon">
-            <h1>About THE COCOON</h1>
-            <p>Just as a caterpillar spends slumber of time 
-              in its <i>cocoon</i>, ideas can lay dormant in the mind 
-              until the right moment. With <i>Cocoon, 
-              these ideas can take flight and spark into something 
-              beautiful and powerful conversations.</i>
-              
-            </p> 
+          <h1>About THE COCOON</h1>
+          <p>
+            Just as a caterpillar spends slumber of time in its <i>cocoon</i>,
+            ideas can lay dormant in the mind until the right moment. With{" "}
+            <i>
+              Cocoon, these ideas can take flight and spark into something
+              beautiful and powerful conversations.
+            </i>
+          </p>
         </div>
-        <h1>
-            MEET OUR TEAM
-        </h1>
+        <h1>MEET OUR TEAM</h1>
         <div className="aboutus">
           {developersInfo.map((developer) => (
             <div className="aboutus-content" key={developer.id}>
