@@ -45,8 +45,8 @@
 }
 .deleteButton .delete {
   color: white;
-  background: rgb(194, 7, 7);
-  padding: 10px 15px;
+  background: rgb(221,0,0);
+  padding: 8px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -54,7 +54,24 @@
   box-shadow: 0 0 0 rgba(230, 12, 12, 0.4);
 }
 
-.deleteButton .delete:hover {
-  background: rgb(253, 75, 75);
-  box-shadow: 0 0 10px rgba(230, 12, 12, 0.4);
+.deleteButton:hover .fa-trash-alt {
+  animation: shake 0.5s 2;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }

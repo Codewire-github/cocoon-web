@@ -162,22 +162,49 @@
           opacity: 0.85;
         }
       }
+      .comment-overlay-btn .fa-comments {
+        transition: transform 0.3s ease;
+      }
+      
+      .comment-overlay-btn:hover .fa-comments {
+        transform: rotateY(180deg);
+      }
     }
     .delete-article-btn {
       margin-left: 80px;
       display: inline-block;
       color: #ffffff;
-      background-color: #dd0000;
+      background-color: rgb(221,0,0);
       padding: 0.7rem 1rem;
       border-radius: 0.5rem;
       font-weight: 600;
       font-size: 14px;
       transition: all 0.3s ease;
-    }
-
-    .delete-article-btn:hover {
       cursor: pointer;
     }
+
+    .delete-article-btn:hover .fa-trash-alt {
+      animation: shake 0.5s 2;
+    }
+    
+    @keyframes shake {
+      0% {
+        transform: rotate(0);
+      }
+      25% {
+        transform: rotate(-15deg);
+      }
+      50% {
+        transform: rotate(15deg);
+      }
+      75% {
+        transform: rotate(-15deg);
+      }
+      100% {
+        transform: rotate(0);
+      }
+    }
+    
   }
 }
 @media only screen and (max-width: 1600px) {
