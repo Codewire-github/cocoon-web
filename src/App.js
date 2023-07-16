@@ -17,7 +17,7 @@ import Profile from "./components/auth/Userprofile";
 import ExplorePage from "./pages/explore_page/explore_page";
 
 import AboutusPage from "./pages/aboutus_page/aboutus_page";
-import Aboutus_page from "./pages/aboutus_page/aboutus_page";
+
 import WriterProfile from "./pages/profilepage/profile";
 
 function App() {
