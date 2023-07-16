@@ -8,11 +8,27 @@ const BannerArticle = ({ sortedCollection }) => {
   const CurrentYear = Current.getFullYear();
   const sortedArray = sortedCollection || {};
   let BannerArticle = [];
-  BannerArticle = sortedArray.find(
-    (article) =>
-      article.published_date[1] === CurrentMonth &&
-      article.published_date[2] === CurrentYear
-  );
+  BannerArticle =
+    sortedArray.find(
+      (article) =>
+        article.published_date[1] === CurrentMonth &&
+        article.published_date[2] === CurrentYear
+    ) ||
+    sortedArray.find(
+      (article) =>
+        article.published_date[1] === CurrentMonth - 1 &&
+        article.published_date[2] === CurrentYear
+    ) ||
+    sortedArray.find(
+      (article) =>
+        article.published_date[1] === CurrentMonth - 2 &&
+        article.published_date[2] === CurrentYear
+    ) ||
+    sortedArray.find(
+      (article) =>
+        article.published_date[1] === CurrentMonth - 3 &&
+        article.published_date[2] === CurrentYear
+    );
 
   const {
     authorName,
