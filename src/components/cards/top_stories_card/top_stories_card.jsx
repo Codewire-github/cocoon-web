@@ -9,11 +9,26 @@ const TopStoriesCard = ({ sortedCollection }) => {
   const CurrentYear = Current.getFullYear();
   const sortedArray = sortedCollection || {};
   let BannerArticle = [];
+
   BannerArticle = sortedArray.filter(
     (article) =>
       article.published_date[1] === CurrentMonth &&
       article.published_date[2] === CurrentYear
   );
+  if (BannerArticle.length < 1) {
+    BannerArticle = sortedArray.filter(
+      (article) =>
+        article.published_date[1] === CurrentMonth - 1 &&
+        article.published_date[2] === CurrentYear
+    );
+  }
+  if (BannerArticle.length < 1) {
+    BannerArticle = sortedArray.filter(
+      (article) =>
+        article.published_date[1] === CurrentMonth - 2 &&
+        article.published_date[2] === CurrentYear
+    );
+  }
   const lastIndex = BannerArticle.length > 6 ? 6 : BannerArticle.length;
   return (
     <div className="top-stories_container">
