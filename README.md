@@ -27,6 +27,7 @@ Cocoon is an article posting website built with React and Firebase. Users can po
 - **Frontend**: React, React Router
 - **Backend**: Firebase Firestore
 - **Authentication**: Firebase Authentication
+- **Text Editor**: Tiptap
 - **Hosting**: Firebase Hosting
 - **Styling**: CSS Modules
 
@@ -85,5 +86,8 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For any inquiries or support, please contact [your-email@example.com].
+For any inquiries or support, please contact your team:
+ishanawal68@gmail.com
+nikitashrestha345@gmail.com
+probinpun@gmail.com
 
