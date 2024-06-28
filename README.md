@@ -2,6 +2,9 @@
 
 Cocoon is an article posting website built with React and Firebase. Users can post articles, like, comment, and interact with other users. It features a rich text editor to provide a seamless article writing experience.
 
+## Website link
+https://cocoon-22320.web.app
+
 ![Cocoon Logo](https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png)
 
 ## Features
@@ -78,7 +81,7 @@ Cocoon is an article posting website built with React and Firebase. Users can po
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+No contribution opened right now. Just for viewing source code and experiencing it.
 
 ## License
 
