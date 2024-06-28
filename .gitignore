@@ -11,6 +11,8 @@
 # production
 /build
 
+#Files 
+/src/database/sensitive_keys.js
 # misc
 .DS_Store
 .env.local
