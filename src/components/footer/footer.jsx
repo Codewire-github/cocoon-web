@@ -1,8 +1,7 @@
 import "./footer.css";
 
 const FooterSection = () => {
-  const logoURL =
-    "https://drive.google.com/uc?export=view&id=1QMGGSdCfpZQA1014-1yVqefSdZsRXtUn";
+  const logoURL = "https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png";
   return (
     <div className="footer-container">
       <div className="theCocoon">

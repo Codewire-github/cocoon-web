@@ -7,28 +7,38 @@ const BannerArticle = ({ sortedCollection }) => {
   const CurrentMonth = Current.getMonth() + 1;
   const CurrentYear = Current.getFullYear();
   const sortedArray = sortedCollection || {};
-  let BannerArticle = [];
-  BannerArticle =
-    sortedArray.find(
+  let BannerArticle = null;
+
+  // Loop through previous months until a matching article is found
+  for (let i = 0; i < 24; i++) {
+    const month = CurrentMonth - i;
+    const year = CurrentYear;
+
+    BannerArticle = sortedArray.find(
       (article) =>
-        article.published_date[1] === CurrentMonth &&
-        article.published_date[2] === CurrentYear
-    ) ||
-    sortedArray.find(
-      (article) =>
-        article.published_date[1] === CurrentMonth - 1 &&
-        article.published_date[2] === CurrentYear
-    ) ||
-    sortedArray.find(
-      (article) =>
-        article.published_date[1] === CurrentMonth - 2 &&
-        article.published_date[2] === CurrentYear
-    ) ||
-    sortedArray.find(
-      (article) =>
-        article.published_date[1] === CurrentMonth - 3 &&
-        article.published_date[2] === CurrentYear
+        article.published_date[1] === month &&
+        article.published_date[2] === year
     );
+
+    if (BannerArticle) break;
+
+    // Adjust month and year if necessary
+    if (month <= 0) {
+      const adjustedMonth = 12 + month;
+      const adjustedYear = year - 1;
+      BannerArticle = sortedArray.find(
+        (article) =>
+          article.published_date[1] === adjustedMonth &&
+          article.published_date[2] === adjustedYear
+      );
+
+      if (BannerArticle) break;
+    }
+  }
+
+  if (!BannerArticle) {
+    return <div>No articles found.</div>;
+  }
 
   const {
     authorName,

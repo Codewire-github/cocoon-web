@@ -10,7 +10,7 @@ const AboutusPage = () => {
       github_name: "Codewire-github",
       github_address: "https://github.com/Codewire-github",
 
-      img: "https://drive.google.com/uc?export=view&id=1-R1-b1igy8GU-i3cIZD1S7rButhMkqKT ",
+      img: "https://i.ibb.co/r4qyxfq/IMG-2316.jpg",
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const AboutusPage = () => {
       email_address: "nikitashrestha345@gmail.com",
       github_name: "NikitaKhuju",
       github_address: "https://github.com/NikitaKhuju",
-      img: "https://drive.google.com/uc?export=view&id=1NdRrYGBcBy3E0p8DrIGTMZti_l88C65g ",
+      img: "https://i.ibb.co/QjWsKB9/IMG-2852.jpg",
     },
 
     {

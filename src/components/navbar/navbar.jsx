@@ -33,8 +33,7 @@ const NavBar = () => {
     }
   };
 
-  const cocoonLogo =
-    "https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png";
+  const cocoonLogo = "https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png";
   return (
     <div className="navbar_container" style={{ color: "white" }}>
       <Link
@@ -101,12 +100,9 @@ export default NavBar;
 export const GreetingUser = (props) => {
   const Current = new Date();
   const CurrentHour = Current.getHours();
-  const morningVector =
-    "https://drive.google.com/uc?export=view&id=1-5_87EmrECbHCz_t0DbeG-dilu11nXaZ";
-  const eveningVector =
-    "https://drive.google.com/uc?export=view&id=1YHS-2hKbtNaFXDtnwtTWsvKbeqPQYzCX";
-  const nightVector =
-    "https://drive.google.com/uc?export=view&id=1sgBq1SRrFCZkMAzEe8s5ZfXl45yTZPrT";
+  const morningVector = "https://i.ibb.co/yXpGw5x/download.webp";
+  const eveningVector = "https://i.ibb.co/mJ7gM2R/download-2.webp";
+  const nightVector = "https://i.ibb.co/wwjQ4W7/download.png";
 
   return (
     <Link to="/profile" style={{ textDecoration: "none" }}>

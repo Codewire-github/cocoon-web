@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { firebaseSensitiveConfigs } from "./sensitive_keys";
+
 // Web app's Firebase configuration
 const firebaseConfig = firebaseSensitiveConfigs;
 

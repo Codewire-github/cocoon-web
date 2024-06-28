@@ -10,24 +10,35 @@ const TopStoriesCard = ({ sortedCollection }) => {
   const sortedArray = sortedCollection || {};
   let BannerArticle = [];
 
-  BannerArticle = sortedArray.filter(
-    (article) =>
-      article.published_date[1] === CurrentMonth &&
-      article.published_date[2] === CurrentYear
-  );
-  if (BannerArticle.length < 1) {
+  // Loop through previous months until articles are found
+  for (let i = 0; i < 24; i++) {
+    const month = CurrentMonth - i;
+    const year = CurrentYear;
+
     BannerArticle = sortedArray.filter(
       (article) =>
-        article.published_date[1] === CurrentMonth - 1 &&
-        article.published_date[2] === CurrentYear
+        article.published_date[1] === month &&
+        article.published_date[2] === year
     );
+
+    if (BannerArticle.length > 0) break;
+
+    // Adjust month and year if necessary
+    if (month <= 0) {
+      const adjustedMonth = 12 + month;
+      const adjustedYear = year - 1;
+      BannerArticle = sortedArray.filter(
+        (article) =>
+          article.published_date[1] === adjustedMonth &&
+          article.published_date[2] === adjustedYear
+      );
+
+      if (BannerArticle.length > 0) break;
+    }
   }
-  if (BannerArticle.length < 1) {
-    BannerArticle = sortedArray.filter(
-      (article) =>
-        article.published_date[1] === CurrentMonth - 2 &&
-        article.published_date[2] === CurrentYear
-    );
+
+  if (BannerArticle.length === 0) {
+    return <div>No top stories found.</div>;
   }
   const lastIndex = BannerArticle.length > 6 ? 6 : BannerArticle.length;
   return (

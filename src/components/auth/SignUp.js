@@ -48,11 +48,9 @@ export const SignUp = () => {
     }
   }, [user]);
   const googleLogoURL =
-    "https://drive.google.com/uc?export=view&id=1PzRik3VLJ6f_XJhYsLWxJC4psQGbj3df";
-  const logoURL =
-    "https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png";
-  const sideImgURL =
-    "https://drive.google.com/uc?export=view&id=1n__aWHgq5TeQVqO0jyTAXaITZgHNHxzw";
+    "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png";
+  const logoURL = "https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png";
+  const sideImgURL = "https://i.ibb.co/ZW8yXb0/download-3.png";
 
   return (
     <div className="main-div">
