@@ -1,84 +1,89 @@
-# Things to do after cloning this project
+# Cocoon
 
-Initially after cloning the repo from github to your device, the `node_modules`(it stores all the packages and libraries required and added to project inorder to function) folder will be missing as github doesn't store this folder.
-So, it will throw many errors when starting the project locally using `npm start`.
+Cocoon is an article posting website built with React and Firebase. Users can post articles, like, comment, and interact with other users. It features a rich text editor to provide a seamless article writing experience.
 
-## Solution
+![Cocoon Logo](https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png)
 
-Inorder to fix this error, all we need to do is install all the packages in the project after cloning.
-You just need to run a single command:
+## Features
 
-### `npm install react-script`
+- **Rich Text Editor**: Create and edit articles with a full-featured editor.
+- **User Interaction**: Like, comment, and interact with articles.
+- **Real-time Updates**: Powered by Firebase for real-time updates.
+- **Responsive Design**: Accessible on all devices.
 
-After running this command, the npm(package manager) will install all the packages and dependencies by traversing the `package.json` file.
+## Screenshots
 
-# Getting Started with Create React App
+### Home Page
+![Home Page](https://i.postimg.cc/d3G0NHws/localhost-3000-3.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Article Editor
+![Article Editor](https://i.postimg.cc/FRWbsKLd/localhost-3000-4.png)
 
-## Available Scripts
+### Article Page
+![Article Page](https://i.postimg.cc/Qt9gC3kf/localhost-3000-2.png)
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- **Frontend**: React, React Router
+- **Backend**: Firebase Firestore
+- **Authentication**: Firebase Authentication
+- **Hosting**: Firebase Hosting
+- **Styling**: CSS Modules
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository:
 
-### `npm test`
+    ```bash
+    git clone https://github.com/your-username/cocoon.git
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project directory:
 
-### `npm run build`
+    ```bash
+    cd cocoon
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install the dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Create a `.env` file in the root directory and add your Firebase configuration:
 
-### `npm run eject`
+    ```env
+    REACT_APP_FIREBASE_API_KEY=your-api-key
+    REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+    REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+    REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+    REACT_APP_FIREBASE_APP_ID=your-app-id
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Start the development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. Open your browser and navigate to `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+1. **Sign Up/Log In**: Create an account or log in to start posting articles.
+2. **Create an Article**: Use the rich text editor to write and format your article.
+3. **Interact**: Like and comment on articles to engage with the community.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is licensed under the MIT License.
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For any inquiries or support, please contact [your-email@example.com].
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
