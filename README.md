@@ -5,7 +5,7 @@ Cocoon is an article posting website built with React and Firebase. Users can po
 ## Website link
 https://cocoon-22320.web.app
 
-![Cocoon Logo](https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png)
+<img src="https://i.ibb.co/z7xYRqS/cocoon-Logo-updated.png" alt="Naani Logo" width="200"/>
 
 ## Features
 
